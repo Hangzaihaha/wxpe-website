@@ -1,0 +1,54 @@
+import { CheckCircle2 } from "lucide-react";
+
+import { strategicPoints, whyItems } from "@/lib/site-data";
+import { Reveal } from "@/components/reveal";
+import { SectionHeading } from "@/components/section-heading";
+
+export function WhySection() {
+  return (
+    <section id="why-wxpe" className="section-padding border-b border-border bg-background">
+      <div className="container flex flex-col gap-14">
+        <Reveal>
+          <SectionHeading
+            title="Why WXPE"
+            description="WXPE is positioned to bridge selected technology partners, localized project delivery and flexible commercial structures for Malaysian C&I energy needs."
+          />
+        </Reveal>
+
+        <div className="grid gap-5 lg:grid-cols-3">
+          {whyItems.map((item, index) => (
+            <Reveal key={item.title} delay={index * 0.04}>
+              <article className="flex h-full min-h-64 flex-col gap-5 rounded-lg border border-border bg-card p-6 transition-colors hover:bg-secondary/55">
+                <h3 className="text-xl font-semibold leading-tight text-foreground">
+                  {item.title}
+                </h3>
+                <p className="text-sm leading-7 text-muted-foreground">
+                  {item.description}
+                </p>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal>
+          <div className="rounded-lg border border-border bg-[linear-gradient(135deg,hsl(var(--card)),rgba(7,17,31,0.72))] p-7 md:p-9">
+            <h3 className="max-w-2xl text-2xl font-semibold leading-tight text-foreground">
+              Built for flagship pilots, then repeatable regional scale.
+            </h3>
+            <ul className="mt-8 grid gap-4 md:grid-cols-2">
+              {strategicPoints.map((point) => (
+                <li
+                  key={point}
+                  className="flex gap-3 text-sm leading-7 text-muted-foreground"
+                >
+                  <CheckCircle2 className="mt-1 size-4 text-accent" aria-hidden="true" />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}

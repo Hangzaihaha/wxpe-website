@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    --background: 222 46% 4%;
+    --foreground: 210 40% 96%;
+    --card: 218 37% 9%;
+    --card-foreground: 210 40% 96%;
+    --primary: 202 62% 60%;
+    --primary-foreground: 216 43% 7%;
+    --secondary: 217 27% 14%;
+    --secondary-foreground: 210 35% 92%;
+    --muted: 218 27% 13%;
+    --muted-foreground: 214 17% 67%;
+    --accent: 158 46% 56%;
+    --accent-foreground: 218 45% 8%;
+    --border: 217 24% 20%;
+    --input: 217 24% 20%;
+    --ring: 202 62% 60%;
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
+  }
+
+  ::selection {
+    background: rgba(90, 167, 217, 0.32);
+    color: hsl(var(--foreground));
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .section-padding {
+    @apply py-20 md:py-28;
+  }
+
+  .quiet-grid {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: linear-gradient(to bottom, black, transparent 78%);
+  }
+
+  .image-vignette::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to top, rgba(3, 7, 13, 0.78), transparent 38%),
+      linear-gradient(to right, rgba(3, 7, 13, 0.12), transparent 45%);
+    pointer-events: none;
+  }
+}

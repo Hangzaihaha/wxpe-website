@@ -1,0 +1,12 @@
+node_modules
+.next
+.vercel
+.pnpm-store
+out
+dist
+.env
+.env.local
+*.tsbuildinfo
+*.log
+work
+Thumbs.db
