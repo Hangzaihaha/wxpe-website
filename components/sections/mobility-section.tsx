@@ -15,8 +15,9 @@ export function MobilitySection() {
         <Reveal>
           <div className="relative overflow-hidden rounded-lg border border-[#d2dee6] bg-card shadow-[0_26px_76px_rgba(11,18,32,0.105)]">
             {/*
-              Temporary staging image. Real EV tricycle, factory, assembly,
-              service and customer-use imagery should reshape this section later.
+              Clean temporary EV mobility visual. Replace later with approved
+              WXPE EV tricycle photos/videos, avoiding raw brochure pages,
+              legacy brochure branding, and unapproved supplier marks.
             */}
             <div className="relative aspect-[16/11]">
               <Image
@@ -32,8 +33,8 @@ export function MobilitySection() {
 
         <Reveal delay={0.12} className="flex flex-col gap-8">
           <SectionHeading
-            title="Electric Mobility as a Localization Catalyst"
-            description="WXPE's electric tricycle program supports local EV adoption while creating early demand for battery pack assembly, after-sales service and localized manufacturing capabilities."
+            title="Electric Mobility as Part of the Local Energy Ecosystem"
+            description="WXPE's EV mobility program supports local electric vehicle adoption across last-mile logistics, industrial parks, plantations, warehouses and mobile commerce. It also creates an early pathway for localized battery pack assembly, after-sales capability and commercial fleet electrification."
           />
           <ul className="grid gap-4 sm:grid-cols-2">
             {mobilityUseCases.map((item) => (

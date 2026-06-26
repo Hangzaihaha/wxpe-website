@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("http://localhost:3000"),
-  title: "WXPE | Localized Digital Energy Solutions",
+  metadataBase: new URL("https://wxpe-website.vercel.app"),
+  title: "WXPE | Localized Energy Storage & Microgrid Solutions",
   description:
-    "WXPE develops integrated green energy solutions for Malaysia's industrial and commercial sectors.",
+    "WXPE develops localized battery energy storage, solar hybrid microgrid and digital energy solutions for Malaysia's industrial and commercial sectors.",
   openGraph: {
-    title: "WXPE | Building Malaysia's Localized Digital Energy Future",
+    title: "WXPE | Localized Energy Storage & Microgrid Solutions",
     description:
-      "Integrated battery energy storage, EMS, AI optimization, solar hybrid systems and localized project delivery.",
+      "Battery storage, solar hybrid microgrid, EMS and flexible Energy-as-a-Service pathways for Malaysia.",
     images: ["/assets/wxpe-bess-site.png"]
   }
 };

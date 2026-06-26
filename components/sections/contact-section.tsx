@@ -25,15 +25,16 @@ export function ContactSection() {
         <Reveal className="flex flex-col gap-8">
           <SectionHeading
             title="Start with a Flagship Pilot Project"
-            description="The best energy strategy begins with one executable site. WXPE works with customers and partners to identify high-impact pilot projects, prove savings, standardize design and scale deployment."
+            description="WXPE works with industrial customers, project owners, investors, technology partners and fleet operators to identify executable pilot opportunities."
           />
           <div className="rounded-lg border border-[#d8e2e8] bg-card p-6 shadow-[0_14px_38px_rgba(11,18,32,0.055)]">
             <h3 className="text-lg font-semibold text-foreground">
               Pilot project focus
             </h3>
             <p className="mt-3 text-sm leading-7 text-muted-foreground">
-              Site data, electricity bills, load profile, operational constraints
-              and commercial model preference help shape the first project scope.
+              Site data, electricity bills, load profile, operating constraints,
+              fleet requirements and commercial model preference help shape the
+              first project scope.
             </p>
           </div>
         </Reveal>
@@ -67,7 +68,7 @@ export function ContactSection() {
                 <Input
                   id="projectType"
                   name="projectType"
-                  placeholder="BESS, microgrid, EaaS, EV mobility or pilot study"
+                  placeholder="BESS, microgrid, EaaS, EMS, EV mobility or partner discussion"
                 />
               </Field>
               <Field>
@@ -103,13 +104,13 @@ export function ContactSection() {
           <div>
             <div className="text-lg font-semibold text-white">WXPE</div>
             <p className="mt-3 max-w-md text-sm leading-7 text-white/68">
-              Localized Digital Energy Solutions for Malaysia and ASEAN.
+              Localized Energy Storage, Microgrid and Digital Energy Solutions.
             </p>
           </div>
           <nav className="flex flex-wrap gap-x-6 gap-y-3" aria-label="Footer">
             {navItems
               .filter((item) =>
-                ["Solutions", "Energy-as-a-Service", "Localization", "Mobility", "Contact"].includes(
+                ["Solutions", "Energy-as-a-Service", "Microgrid", "Projects", "Mobility", "About", "Contact"].includes(
                   item.label
                 )
               )

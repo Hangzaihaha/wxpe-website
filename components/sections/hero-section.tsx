@@ -12,18 +12,19 @@ export function HeroSection() {
       <div className="container grid min-h-[88svh] items-center gap-14 py-16 lg:grid-cols-[0.94fr_1.06fr] lg:gap-20 lg:py-24 xl:gap-24">
         <Reveal className="flex max-w-3xl flex-col gap-7">
           <h1 className="text-balance text-[2.75rem] font-semibold leading-[1.07] tracking-normal text-foreground sm:text-5xl lg:text-[3.7rem]">
-            Building Malaysia&apos;s Localized Digital Energy Future
+            Localized Energy Storage & Microgrid Solutions for Malaysia
           </h1>
           <div className="flex flex-col gap-4">
             <p className="max-w-[40rem] text-[1.0625rem] leading-8 text-muted-foreground">
-              WXPE develops integrated green energy solutions combining battery
-              energy storage, EMS, AI optimization, solar hybrid systems and
-              localized project delivery for Malaysia&apos;s industrial and
-              commercial sectors.
+              WXPE helps industrial and commercial customers reduce demand
+              charges, improve power resilience and adopt clean energy through
+              battery storage, solar hybrid microgrids and flexible
+              Energy-as-a-Service models.
             </p>
             <p className="max-w-xl text-base leading-7 text-foreground/80">
-              From physical energy infrastructure to intelligent, scalable and
-              future-ready energy assets.
+              From project feasibility and technical planning to localized
+              delivery, operations support and future-ready digital energy
+              assets.
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
@@ -43,9 +44,9 @@ export function HeroSection() {
           <div className="rounded-[1.35rem] border border-[#d6e1e8] bg-[linear-gradient(135deg,#eef3f6,#f8fafc_54%,#e6eff4)] p-3 shadow-[0_28px_90px_rgba(11,18,32,0.11)] md:p-4">
             <div className="relative overflow-hidden rounded-[1.05rem] border border-[#cad8e1] bg-white p-2 shadow-[0_34px_95px_rgba(11,18,32,0.18)] md:p-3">
               {/*
-                Temporary staging image. When WXPE provides real photos or video,
-                redesign the hero media composition around the actual asset story
-                instead of simply swapping this file.
+                Temporary staging image. Replace later with approved real WXPE
+                BESS, solar, factory, project photo or project video assets, then
+                redesign the media module around the actual asset story.
               */}
               <div className="relative aspect-[4/3] overflow-hidden rounded-[0.8rem] border border-[#d7e2e9] bg-[#eef3f6]">
                 <Image
@@ -62,10 +63,10 @@ export function HeroSection() {
                   <span className="h-10 w-px rounded-full bg-primary/35" aria-hidden="true" />
                   <div className="flex flex-col gap-1">
                     <span className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">
-                      Integrated site strategy
+                      C&I energy project pathway
                     </span>
                     <span className="text-sm font-medium leading-6 text-foreground">
-                      Storage, solar hybrid, controls and local delivery
+                      Storage, solar hybrid, EMS and local delivery support
                     </span>
                   </div>
                 </div>

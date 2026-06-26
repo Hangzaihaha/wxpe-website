@@ -15,12 +15,13 @@ export function EnergyServiceSection() {
         <Reveal className="flex flex-col gap-8">
           <SectionHeading
             title="Flexible Energy-as-a-Service Models"
-            description="Lower CAPEX. Lower Risk. Faster Adoption."
+            description="Zero-CAPEX or lower-CAPEX pathways can make clean energy easier to approve, pilot and scale."
           />
           <p className="text-base leading-8 text-muted-foreground">
-            Not every customer wants to invest heavily upfront. WXPE supports
-            flexible commercial models designed to reduce capital burden,
-            simplify decision-making and accelerate clean energy adoption.
+            Not every customer wants to fund equipment upfront. Depending on
+            site feasibility, project structure and partner participation, WXPE
+            can help evaluate flexible commercial pathways designed to reduce
+            capital burden and simplify adoption.
           </p>
           <div className="flex flex-wrap gap-3">
             {commercialModels.map((model) => (
@@ -63,7 +64,7 @@ function ModelPanel({
   tone: "muted" | "accent";
 }) {
   return (
-    <article className="flex min-h-[420px] flex-col gap-8 bg-card p-7">
+    <article className="flex min-h-[390px] flex-col gap-8 bg-card p-7">
       <div className="flex flex-col gap-3">
         <span
           className={

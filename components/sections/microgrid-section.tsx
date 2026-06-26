@@ -15,7 +15,7 @@ export function MicrogridSection() {
         <Reveal>
           <SectionHeading
             title="From Infrastructure to Intelligent Energy Assets"
-            description="WXPE's digital energy architecture helps convert physical energy infrastructure into intelligent, measurable and scalable energy assets."
+            description="A clean site-level architecture connecting solar generation, battery storage, EMS control, AI optimization and remote monitoring."
           />
         </Reveal>
 

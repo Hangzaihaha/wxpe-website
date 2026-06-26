@@ -20,96 +20,115 @@ export const navItems = [
   { label: "Solutions", href: "#solutions" },
   { label: "Energy-as-a-Service", href: "#eaas" },
   { label: "Microgrid", href: "#microgrid" },
-  { label: "Localization", href: "#localization" },
+  { label: "Projects", href: "#projects" },
   { label: "Mobility", href: "#mobility" },
-  { label: "Why WXPE", href: "#why-wxpe" },
+  { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" }
 ] as const;
 
 export const painPoints = [
   {
-    title: "High Energy Cost",
-    description: "Tariffs and inefficient load profiles increase operating expenses.",
+    title: "High Maximum Demand Charges",
+    description: "Peak loads can create a recurring cost burden for C&I sites.",
     icon: LineChart
   },
   {
-    title: "Maximum Demand",
-    description: "Peak demand charges can erode industrial and commercial margins.",
+    title: "Rising Energy Cost",
+    description: "Tariffs and inefficient load profiles increase operating pressure.",
     icon: Gauge
   },
   {
-    title: "Power Quality",
-    description: "Voltage fluctuation and power-factor issues affect equipment stability.",
+    title: "Power Reliability Concerns",
+    description: "Unstable supply and outages can disrupt critical operations.",
     icon: PlugZap
   },
   {
-    title: "Reliability",
-    description: "Outages and unstable supply disrupt critical operations.",
+    title: "High Upfront CAPEX Barrier",
+    description: "Many customers want cleaner energy without heavy initial investment.",
     icon: ShieldCheck
   },
   {
-    title: "ESG Pressure",
-    description: "Customers need measurable decarbonization and cleaner energy pathways.",
+    title: "Complex Technical Evaluation",
+    description: "Storage, solar, EMS and grid constraints must be planned together.",
     icon: Leaf
   },
   {
-    title: "CAPEX Barrier",
+    title: "Local Compliance & Delivery Uncertainty",
     description:
-      "Many customers want clean energy but prefer lower upfront investment and risk.",
+      "Projects need practical coordination across site, utility and delivery teams.",
     icon: Building2
   }
 ] as const;
 
 export const solutions = [
   {
-    title: "C&I Battery Energy Storage",
+    title: "Battery Energy Storage",
     description:
-      "Battery storage systems for factories, industrial parks, commercial buildings, shopping malls and data centers.",
+      "C&I BESS for peak shaving, backup support and flexible site-level energy control.",
     icon: BatteryCharging
-  },
-  {
-    title: "Peak Shaving & Cost Optimization",
-    description:
-      "Use BESS, EMS and AI dispatch strategies to reduce maximum demand, shift loads and improve energy cost efficiency.",
-    icon: Gauge
   },
   {
     title: "Solar Hybrid Microgrid",
     description:
-      "Integrate PV, BESS, EMS, charging infrastructure and backup generation into resilient site-level microgrids.",
+      "PV, BESS, EMS and backup resources integrated into resilient local energy systems.",
     icon: SunMedium
   },
   {
-    title: "EMS, AI & Cloud Monitoring",
+    title: "Energy-as-a-Service",
     description:
-      "Forecast, dispatch, monitor and optimize distributed energy assets through intelligent control and remote operations.",
+      "Flexible commercial pathways designed to lower upfront burden and simplify adoption.",
+    icon: Leaf
+  },
+  {
+    title: "EMS & Cloud Monitoring",
+    description:
+      "Forecast, dispatch, monitor and optimize distributed energy assets remotely.",
     icon: CloudCog
+  }
+] as const;
+
+export const deliveryFocus = [
+  {
+    title: "WXPE Local Capability",
+    description:
+      "Customer access, site development, project coordination, compliance support and long-term service planning.",
+    icon: MapPinned
+  },
+  {
+    title: "Technology Partner Capability",
+    description:
+      "Partner-backed battery storage, PCS, EMS and technical planning resources for suitable projects.",
+    icon: Network
+  },
+  {
+    title: "Future Local Assembly Roadmap",
+    description:
+      "EV battery pack localization, C&I BESS cabinet assembly pathways and ASEAN-ready operating support.",
+    icon: Factory
   }
 ] as const;
 
 export const commercialModels = [
   "Outright purchase",
-  "Leasing model",
-  "EMC / shared-savings model",
+  "Leasing pathway",
+  "EMC-style model",
   "PPA-style arrangement",
-  "Energy-as-a-Service",
-  "Long-term O&M and lifecycle support"
+  "Energy-as-a-Service option",
+  "Long-term O&M support"
 ] as const;
 
 export const traditionalModel = [
-  "High upfront investment",
-  "Customer bears technical risk",
-  "Slower internal approval",
-  "Limited lifecycle support",
-  "Harder to scale across multiple sites"
+  "Customer funds equipment upfront",
+  "Higher approval friction",
+  "Customer carries technical risk",
+  "Longer decision cycle"
 ] as const;
 
 export const flexibleModel = [
-  "Lower upfront burden",
-  "Structured financing options",
-  "Performance-linked service",
-  "O&M and lifecycle support",
-  "Scalable portfolio potential",
+  "Zero-CAPEX or lower-CAPEX pathway",
+  "Leasing / PPA-style / EMC-style options",
+  "Partner-backed technical solution",
+  "Local delivery and O&M support",
   "Easier pilot-to-scale adoption"
 ] as const;
 
@@ -132,51 +151,51 @@ export const localizationCards = [
 ] as const;
 
 export const mobilityUseCases = [
-  "Last-mile delivery",
-  "Factory and warehouse logistics",
-  "Plantation and farm mobility",
-  "Commercial and municipal use",
-  "Local battery pack assembly pathway"
+  "Last-mile logistics",
+  "Factory and warehouse mobility",
+  "Plantation and municipal use",
+  "Mobile food cart and courier cart",
+  "Battery pack localization pathway",
+  "Service and spare parts support"
 ] as const;
 
-export const whyItems = [
+export const aboutPillars = [
   {
-    title: "Malaysia-Based Local Delivery",
+    title: "Local Manufacturing Roots",
     description:
-      "Local project relationships, site coordination and customer proximity for practical execution."
+      "Built from a wider automotive and manufacturing ecosystem with practical operating discipline."
   },
   {
-    title: "Green Energy Integrated Solutions",
+    title: "Dedicated Digital Energy Focus",
     description:
-      "A combined approach across BESS, EMS, AI optimization, solar hybrid systems and operations."
+      "Focused on localized green energy solutions, not broad group storytelling."
   },
   {
-    title: "Flexible Energy-as-a-Service Models",
+    title: "Malaysia Project Delivery",
     description:
-      "Commercial structures designed to reduce upfront burden and support pilot-to-scale adoption."
+      "Local market access, project coordination and long-term service support for C&I customers."
   },
   {
-    title: "Technology Partner Ecosystem",
+    title: "Partner-Backed Technology Resources",
     description:
-      "Partner-supported solutions that bridge proven technology economics with local delivery needs."
-  },
-  {
-    title: "Automotive & Manufacturing Background",
-    description:
-      "Manufacturing and mobility experience that supports local assembly pathways and lifecycle service."
-  },
-  {
-    title: "Local Credibility with International Reach",
-    description:
-      "WXPE combines Malaysian local market understanding with cross-border cooperation experience, including shareholder and partner networks connected to Malaysia, China, Australia and the United States. This positions WXPE to bridge proven global technologies with practical local project needs."
+      "Technology and supply-chain resources are positioned carefully as partner capabilities."
   }
 ] as const;
 
-export const strategicPoints = [
-  "Malaysian local shareholder foundation and stakeholder network",
-  "Bumiputra participation and local market understanding",
-  "International cooperation experience with partners from Australia, the United States and China",
-  "Practical localization pathway for assembly, certification and project delivery",
-  "Ability to structure flexible commercial models such as leasing, EMC, PPA-style arrangements and Energy-as-a-Service",
-  "Long-term vision to scale from flagship pilot projects into an ASEAN digital energy platform"
+export const projectReferences = [
+  {
+    title: "Representative BESS Applications",
+    description:
+      "Partner reference materials show demand management, C&I storage and grid-support use cases."
+  },
+  {
+    title: "Solar Hybrid & Microgrid Planning",
+    description:
+      "Technical proposal materials help inform topology, site constraints and integration logic."
+  },
+  {
+    title: "Approved Case Studies Coming Later",
+    description:
+      "Public project references will be added only after approval, anonymization and usage clearance."
+  }
 ] as const;

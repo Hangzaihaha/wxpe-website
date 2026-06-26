@@ -8,8 +8,8 @@ export function PainPointsSection() {
       <div className="container flex flex-col gap-14">
         <Reveal>
           <SectionHeading
-            title="Solving Urgent Energy Challenges for C&I Customers"
-            description="WXPE enters through operational pain points: energy cost, demand risk, reliability and the practical economics of clean energy adoption."
+            title="Customer Problems WXPE Helps Solve"
+            description="The first conversation is practical: cost, demand peaks, resilience, CAPEX pressure and execution risk."
           />
         </Reveal>
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
