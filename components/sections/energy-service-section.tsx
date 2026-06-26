@@ -10,7 +10,7 @@ import { SectionHeading } from "@/components/section-heading";
 
 export function EnergyServiceSection() {
   return (
-    <section id="eaas" className="section-padding border-b border-border bg-background">
+    <section id="eaas" className="section-padding border-b border-border bg-[#f7f9fb]">
       <div className="container grid gap-14 lg:grid-cols-[0.85fr_1.15fr]">
         <Reveal className="flex flex-col gap-8">
           <SectionHeading
@@ -26,7 +26,7 @@ export function EnergyServiceSection() {
             {commercialModels.map((model) => (
               <span
                 key={model}
-                className="rounded-md border border-border bg-card px-3 py-2 text-sm text-muted-foreground"
+                className="rounded-md border border-border bg-white px-3 py-2 text-sm text-muted-foreground shadow-sm"
               >
                 {model}
               </span>
@@ -35,7 +35,7 @@ export function EnergyServiceSection() {
         </Reveal>
 
         <Reveal delay={0.12}>
-          <div className="grid overflow-hidden rounded-lg border border-border bg-border md:grid-cols-2">
+          <div className="grid overflow-hidden rounded-lg border border-border bg-border shadow-[0_22px_70px_rgba(11,18,32,0.08)] md:grid-cols-2">
             <ModelPanel
               title="Traditional CAPEX Model"
               items={traditionalModel}

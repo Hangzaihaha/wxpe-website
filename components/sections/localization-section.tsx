@@ -18,13 +18,13 @@ export function LocalizationSection() {
           </p>
         </Reveal>
 
-        <div className="grid gap-px overflow-hidden rounded-lg border border-border bg-border sm:grid-cols-2">
+        <div className="grid gap-4 sm:grid-cols-2">
           {localizationCards.map((item, index) => {
             const Icon = item.icon;
 
             return (
               <Reveal key={item.title} delay={index * 0.04}>
-                <article className="flex min-h-36 items-start gap-4 bg-card p-6 transition-colors hover:bg-secondary/60">
+                <article className="flex min-h-36 items-start gap-4 rounded-lg border border-border bg-card p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(11,18,32,0.08)]">
                   <Icon className="mt-1 size-5 text-accent" aria-hidden="true" />
                   <h3 className="text-lg font-semibold leading-snug text-foreground">
                     {item.title}

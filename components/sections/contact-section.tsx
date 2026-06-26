@@ -20,14 +20,14 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" className="section-padding bg-[linear-gradient(180deg,#07111f,hsl(var(--background)))]">
+    <section id="contact" className="section-padding bg-[#f7f9fb] pb-0">
       <div className="container grid gap-14 lg:grid-cols-[0.92fr_1.08fr]">
         <Reveal className="flex flex-col gap-8">
           <SectionHeading
             title="Start with a Flagship Pilot Project"
             description="The best energy strategy begins with one executable site. WXPE works with customers and partners to identify high-impact pilot projects, prove savings, standardize design and scale deployment."
           />
-          <div className="rounded-lg border border-border bg-card p-6">
+          <div className="rounded-lg border border-border bg-card p-6 shadow-sm">
             <h3 className="text-lg font-semibold text-foreground">
               Pilot project focus
             </h3>
@@ -41,7 +41,7 @@ export function ContactSection() {
         <Reveal delay={0.12}>
           <form
             onSubmit={onSubmit}
-            className="rounded-lg border border-border bg-card p-6 md:p-8"
+            className="rounded-lg border border-border bg-card p-6 shadow-[0_22px_70px_rgba(11,18,32,0.08)] md:p-8"
           >
             <FieldGroup>
               <div className="grid gap-5 md:grid-cols-2">
@@ -98,11 +98,11 @@ export function ContactSection() {
         </Reveal>
       </div>
 
-      <footer className="container mt-20 border-t border-border pt-8">
-        <div className="flex flex-col justify-between gap-8 md:flex-row md:items-start">
+      <footer className="relative left-1/2 mt-24 w-screen -translate-x-1/2 bg-[#07111f] px-5 py-10 text-white md:py-12">
+        <div className="container flex flex-col justify-between gap-8 md:flex-row md:items-start">
           <div>
-            <div className="text-lg font-semibold text-foreground">WXPE</div>
-            <p className="mt-3 max-w-md text-sm leading-7 text-muted-foreground">
+            <div className="text-lg font-semibold text-white">WXPE</div>
+            <p className="mt-3 max-w-md text-sm leading-7 text-white/68">
               Localized Digital Energy Solutions for Malaysia and ASEAN.
             </p>
           </div>
@@ -117,7 +117,7 @@ export function ContactSection() {
                 <a
                   key={item.href}
                   href={item.href}
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                  className="text-sm text-white/68 transition-colors hover:text-white"
                 >
                   {item.label}
                 </a>

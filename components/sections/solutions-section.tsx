@@ -6,7 +6,7 @@ import { SectionHeading } from "@/components/section-heading";
 
 export function SolutionsSection() {
   return (
-    <section id="solutions" className="section-padding border-b border-border bg-[linear-gradient(180deg,hsl(var(--background)),#07111f)]">
+    <section id="solutions" className="section-padding border-b border-border bg-background">
       <div className="container flex flex-col gap-14">
         <Reveal>
           <SectionHeading
@@ -20,7 +20,7 @@ export function SolutionsSection() {
 
             return (
               <Reveal key={item.title} delay={index * 0.05}>
-                <article className="group flex h-full min-h-80 flex-col justify-between gap-10 rounded-lg border border-border bg-card/82 p-6 transition-colors hover:border-primary/45 hover:bg-secondary/60">
+                <article className="group flex h-full min-h-80 flex-col justify-between gap-10 rounded-lg border border-border bg-card p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-primary/35 hover:shadow-[0_18px_50px_rgba(11,18,32,0.08)]">
                   <div className="flex items-start justify-between gap-4">
                     <Icon className="size-7 text-primary" aria-hidden="true" />
                     <ArrowUpRight

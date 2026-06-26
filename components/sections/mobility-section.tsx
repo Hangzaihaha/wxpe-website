@@ -9,11 +9,11 @@ export function MobilitySection() {
   return (
     <section
       id="mobility"
-      className="section-padding border-b border-border bg-[linear-gradient(180deg,hsl(var(--background)),#07111f)]"
+      className="section-padding border-b border-border bg-[#f7f9fb]"
     >
       <div className="container grid items-center gap-14 lg:grid-cols-[0.9fr_1.1fr]">
         <Reveal>
-          <div className="relative overflow-hidden rounded-lg border border-border bg-card">
+          <div className="relative overflow-hidden rounded-lg border border-border bg-card shadow-[0_22px_70px_rgba(11,18,32,0.08)]">
             {/*
               Temporary staging image. Real EV tricycle, factory, assembly,
               service and customer-use imagery should reshape this section later.

@@ -14,10 +14,10 @@ import {
 
 export function SiteHeader() {
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-border/70 bg-background/72 backdrop-blur-xl">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-white/88 backdrop-blur-xl">
       <div className="container flex h-[72px] items-center justify-between gap-5 py-4">
         <a href="#" className="flex items-center gap-3" aria-label="WXPE home">
-          <span className="flex size-9 items-center justify-center rounded-md border border-border bg-card text-sm font-semibold text-foreground">
+          <span className="flex size-9 items-center justify-center rounded-md border border-border bg-[#f3f6f8] text-sm font-semibold text-primary">
             W
           </span>
           <span className="text-lg font-semibold tracking-normal text-foreground">
@@ -25,7 +25,7 @@ export function SiteHeader() {
           </span>
         </a>
 
-        <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-6 xl:gap-7 lg:flex" aria-label="Primary">
           {navItems.map((item) => (
             <a
               key={item.href}
