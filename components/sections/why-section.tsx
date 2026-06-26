@@ -18,7 +18,7 @@ export function WhySection() {
         <div className="grid gap-5 lg:grid-cols-3">
           {whyItems.map((item, index) => (
             <Reveal key={item.title} delay={index * 0.04}>
-              <article className="flex h-full min-h-64 flex-col gap-5 rounded-lg border border-border bg-card p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(11,18,32,0.08)]">
+              <article className="flex h-full min-h-64 flex-col gap-5 rounded-lg border border-[#d8e2e8] bg-card p-6 shadow-[0_14px_38px_rgba(11,18,32,0.055)] transition-all hover:-translate-y-1 hover:border-[#c8d7e0] hover:shadow-[0_22px_56px_rgba(11,18,32,0.09)]">
                 <h3 className="text-xl font-semibold leading-tight text-foreground">
                   {item.title}
                 </h3>
@@ -31,7 +31,7 @@ export function WhySection() {
         </div>
 
         <Reveal>
-          <div className="rounded-lg border border-primary/15 bg-[linear-gradient(135deg,#f3f8fb,#ffffff_58%,#f2faf6)] p-7 shadow-[0_22px_70px_rgba(11,18,32,0.08)] md:p-9">
+          <div className="rounded-lg border border-primary/20 bg-[linear-gradient(135deg,#eef6fa,#ffffff_58%,#edf7f2)] p-7 shadow-[0_26px_76px_rgba(11,18,32,0.105)] md:p-9">
             <h3 className="max-w-2xl text-2xl font-semibold leading-tight text-foreground">
               Built for flagship pilots, then repeatable regional scale.
             </h3>

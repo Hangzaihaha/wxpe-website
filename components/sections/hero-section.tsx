@@ -7,15 +7,15 @@ import { Reveal } from "@/components/reveal";
 export function HeroSection() {
   return (
     <section className="relative isolate border-b border-border pt-[72px]">
-      <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,#ffffff_0%,#f7f9fb_62%,#f3f6f8_100%)]" />
-      <div className="absolute inset-0 -z-10 quiet-grid opacity-45" />
-      <div className="container grid min-h-[86svh] items-center gap-12 py-16 lg:grid-cols-[1.02fr_0.98fr] lg:py-24">
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,#ffffff_0%,#f7f9fb_56%,#eef3f6_100%)]" />
+      <div className="absolute inset-0 -z-10 quiet-grid opacity-35" />
+      <div className="container grid min-h-[88svh] items-center gap-14 py-16 lg:grid-cols-[0.94fr_1.06fr] lg:gap-20 lg:py-24 xl:gap-24">
         <Reveal className="flex max-w-3xl flex-col gap-7">
-          <h1 className="text-balance text-4xl font-semibold leading-[1.06] tracking-normal text-foreground md:text-6xl">
+          <h1 className="text-balance text-[2.75rem] font-semibold leading-[1.07] tracking-normal text-foreground sm:text-5xl lg:text-[3.7rem]">
             Building Malaysia&apos;s Localized Digital Energy Future
           </h1>
           <div className="flex flex-col gap-4">
-            <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
+            <p className="max-w-[40rem] text-[1.0625rem] leading-8 text-muted-foreground">
               WXPE develops integrated green energy solutions combining battery
               energy storage, EMS, AI optimization, solar hybrid systems and
               localized project delivery for Malaysia&apos;s industrial and
@@ -40,30 +40,35 @@ export function HeroSection() {
         </Reveal>
 
         <Reveal delay={0.12} className="relative">
-          <div className="relative overflow-hidden rounded-lg border border-border bg-card shadow-[0_24px_80px_rgba(11,18,32,0.12)]">
-            {/*
-              Temporary staging image. When WXPE provides real photos or video,
-              redesign the hero media composition around the actual asset story
-              instead of simply swapping this file.
-            */}
-            <div className="image-vignette relative aspect-[4/3]">
-              <Image
-                src="/assets/wxpe-bess-site.png"
-                alt="Battery energy storage and solar infrastructure at an industrial site"
-                fill
-                priority
-                sizes="(min-width: 1024px) 56vw, 100vw"
-                className="object-cover"
-              />
-            </div>
-            <div className="absolute bottom-0 left-0 right-0 flex items-center justify-between gap-4 border-t border-border/80 bg-white/86 p-4 backdrop-blur-md">
-              <div className="flex flex-col gap-1">
-                <span className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">
-                  Integrated site strategy
-                </span>
-                <span className="text-sm font-medium text-foreground">
-                  Storage, solar hybrid, controls and local delivery
-                </span>
+          <div className="rounded-[1.35rem] border border-[#d6e1e8] bg-[linear-gradient(135deg,#eef3f6,#f8fafc_54%,#e6eff4)] p-3 shadow-[0_28px_90px_rgba(11,18,32,0.11)] md:p-4">
+            <div className="relative overflow-hidden rounded-[1.05rem] border border-[#cad8e1] bg-white p-2 shadow-[0_34px_95px_rgba(11,18,32,0.18)] md:p-3">
+              {/*
+                Temporary staging image. When WXPE provides real photos or video,
+                redesign the hero media composition around the actual asset story
+                instead of simply swapping this file.
+              */}
+              <div className="relative aspect-[4/3] overflow-hidden rounded-[0.8rem] border border-[#d7e2e9] bg-[#eef3f6]">
+                <Image
+                  src="/assets/wxpe-bess-site.png"
+                  alt="Battery energy storage and solar infrastructure at an industrial site"
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 56vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="mt-2 flex items-center gap-4 rounded-[0.7rem] border border-[#dbe5ec] bg-white px-4 py-4 md:px-5">
+                <div className="flex items-center gap-4">
+                  <span className="h-10 w-px rounded-full bg-primary/35" aria-hidden="true" />
+                  <div className="flex flex-col gap-1">
+                    <span className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">
+                      Integrated site strategy
+                    </span>
+                    <span className="text-sm font-medium leading-6 text-foreground">
+                      Storage, solar hybrid, controls and local delivery
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

@@ -24,7 +24,7 @@ export function LocalizationSection() {
 
             return (
               <Reveal key={item.title} delay={index * 0.04}>
-                <article className="flex min-h-36 items-start gap-4 rounded-lg border border-border bg-card p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(11,18,32,0.08)]">
+                <article className="flex min-h-36 items-start gap-4 rounded-lg border border-[#d8e2e8] bg-card p-6 shadow-[0_14px_38px_rgba(11,18,32,0.055)] transition-all hover:-translate-y-1 hover:border-[#c8d7e0] hover:shadow-[0_22px_56px_rgba(11,18,32,0.09)]">
                   <Icon className="mt-1 size-5 text-accent" aria-hidden="true" />
                   <h3 className="text-lg font-semibold leading-snug text-foreground">
                     {item.title}

@@ -4,7 +4,7 @@ import { SectionHeading } from "@/components/section-heading";
 
 export function PainPointsSection() {
   return (
-    <section id="pain-points" className="section-padding border-b border-border bg-[#f7f9fb]">
+    <section id="pain-points" className="section-padding border-b border-border bg-[#f3f6f8]">
       <div className="container flex flex-col gap-14">
         <Reveal>
           <SectionHeading
@@ -18,7 +18,7 @@ export function PainPointsSection() {
 
             return (
               <Reveal key={item.title} delay={index * 0.04}>
-                <article className="flex min-h-56 flex-col justify-between gap-8 rounded-lg border border-border bg-card p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(11,18,32,0.08)]">
+                <article className="flex min-h-56 flex-col justify-between gap-8 rounded-lg border border-[#d8e2e8] bg-card p-6 shadow-[0_14px_38px_rgba(11,18,32,0.055)] transition-all hover:-translate-y-1 hover:border-[#c8d7e0] hover:shadow-[0_22px_56px_rgba(11,18,32,0.09)]">
                   <Icon className="size-6 text-primary" aria-hidden="true" />
                   <div className="flex flex-col gap-3">
                     <h3 className="text-xl font-semibold tracking-normal text-foreground">

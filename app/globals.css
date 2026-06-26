@@ -17,8 +17,8 @@
     --muted-foreground: 218 12% 40%;
     --accent: 160 38% 42%;
     --accent-foreground: 0 0% 100%;
-    --border: 214 22% 88%;
-    --input: 214 22% 86%;
+    --border: 213 20% 84%;
+    --input: 213 20% 82%;
     --ring: 209 66% 32%;
     --radius: 0.5rem;
   }
@@ -50,7 +50,7 @@
   }
 
   .section-padding {
-    @apply py-20 md:py-32;
+    @apply py-24 md:py-32;
   }
 
   .quiet-grid {
@@ -61,13 +61,4 @@
     mask-image: linear-gradient(to bottom, black, transparent 74%);
   }
 
-  .image-vignette::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(to top, rgba(255, 255, 255, 0.86), transparent 38%),
-      linear-gradient(to right, rgba(255, 255, 255, 0.12), transparent 45%);
-    pointer-events: none;
-  }
 }

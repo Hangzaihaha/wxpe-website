@@ -20,14 +20,14 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" className="section-padding bg-[#f7f9fb] pb-0">
+    <section id="contact" className="section-padding bg-[#eef3f6] pb-0">
       <div className="container grid gap-14 lg:grid-cols-[0.92fr_1.08fr]">
         <Reveal className="flex flex-col gap-8">
           <SectionHeading
             title="Start with a Flagship Pilot Project"
             description="The best energy strategy begins with one executable site. WXPE works with customers and partners to identify high-impact pilot projects, prove savings, standardize design and scale deployment."
           />
-          <div className="rounded-lg border border-border bg-card p-6 shadow-sm">
+          <div className="rounded-lg border border-[#d8e2e8] bg-card p-6 shadow-[0_14px_38px_rgba(11,18,32,0.055)]">
             <h3 className="text-lg font-semibold text-foreground">
               Pilot project focus
             </h3>
@@ -41,7 +41,7 @@ export function ContactSection() {
         <Reveal delay={0.12}>
           <form
             onSubmit={onSubmit}
-            className="rounded-lg border border-border bg-card p-6 shadow-[0_22px_70px_rgba(11,18,32,0.08)] md:p-8"
+            className="rounded-lg border border-[#d2dee6] bg-card p-6 shadow-[0_26px_76px_rgba(11,18,32,0.105)] md:p-8"
           >
             <FieldGroup>
               <div className="grid gap-5 md:grid-cols-2">

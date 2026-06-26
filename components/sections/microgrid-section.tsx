@@ -8,7 +8,7 @@ export function MicrogridSection() {
   return (
     <section
       id="microgrid"
-      className="section-padding relative isolate border-b border-border bg-[linear-gradient(180deg,#ffffff,#f3f6f8)]"
+      className="section-padding relative isolate border-b border-border bg-[linear-gradient(180deg,#ffffff,#eef3f6)]"
     >
       <div className="absolute inset-0 -z-10 quiet-grid opacity-55" />
       <div className="container flex flex-col gap-14">
@@ -20,7 +20,7 @@ export function MicrogridSection() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <div className="rounded-lg border border-border bg-card p-5 shadow-[0_22px_70px_rgba(11,18,32,0.08)] md:p-8">
+          <div className="rounded-lg border border-[#d2dee6] bg-card p-5 shadow-[0_26px_76px_rgba(11,18,32,0.105)] md:p-8">
             <div className="grid gap-3 md:grid-cols-3 xl:grid-cols-6">
               {microgridFlow.map((step, index) => {
                 const Icon = step.icon;
@@ -28,7 +28,7 @@ export function MicrogridSection() {
 
                 return (
                   <div key={step.label} className="relative">
-                    <div className="flex min-h-40 flex-col justify-between rounded-md border border-border bg-[#f7f9fb] p-5">
+                    <div className="flex min-h-40 flex-col justify-between rounded-md border border-[#d8e2e8] bg-[#f3f6f8] p-5 shadow-[0_10px_26px_rgba(11,18,32,0.04)]">
                       <Icon className="size-6 text-primary" aria-hidden="true" />
                       <h3 className="text-base font-semibold leading-snug text-foreground">
                         {step.label}
