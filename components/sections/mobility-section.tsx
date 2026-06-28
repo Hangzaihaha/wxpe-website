@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { Reveal } from "@/components/reveal";
@@ -10,7 +11,7 @@ export function MobilitySection() {
       className="border-b border-border bg-[#f3f6f8] py-16 md:py-24"
     >
       <Reveal className="mx-auto w-full">
-        <div className="group relative h-[80vh] min-h-[640px] max-h-[840px] w-full overflow-hidden bg-[#07111f] shadow-[0_30px_90px_rgba(11,18,32,0.16)] md:h-[82vh] md:min-h-[680px]">
+        <div className="group relative h-[82vh] min-h-[660px] max-h-[860px] w-full overflow-hidden bg-[#07111f] shadow-[0_30px_90px_rgba(11,18,32,0.16)] md:h-[84vh] md:min-h-[700px]">
           {/*
             Temporary approved Mobility banner. Replace later with clean WXPE
             mobility photos or compressed video loops; avoid raw brochure
@@ -22,10 +23,11 @@ export function MobilitySection() {
             fill
             sizes="100vw"
             priority={false}
-            className="origin-bottom scale-[1.14] object-cover object-bottom transition-transform duration-700 ease-out group-hover:scale-[1.17] md:scale-[1.04] md:group-hover:scale-[1.07]"
+            className="origin-bottom scale-[1.2] object-cover object-bottom transition-transform duration-700 ease-out group-hover:scale-[1.23] md:scale-[1.12] md:group-hover:scale-[1.15]"
           />
           <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,17,31,0.78)_0%,rgba(9,31,55,0.52)_34%,rgba(7,17,31,0.08)_70%,rgba(7,17,31,0)_100%)]" />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,17,31,0.2)_0%,rgba(7,17,31,0)_42%,rgba(7,17,31,0.08)_100%)]" />
+          <div className="absolute inset-x-0 top-0 h-[34%] bg-[linear-gradient(180deg,rgba(238,243,246,0.86)_0%,rgba(238,243,246,0.45)_34%,rgba(238,243,246,0)_100%)]" />
 
           <div className="relative z-10 flex h-full items-end">
             <div className="container pb-12 md:pb-16 lg:pb-20">
@@ -46,13 +48,13 @@ export function MobilitySection() {
                   use cases, battery pack localization, service support and
                   fleet applications.
                 */}
-                <a
-                  href="#contact"
+                <Link
+                  href="/mobility"
                   className="mt-7 inline-flex items-center gap-2 border-b border-white/50 pb-1 text-sm font-semibold text-white transition-colors duration-200 hover:border-white hover:text-white/86"
                 >
                   Explore Mobility Solutions
                   <ArrowRight className="size-4" aria-hidden="true" />
-                </a>
+                </Link>
               </div>
             </div>
           </div>

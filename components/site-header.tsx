@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Menu } from "lucide-react";
 
 import { navItems } from "@/lib/site-data";
@@ -16,30 +17,30 @@ export function SiteHeader() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-white/90 shadow-[0_8px_28px_rgba(11,18,32,0.05)] backdrop-blur-xl">
       <div className="container flex h-[72px] items-center justify-between gap-5 py-4">
-        <a href="#" className="flex items-center gap-3" aria-label="WXPE home">
+        <Link href="/" className="flex items-center gap-3" aria-label="WXPE home">
           <span className="flex size-9 items-center justify-center rounded-md border border-border bg-[#f3f6f8] text-sm font-semibold text-primary">
             W
           </span>
           <span className="text-lg font-semibold tracking-normal text-foreground">
             WXPE
           </span>
-        </a>
+        </Link>
 
         <nav className="hidden items-center gap-4 xl:gap-6 lg:flex" aria-label="Primary">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.href}
               href={item.href}
               className="text-[0.8125rem] font-medium text-muted-foreground transition-colors hover:text-foreground xl:text-sm"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
           <Button asChild>
-            <a href="#contact">Start a Pilot Project</a>
+            <Link href="/#contact">Start a Pilot Project</Link>
           </Button>
         </div>
 
@@ -56,17 +57,17 @@ export function SiteHeader() {
             <div className="mt-10 flex flex-col gap-6">
               {navItems.map((item) => (
                 <SheetClose asChild key={item.href}>
-                  <a
+                  <Link
                     href={item.href}
                     className="border-b border-border pb-4 text-base font-medium text-muted-foreground transition-colors hover:text-foreground"
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 </SheetClose>
               ))}
               <SheetClose asChild>
                 <Button asChild className="mt-2">
-                  <a href="#contact">Start a Pilot Project</a>
+                  <Link href="/#contact">Start a Pilot Project</Link>
                 </Button>
               </SheetClose>
             </div>

@@ -17,13 +17,13 @@ import {
 } from "lucide-react";
 
 export const navItems = [
-  { label: "Solutions", href: "#solutions" },
-  { label: "Energy-as-a-Service", href: "#eaas" },
-  { label: "Microgrid", href: "#microgrid" },
-  { label: "Projects", href: "#projects" },
-  { label: "Mobility", href: "#mobility" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" }
+  { label: "Solutions", href: "/#solutions" },
+  { label: "Energy-as-a-Service", href: "/#eaas" },
+  { label: "Microgrid", href: "/#microgrid" },
+  { label: "Projects", href: "/#projects" },
+  { label: "Mobility", href: "/mobility" },
+  { label: "About", href: "/#about" },
+  { label: "Contact", href: "/#contact" }
 ] as const;
 
 export const painPoints = [
