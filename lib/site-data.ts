@@ -151,12 +151,12 @@ export const localizationCards = [
 ] as const;
 
 export const mobilityUseCases = [
-  "Last-mile logistics",
-  "Factory and warehouse mobility",
-  "Plantation and municipal use",
-  "Mobile food cart and courier cart",
-  "Battery pack localization pathway",
-  "Service and spare parts support"
+  "Last-Mile Logistics",
+  "Industrial Parks",
+  "Warehouse Mobility",
+  "Plantation & Municipal Use",
+  "Mobile Commerce",
+  "Battery Pack Localization"
 ] as const;
 
 export const aboutPillars = [
