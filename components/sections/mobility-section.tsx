@@ -27,7 +27,7 @@ export function MobilitySection() {
           />
           <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,17,31,0.78)_0%,rgba(9,31,55,0.52)_34%,rgba(7,17,31,0.08)_70%,rgba(7,17,31,0)_100%)]" />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,17,31,0.2)_0%,rgba(7,17,31,0)_42%,rgba(7,17,31,0.08)_100%)]" />
-          <div className="absolute inset-x-0 top-0 h-[34%] bg-[linear-gradient(180deg,rgba(238,243,246,0.86)_0%,rgba(238,243,246,0.45)_34%,rgba(238,243,246,0)_100%)]" />
+          <div className="absolute inset-x-0 top-0 h-[42%] bg-[linear-gradient(180deg,rgba(238,243,246,0.94)_0%,rgba(238,243,246,0.62)_34%,rgba(238,243,246,0)_100%)]" />
 
           <div className="relative z-10 flex h-full items-end">
             <div className="container pb-12 md:pb-16 lg:pb-20">
