@@ -63,11 +63,11 @@ const useCases = [
 
 const primaryVideo = {
   title: "Commercial mobility walkaround",
-  src: "/assets/mobility/ev-tricycle-video-01.mp4"
+  src: "/assets/mobility/ev-tricycle-video-02.mp4"
 } as const;
 
 // TODO: Future media gallery can include additional compressed mobility clips after review.
-// Secondary raw clip currently kept in assets: /assets/mobility/ev-tricycle-video-02.mp4
+// Secondary raw clip currently kept in assets: /assets/mobility/ev-tricycle-video-01.mp4
 
 export default function MobilityPage() {
   return (
