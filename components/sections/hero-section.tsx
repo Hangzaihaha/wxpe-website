@@ -6,25 +6,26 @@ import { Reveal } from "@/components/reveal";
 
 export function HeroSection() {
   return (
-    <section className="relative isolate border-b border-border pt-[72px]">
-      <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,#ffffff_0%,#f7f9fb_56%,#eef3f6_100%)]" />
-      <div className="absolute inset-0 -z-10 quiet-grid opacity-35" />
-      <div className="container grid min-h-[88svh] items-center gap-14 py-16 lg:grid-cols-[0.94fr_1.06fr] lg:gap-20 lg:py-24 xl:gap-24">
-        <Reveal className="flex max-w-3xl flex-col gap-7">
-          <h1 className="text-balance text-[2.75rem] font-semibold leading-[1.07] tracking-normal text-foreground sm:text-5xl lg:text-[3.7rem]">
-            Localized Energy Storage & Microgrid Solutions for Malaysia
+    <section className="relative isolate overflow-hidden border-b border-border pt-[72px]">
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,#ffffff_0%,#fafbfd_44%,#eef3f6_100%)]" />
+      <div className="absolute inset-0 -z-10 quiet-grid opacity-25" />
+      <div className="container grid min-h-[90svh] items-center gap-12 py-14 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16 lg:py-20 xl:gap-20">
+        <Reveal className="flex max-w-2xl flex-col gap-7">
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+            LOCALIZED DIGITAL ENERGY
+          </span>
+          <h1 className="text-balance text-[2.9rem] font-semibold leading-[1.02] tracking-normal text-foreground sm:text-[3.45rem] lg:text-[4.15rem]">
+            <span className="block">Localized Energy Storage</span>
+            <span className="block">for Malaysia</span>
           </h1>
-          <div className="flex flex-col gap-4">
-            <p className="max-w-[40rem] text-[1.0625rem] leading-8 text-muted-foreground">
-              WXPE helps industrial and commercial customers reduce demand
-              charges, improve power resilience and adopt clean energy through
-              battery storage, solar hybrid microgrids and flexible
-              Energy-as-a-Service models.
+          <div className="flex flex-col gap-3">
+            <p className="max-w-[38rem] text-[1.08rem] leading-8 text-muted-foreground">
+              Battery storage, solar hybrid microgrids and flexible energy
+              deployment models for industrial and commercial sites.
             </p>
-            <p className="max-w-xl text-base leading-7 text-foreground/80">
-              From project feasibility and technical planning to localized
-              delivery, operations support and future-ready digital energy
-              assets.
+            <p className="max-w-[34rem] text-base leading-7 text-foreground/80">
+              From technical planning to localized delivery and long-term
+              operation support.
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
@@ -40,35 +41,30 @@ export function HeroSection() {
           </div>
         </Reveal>
 
-        <Reveal delay={0.12} className="relative">
-          <div className="rounded-[1.35rem] border border-[#d6e1e8] bg-[linear-gradient(135deg,#eef3f6,#f8fafc_54%,#e6eff4)] p-3 shadow-[0_28px_90px_rgba(11,18,32,0.11)] md:p-4">
-            <div className="relative overflow-hidden rounded-[1.05rem] border border-[#cad8e1] bg-white p-2 shadow-[0_34px_95px_rgba(11,18,32,0.18)] md:p-3">
-              {/*
-                Temporary staging image. Replace later with approved real WXPE
-                BESS, solar, factory, project photo or project video assets, then
-                redesign the media module around the actual asset story.
-              */}
-              <div className="relative aspect-[4/3] overflow-hidden rounded-[0.8rem] border border-[#d7e2e9] bg-[#eef3f6]">
-                <Image
-                  src="/assets/wxpe-bess-site.png"
-                  alt="Battery energy storage and solar infrastructure at an industrial site"
-                  fill
-                  priority
-                  sizes="(min-width: 1024px) 56vw, 100vw"
-                  className="object-cover"
-                />
-              </div>
-              <div className="mt-2 flex items-center gap-4 rounded-[0.7rem] border border-[#dbe5ec] bg-white px-4 py-4 md:px-5">
-                <div className="flex items-center gap-4">
-                  <span className="h-10 w-px rounded-full bg-primary/35" aria-hidden="true" />
-                  <div className="flex flex-col gap-1">
-                    <span className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">
-                      C&I energy project pathway
-                    </span>
-                    <span className="text-sm font-medium leading-6 text-foreground">
-                      Storage, solar hybrid, EMS and local delivery support
-                    </span>
-                  </div>
+        <Reveal delay={0.12} className="relative lg:-mr-6 xl:-mr-12">
+          <div className="absolute -inset-x-6 -inset-y-5 -z-10 rounded-[2rem] bg-[linear-gradient(135deg,#eef3f6_0%,#ffffff_44%,#e6eff4_100%)]" />
+          <div className="relative overflow-hidden rounded-[1.25rem] border border-[#cbd9e2] bg-[#eef3f6] shadow-[0_34px_100px_rgba(11,18,32,0.16)]">
+            {/*
+              Temporary staging image. Replace later with approved real WXPE
+              BESS, solar, factory, project photo or project video assets, then
+              redesign the media module around the actual asset story.
+            */}
+            <div className="relative aspect-[16/11] min-h-[360px] overflow-hidden md:min-h-[500px] lg:min-h-[560px]">
+              <Image
+                src="/assets/energy/bess-container-site-01.jpg"
+                alt="Battery energy storage equipment installed at an industrial site"
+                fill
+                priority
+                sizes="(min-width: 1280px) 58vw, (min-width: 1024px) 56vw, 100vw"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0)_48%,rgba(5,15,28,0.34)_100%)]" />
+              <div className="absolute inset-x-0 bottom-0 p-5 md:p-6">
+                <div className="flex max-w-[30rem] items-center gap-4 rounded-md border border-white/30 bg-[#07111f]/75 px-4 py-3 text-white shadow-[0_16px_44px_rgba(5,15,28,0.16)] backdrop-blur-md">
+                  <span className="h-9 w-px rounded-full bg-[#4dd58a]/70" aria-hidden="true" />
+                  <p className="text-sm font-medium leading-6 text-white/90">
+                    Storage, solar hybrid, EMS and local delivery support.
+                  </p>
                 </div>
               </div>
             </div>
