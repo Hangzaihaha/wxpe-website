@@ -17,19 +17,12 @@ export function HeroSection() {
         fill
         priority
         sizes="100vw"
-        className="absolute inset-0 -z-20 object-cover object-[58%_center] md:object-[54%_center] lg:object-[50%_center]"
+        className="absolute inset-0 -z-20 origin-left scale-[1.18] object-cover object-[38%_center] md:scale-[1.28] md:object-[46%_center] lg:scale-[1.36] lg:object-[50%_center]"
       />
       <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(4,18,32,0.58)_0%,rgba(4,18,32,0.42)_34%,rgba(4,18,32,0.22)_62%,rgba(4,18,32,0.08)_100%)]" />
       <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(4,18,32,0.08)_0%,rgba(4,18,32,0)_45%,rgba(4,18,32,0.24)_100%)]" />
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(135deg,rgba(4,18,32,0)_46%,rgba(4,18,32,0.12)_72%,rgba(4,18,32,0.34)_100%)]" />
       <div className="absolute inset-0 -z-10 quiet-grid opacity-[0.12]" />
-      {/*
-        This soft local mask keeps temporary third-party equipment branding
-        unreadable until a clean WXPE-owned image replaces this temporary asset.
-      */}
-      <div
-        className="pointer-events-none absolute left-[65%] top-[70%] z-0 hidden h-20 w-56 rounded-lg bg-[#edf3f5]/70 blur-xl backdrop-blur-md md:block lg:left-[66%] lg:top-[69%] xl:left-[66.5%] xl:top-[68%]"
-        aria-hidden="true"
-      />
 
       <div className="container relative z-10 flex flex-1 items-center py-14 md:py-20">
         <Reveal className="flex max-w-[42rem] flex-col gap-7">
