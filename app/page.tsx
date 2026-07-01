@@ -1,6 +1,7 @@
 import { AboutSection } from "@/components/sections/about-section";
 import { ContactSection } from "@/components/sections/contact-section";
 import { EnergyServiceSection } from "@/components/sections/energy-service-section";
+import { EnergyVisualSection } from "@/components/sections/energy-visual-section";
 import { HeroSection } from "@/components/sections/hero-section";
 import { PartnerDeliverySection } from "@/components/sections/localization-section";
 import { MicrogridSection } from "@/components/sections/microgrid-section";
@@ -15,6 +16,7 @@ export default function Home() {
     <main className="min-h-screen overflow-hidden bg-background">
       <SiteHeader />
       <HeroSection />
+      <EnergyVisualSection />
       <SolutionsSection />
       <PainPointsSection />
       <EnergyServiceSection />

@@ -63,27 +63,28 @@ export const painPoints = [
 export const solutions = [
   {
     title: "Battery Energy Storage",
-    description:
-      "C&I BESS for peak shaving, backup support and flexible site-level energy control.",
-    icon: BatteryCharging
+    description: "Modular BESS for factories, parks and commercial energy sites.",
+    icon: BatteryCharging,
+    image: "/assets/energy/bess-container-site-01.jpg"
+  },
+  {
+    title: "Peak Shaving & Cost Optimization",
+    description: "Reduce maximum demand and improve energy cost efficiency.",
+    icon: LineChart,
+    image: "/assets/energy/industrial-bess-reference-01.jpg"
   },
   {
     title: "Solar Hybrid Microgrid",
     description:
-      "PV, BESS, EMS and backup resources integrated into resilient local energy systems.",
-    icon: SunMedium
+      "Combine PV, BESS, EMS and backup power into resilient site-level energy.",
+    icon: SunMedium,
+    image: "/assets/energy/solar-storage-reference-01.jpg"
   },
   {
-    title: "Energy-as-a-Service",
-    description:
-      "Flexible commercial pathways designed to lower upfront burden and simplify adoption.",
-    icon: Leaf
-  },
-  {
-    title: "EMS & Cloud Monitoring",
-    description:
-      "Forecast, dispatch, monitor and optimize distributed energy assets remotely.",
-    icon: CloudCog
+    title: "EMS & Digital Energy Management",
+    description: "Monitor, dispatch and optimize distributed energy assets.",
+    icon: CloudCog,
+    image: "/assets/energy/microgrid-reference-01.jpg"
   }
 ] as const;
 
@@ -109,36 +110,30 @@ export const deliveryFocus = [
 ] as const;
 
 export const commercialModels = [
-  "Outright purchase",
-  "Leasing pathway",
-  "EMC-style model",
-  "PPA-style arrangement",
-  "Energy-as-a-Service option",
-  "Long-term O&M support"
+  "Zero-CAPEX Option",
+  "EMC / PPA Structure",
+  "Long-Term Operation Support"
 ] as const;
 
 export const traditionalModel = [
-  "Customer funds equipment upfront",
-  "Higher approval friction",
-  "Customer carries technical risk",
-  "Longer decision cycle"
+  "Upfront equipment investment",
+  "Longer approval cycle",
+  "Customer carries more technical risk"
 ] as const;
 
 export const flexibleModel = [
-  "Zero-CAPEX or lower-CAPEX pathway",
-  "Leasing / PPA-style / EMC-style options",
-  "Partner-backed technical solution",
-  "Local delivery and O&M support",
-  "Easier pilot-to-scale adoption"
+  "Lower upfront investment pathway",
+  "Commercial structure aligned to site needs",
+  "Delivery and lifecycle support"
 ] as const;
 
 export const microgridFlow = [
-  { label: "PV Generation", icon: SunMedium },
-  { label: "Battery Energy Storage", icon: BatteryCharging },
-  { label: "EMS Control", icon: Network },
-  { label: "AI Optimization", icon: Zap },
-  { label: "Cloud Monitoring", icon: CloudCog },
-  { label: "Future VPP-Ready Platform", icon: Globe2 }
+  { label: "PV", icon: SunMedium },
+  { label: "BESS", icon: BatteryCharging },
+  { label: "EMS", icon: Network },
+  { label: "Grid", icon: Zap },
+  { label: "Load", icon: Factory },
+  { label: "Backup", icon: PlugZap }
 ] as const;
 
 export const localizationCards = [
