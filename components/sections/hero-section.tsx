@@ -6,27 +6,51 @@ import { Reveal } from "@/components/reveal";
 
 export function HeroSection() {
   return (
-    <section className="relative isolate overflow-hidden border-b border-border pt-[72px]">
-      <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,#ffffff_0%,#fafbfd_44%,#eef3f6_100%)]" />
-      <div className="absolute inset-0 -z-10 quiet-grid opacity-25" />
-      <div className="container grid min-h-[90svh] items-center gap-12 py-14 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16 lg:py-20 xl:gap-20">
-        <Reveal className="flex max-w-2xl flex-col gap-7">
+    <section className="relative isolate flex min-h-[86svh] overflow-hidden border-b border-border pt-[72px] md:min-h-[88svh] lg:min-h-[90svh]">
+      {/*
+        Approved temporary hero image. Replace with clean WXPE-owned project
+        photography or video when available, then revisit the crop/composition.
+      */}
+      <Image
+        src="/assets/energy/home-hero-energy-storage.jpg"
+        alt="Solar panels and battery energy storage infrastructure"
+        fill
+        priority
+        sizes="100vw"
+        className="absolute inset-0 -z-20 object-cover object-[60%_center]"
+      />
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(255,255,255,0.96)_0%,rgba(255,255,255,0.82)_36%,rgba(255,255,255,0.24)_66%,rgba(255,255,255,0.02)_100%)]" />
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(255,255,255,0.42)_0%,rgba(255,255,255,0)_46%,rgba(6,20,36,0.13)_100%)]" />
+      <div className="absolute inset-0 -z-10 quiet-grid opacity-[0.12]" />
+      {/*
+        This soft local mask keeps temporary third-party equipment branding
+        from becoming a hero focal point.
+      */}
+      <div
+        className="pointer-events-none absolute bottom-[25%] right-[18%] z-0 hidden h-24 w-56 rounded-full bg-[#f5f8fa]/70 blur-2xl md:block"
+        aria-hidden="true"
+      />
+
+      <div className="container relative z-10 flex flex-1 items-center py-14 md:py-20">
+        <Reveal className="flex max-w-[42rem] flex-col gap-7">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
             LOCALIZED DIGITAL ENERGY
           </span>
-          <h1 className="text-balance text-[2.9rem] font-semibold leading-[1.02] tracking-normal text-foreground sm:text-[3.45rem] lg:text-[4.15rem]">
+          <h1 className="text-balance text-[3rem] font-semibold leading-[1.02] tracking-normal text-foreground sm:text-[3.75rem] lg:text-[4.6rem]">
             <span className="block">Localized Energy Storage</span>
             <span className="block">for Malaysia</span>
           </h1>
-          <div className="flex flex-col gap-3">
-            <p className="max-w-[38rem] text-[1.08rem] leading-8 text-muted-foreground">
+          <div className="flex flex-col gap-6">
+            <p className="max-w-[34rem] text-[1.1rem] leading-8 text-foreground/80">
               Battery storage, solar hybrid microgrids and flexible energy
-              deployment models for industrial and commercial sites.
+              deployment models.
             </p>
-            <p className="max-w-[34rem] text-base leading-7 text-foreground/80">
-              From technical planning to localized delivery and long-term
-              operation support.
-            </p>
+            <div className="flex flex-wrap gap-x-5 gap-y-2 text-xs font-semibold uppercase tracking-[0.16em] text-foreground/62">
+              <span>BESS</span>
+              <span>Solar Hybrid</span>
+              <span>EMS</span>
+              <span>Energy-as-a-Service</span>
+            </div>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
             <Button asChild size="lg">
@@ -38,36 +62,6 @@ export function HeroSection() {
             <Button asChild size="lg" variant="outline">
               <a href="#contact">Start a Pilot Project</a>
             </Button>
-          </div>
-        </Reveal>
-
-        <Reveal delay={0.12} className="relative lg:-mr-6 xl:-mr-12">
-          <div className="absolute -inset-x-6 -inset-y-5 -z-10 rounded-[2rem] bg-[linear-gradient(135deg,#eef3f6_0%,#ffffff_44%,#e6eff4_100%)]" />
-          <div className="relative overflow-hidden rounded-[1.25rem] border border-[#cbd9e2] bg-[#eef3f6] shadow-[0_34px_100px_rgba(11,18,32,0.16)]">
-            {/*
-              Temporary staging image. Replace later with approved real WXPE
-              BESS, solar, factory, project photo or project video assets, then
-              redesign the media module around the actual asset story.
-            */}
-            <div className="relative aspect-[16/11] min-h-[360px] overflow-hidden md:min-h-[500px] lg:min-h-[560px]">
-              <Image
-                src="/assets/energy/bess-container-site-01.jpg"
-                alt="Battery energy storage equipment installed at an industrial site"
-                fill
-                priority
-                sizes="(min-width: 1280px) 58vw, (min-width: 1024px) 56vw, 100vw"
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0)_48%,rgba(5,15,28,0.34)_100%)]" />
-              <div className="absolute inset-x-0 bottom-0 p-5 md:p-6">
-                <div className="flex max-w-[30rem] items-center gap-4 rounded-md border border-white/30 bg-[#07111f]/75 px-4 py-3 text-white shadow-[0_16px_44px_rgba(5,15,28,0.16)] backdrop-blur-md">
-                  <span className="h-9 w-px rounded-full bg-[#4dd58a]/70" aria-hidden="true" />
-                  <p className="text-sm font-medium leading-6 text-white/90">
-                    Storage, solar hybrid, EMS and local delivery support.
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
         </Reveal>
       </div>
