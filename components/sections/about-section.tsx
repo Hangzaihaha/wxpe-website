@@ -4,31 +4,28 @@ import { SectionHeading } from "@/components/section-heading";
 
 export function AboutSection() {
   return (
-    <section id="about" className="section-padding border-b border-border bg-background">
-      <div className="container grid gap-14 lg:grid-cols-[0.9fr_1.1fr]">
-        <Reveal className="flex flex-col gap-8">
+    <section id="about" className="border-b border-border bg-background py-16 md:py-24">
+      <div className="container grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+        <Reveal className="flex max-w-2xl flex-col gap-6">
           <SectionHeading
-            title="Built on Local Manufacturing Roots. Focused on Digital Energy."
-            description="WXPE builds on the wider WXP automotive and manufacturing ecosystem, with a dedicated focus on localized green energy solutions for Malaysia."
+            title="Local execution. Partner-backed technology."
+            description="WXPE combines Malaysia project coordination, manufacturing discipline and partner-backed technology resources for localized digital energy deployment."
           />
-          <p className="text-base leading-8 text-muted-foreground">
-            The company combines local market access, manufacturing experience,
-            project coordination and partner-backed technology resources to
-            support Malaysia&apos;s transition toward more resilient and flexible
-            clean energy infrastructure.
-          </p>
         </Reveal>
 
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="grid gap-3">
           {aboutPillars.map((item, index) => (
             <Reveal key={item.title} delay={index * 0.04}>
-              <article className="flex h-full min-h-48 flex-col gap-4 rounded-lg border border-[#d8e2e8] bg-card p-6 shadow-[0_14px_38px_rgba(11,18,32,0.055)] transition-all hover:-translate-y-1 hover:border-[#c8d7e0] hover:shadow-[0_22px_56px_rgba(11,18,32,0.09)]">
-                <h3 className="text-lg font-semibold leading-snug text-foreground">
-                  {item.title}
-                </h3>
-                <p className="text-sm leading-7 text-muted-foreground">
-                  {item.description}
-                </p>
+              <article className="flex items-start gap-4 border-b border-border py-4 last:border-b-0">
+                <span className="mt-2 size-2 shrink-0 rounded-full bg-accent" aria-hidden="true" />
+                <div className="flex flex-col gap-1.5">
+                  <h3 className="text-base font-semibold leading-snug text-foreground">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm leading-6 text-muted-foreground">
+                    {item.description}
+                  </p>
+                </div>
               </article>
             </Reveal>
           ))}

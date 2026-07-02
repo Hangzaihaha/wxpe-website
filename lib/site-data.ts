@@ -4,9 +4,7 @@ import {
   CheckCircle2,
   CloudCog,
   Factory,
-  Gauge,
   Globe2,
-  Leaf,
   LineChart,
   MapPinned,
   Network,
@@ -28,34 +26,18 @@ export const navItems = [
 
 export const painPoints = [
   {
-    title: "High Maximum Demand Charges",
-    description: "Peak loads can create a recurring cost burden for C&I sites.",
+    title: "Cost Pressure",
+    description: "Peak demand, rising tariffs and upfront CAPEX pressure margins.",
     icon: LineChart
   },
   {
-    title: "Rising Energy Cost",
-    description: "Tariffs and inefficient load profiles increase operating pressure.",
-    icon: Gauge
-  },
-  {
-    title: "Power Reliability Concerns",
-    description: "Unstable supply and outages can disrupt critical operations.",
+    title: "Power Reliability",
+    description: "Unstable supply, outages and backup gaps disrupt operations.",
     icon: PlugZap
   },
   {
-    title: "High Upfront CAPEX Barrier",
-    description: "Many customers want cleaner energy without heavy initial investment.",
-    icon: ShieldCheck
-  },
-  {
-    title: "Complex Technical Evaluation",
-    description: "Storage, solar, EMS and grid constraints must be planned together.",
-    icon: Leaf
-  },
-  {
-    title: "Local Compliance & Delivery Uncertainty",
-    description:
-      "Projects need practical coordination across site, utility and delivery teams.",
+    title: "Project Complexity",
+    description: "Technical planning, compliance and local delivery must align.",
     icon: Building2
   }
 ] as const;
@@ -63,26 +45,29 @@ export const painPoints = [
 export const solutions = [
   {
     title: "Battery Energy Storage",
-    description: "Modular BESS for factories, parks and commercial energy sites.",
+    description: "Modular storage for industrial and commercial energy sites.",
+    tags: ["BESS", "C&I", "Resilience"],
     icon: BatteryCharging,
     image: "/assets/energy/bess-container-site-01.jpg"
   },
   {
     title: "Peak Shaving & Cost Optimization",
-    description: "Reduce maximum demand and improve energy cost efficiency.",
+    description: "Reduce demand peaks and improve site energy economics.",
+    tags: ["Peak Shaving", "EMS", "Tariffs"],
     icon: LineChart,
     image: "/assets/energy/industrial-bess-reference-01.jpg"
   },
   {
     title: "Solar Hybrid Microgrid",
-    description:
-      "Combine PV, BESS, EMS and backup power into resilient site-level energy.",
+    description: "Coordinate PV, BESS, EMS and site loads for resilience.",
+    tags: ["PV", "Microgrid", "Backup"],
     icon: SunMedium,
     image: "/assets/energy/solar-storage-reference-01.jpg"
   },
   {
     title: "EMS & Digital Energy Management",
-    description: "Monitor, dispatch and optimize distributed energy assets.",
+    description: "Monitor and optimize distributed assets through EMS control.",
+    tags: ["EMS", "Cloud", "Dispatch"],
     icon: CloudCog,
     image: "/assets/energy/microgrid-reference-01.jpg"
   }
@@ -154,41 +139,30 @@ export const mobilityUseCases = [
 
 export const aboutPillars = [
   {
-    title: "Local Manufacturing Roots",
-    description:
-      "Built from a wider automotive and manufacturing ecosystem with practical operating discipline."
+    title: "Local project coordination",
+    description: "Malaysia site planning, customer access and project interfaces."
   },
   {
-    title: "Dedicated Digital Energy Focus",
-    description:
-      "Focused on localized green energy solutions, not broad group storytelling."
+    title: "Energy-focused delivery",
+    description: "Battery storage, solar hybrid and EMS deployment discipline."
   },
   {
-    title: "Malaysia Project Delivery",
-    description:
-      "Local market access, project coordination and long-term service support for C&I customers."
-  },
-  {
-    title: "Partner-Backed Technology Resources",
-    description:
-      "Technology and supply-chain resources are positioned carefully as partner capabilities."
+    title: "Long-term operation support",
+    description: "Lifecycle coordination for scalable local energy assets."
   }
 ] as const;
 
 export const projectReferences = [
   {
-    title: "Representative BESS Applications",
-    description:
-      "Partner reference materials show demand management, C&I storage and grid-support use cases."
+    title: "BESS Planning References",
+    description: "Demand management and C&I storage patterns for solution planning."
   },
   {
-    title: "Solar Hybrid & Microgrid Planning",
-    description:
-      "Technical proposal materials help inform topology, site constraints and integration logic."
+    title: "Solar Hybrid Logic",
+    description: "PV, BESS and EMS topology references for site-level design."
   },
   {
-    title: "Approved Case Studies Coming Later",
-    description:
-      "Public project references will be added only after approval, anonymization and usage clearance."
+    title: "Future Case Studies",
+    description: "Public references will be added after approval and anonymization."
   }
 ] as const;

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
 
 import { solutions } from "@/lib/site-data";
 import { Reveal } from "@/components/reveal";
@@ -7,8 +6,8 @@ import { SectionHeading } from "@/components/section-heading";
 
 export function SolutionsSection() {
   return (
-    <section id="solutions" className="section-padding border-b border-border bg-background">
-      <div className="container flex flex-col gap-14">
+    <section id="solutions" className="border-b border-border bg-background py-16 md:py-24">
+      <div className="container flex flex-col gap-10">
         <Reveal>
           <SectionHeading
             title="Core Solutions"
@@ -39,23 +38,24 @@ export function SolutionsSection() {
                       <Icon className="size-5" aria-hidden="true" />
                     </div>
                   </div>
-                  <div className="flex min-h-[180px] flex-col justify-between gap-7 p-6">
+                  <div className="flex min-h-[160px] flex-col justify-between gap-6 p-6">
                     <div className="flex flex-col gap-3">
                       <h3 className="text-xl font-semibold leading-tight tracking-normal text-foreground">
                         {item.title}
                       </h3>
-                      <p className="max-w-md text-sm leading-7 text-muted-foreground">
+                      <p className="max-w-md text-sm leading-6 text-muted-foreground">
                         {item.description}
                       </p>
                     </div>
-                    <div className="flex items-center justify-between border-t border-border pt-4">
-                      <span className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-                        Energy Infrastructure
-                      </span>
-                      <ArrowUpRight
-                        className="size-5 text-muted-foreground transition-colors group-hover:text-primary"
-                        aria-hidden="true"
-                      />
+                    <div className="flex flex-wrap gap-x-4 gap-y-2 border-t border-border pt-4">
+                      {item.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground"
+                        >
+                          {tag}
+                        </span>
+                      ))}
                     </div>
                   </div>
                 </article>
