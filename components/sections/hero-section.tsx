@@ -7,7 +7,7 @@ import { Reveal } from "@/components/reveal";
 export function HeroSection() {
   return (
     <section className="relative isolate overflow-hidden border-b border-border bg-[#071827] pt-[72px]">
-      <div className="relative min-h-[calc(100svh-72px)] md:min-h-0">
+      <div className="relative h-[calc(78svh-72px)] min-h-[600px] md:min-h-[660px] lg:min-h-[700px]">
         {/*
           Approved temporary hero image. Replace with clean WXPE-owned project
           photography or video when available, then revisit the composition.
@@ -15,14 +15,13 @@ export function HeroSection() {
         <Image
           src="/assets/energy/home-hero-energy-storage.jpg"
           alt="Solar panels and battery energy storage infrastructure"
-          width={7952}
-          height={5304}
+          fill
           priority
           sizes="100vw"
-          className="block h-auto w-full"
+          className="object-cover object-[57%_bottom] md:object-[50%_bottom]"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(4,18,32,0.58)_0%,rgba(4,18,32,0.42)_34%,rgba(4,18,32,0.22)_62%,rgba(4,18,32,0.08)_100%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(4,18,32,0.08)_0%,rgba(4,18,32,0)_45%,rgba(4,18,32,0.24)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(4,18,32,0.56)_0%,rgba(4,18,32,0.38)_34%,rgba(4,18,32,0.2)_62%,rgba(4,18,32,0.08)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(4,18,32,0.04)_0%,rgba(4,18,32,0)_45%,rgba(4,18,32,0.22)_100%)]" />
         <div className="absolute inset-0 quiet-grid opacity-[0.12]" />
 
         <div className="absolute inset-0 z-10 flex items-center py-14 md:py-20">
