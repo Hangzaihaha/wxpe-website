@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { Menu } from "lucide-react";
 
@@ -18,9 +19,15 @@ export function SiteHeader() {
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-white/90 shadow-[0_8px_28px_rgba(11,18,32,0.05)] backdrop-blur-xl">
       <div className="container flex h-[72px] items-center justify-between gap-5 py-4">
         <Link href="/" className="flex items-center gap-3" aria-label="WXPE home">
-          <span className="flex size-9 items-center justify-center rounded-md border border-border bg-[#f3f6f8] text-sm font-semibold text-primary">
-            W
-          </span>
+          <Image
+            src="/assets/brand/wxpe-mark.svg"
+            alt=""
+            width={36}
+            height={36}
+            priority
+            unoptimized
+            className="size-9 shrink-0"
+          />
           <span className="text-lg font-semibold tracking-normal text-foreground">
             WXPE
           </span>

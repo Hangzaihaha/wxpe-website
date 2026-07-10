@@ -6,6 +6,11 @@ export const metadata: Metadata = {
   title: "WXPE | Localized Energy Storage & Microgrid Solutions",
   description:
     "WXPE develops localized battery energy storage, solar hybrid microgrid and digital energy solutions for Malaysia's industrial and commercial sectors.",
+  icons: {
+    icon: "/assets/brand/wxpe-mark.svg",
+    shortcut: "/assets/brand/wxpe-mark.svg",
+    apple: "/assets/brand/wxpe-mark.svg"
+  },
   openGraph: {
     title: "WXPE | Localized Energy Storage & Microgrid Solutions",
     description:

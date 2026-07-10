@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">WXPE hexagonal mark</title>
+  <defs>
+    <linearGradient id="mark" x1="10" y1="8" x2="54" y2="56" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2478B8"/>
+      <stop offset="1" stop-color="#0A3D72"/>
+    </linearGradient>
+  </defs>
+  <path d="M32 3 56 17v30L32 61 8 47V17L32 3Z" fill="url(#mark)"/>
+  <path d="m20 20 24 24M44 20 20 44" stroke="#fff" stroke-width="3.2" stroke-linecap="round"/>
+  <path d="m38 38 8 8" stroke="#39A67A" stroke-width="3.2" stroke-linecap="round"/>
+  <path d="m26 38-8 8" stroke="#E34A4A" stroke-width="3.2" stroke-linecap="round"/>
+  <circle cx="32" cy="32" r="5.5" fill="#0A3D72" stroke="#fff" stroke-width="2"/>
+  <circle cx="32" cy="32" r="2" fill="#E34A4A"/>
+  <text x="32" y="16" fill="#fff" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="9" font-weight="700" text-anchor="middle">万</text>
+  <text x="18" y="35" fill="#fff" font-family="Arial, sans-serif" font-size="10" font-weight="800" text-anchor="middle">W</text>
+  <text x="46" y="35" fill="#fff" font-family="Arial, sans-serif" font-size="10" font-weight="800" text-anchor="middle">P</text>
+  <text x="32" y="53" fill="#fff" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="9" font-weight="700" text-anchor="middle">宝</text>
+</svg>

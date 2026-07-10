@@ -137,18 +137,31 @@ export const mobilityUseCases = [
   "Mobile commerce"
 ] as const;
 
-export const aboutPillars = [
+export const companyTimeline = [
   {
-    title: "Local project coordination",
-    description: "Malaysia site planning, customer access and project interfaces."
+    year: "2019",
+    title: "Established",
+    description: "Manufacturing partnership established and automotive supply operations began."
   },
   {
-    title: "Energy-focused delivery",
-    description: "Battery storage, solar hybrid and EMS deployment discipline."
+    year: "2020",
+    title: "Industrial Capability",
+    description: "Factory operations expanded and IATF 16949 quality certification was achieved."
   },
   {
-    title: "Long-term operation support",
-    description: "Lifecycle coordination for scalable local energy assets."
+    year: "2021",
+    title: "OEM Qualification",
+    description: "Major automotive customer quality audit requirements were completed."
+  },
+  {
+    year: "2022-2023",
+    title: "Scale & Expansion",
+    description: "Vehicle programs, warehouse capacity and local delivery capability expanded."
+  },
+  {
+    year: "2024-Now",
+    title: "Energy Transition",
+    description: "Local capabilities are extending into EV mobility, battery systems and digital energy."
   }
 ] as const;
 

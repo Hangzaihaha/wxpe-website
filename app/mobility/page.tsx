@@ -66,6 +66,88 @@ const primaryVideo = {
   src: "/assets/mobility/ev-tricycle-video-02.mp4"
 } as const;
 
+const mobilityModels = [
+  {
+    name: "Flag Ship",
+    description:
+      "Higher-load electric logistics tricycle for industrial sites, municipalities, warehouses and commercial delivery.",
+    image: "/assets/mobility/models/flag-ship.webp"
+  },
+  {
+    name: "Black Panther",
+    description:
+      "Compact electric logistics tricycle for urban delivery, campuses, factories and flexible site operations.",
+    image: "/assets/mobility/models/black-panther.webp"
+  }
+] as const;
+
+const mobilityFeatures = [
+  {
+    title: "Automotive-grade suspension",
+    description: "External spring shock absorbers support stable commercial operation.",
+    image: "/assets/mobility/features/suspension.webp"
+  },
+  {
+    title: "High-strength cargo structure",
+    description: "A reinforced liftable cargo bed supports practical loading and access.",
+    image: "/assets/mobility/features/cargo-structure.webp"
+  },
+  {
+    title: "Smart digital dashboard",
+    description: "A clear digital display keeps essential operating information visible.",
+    image: "/assets/mobility/features/digital-dashboard.webp"
+  },
+  {
+    title: "Forward and reverse drive",
+    description: "Integrated controls support precise movement in compact work areas.",
+    image: "/assets/mobility/features/drive-control.webp"
+  },
+  {
+    title: "Hill-climbing mode",
+    description: "Electric drive capability supports varied site and route conditions.",
+    image: "/assets/mobility/features/hill-climbing-motor.webp"
+  },
+  {
+    title: "Local service and parts support",
+    description: "WXPE is building local after-sales coordination and service capability.",
+    image: "/assets/mobility/features/service-support.webp"
+  }
+] as const;
+
+const specificationLabels = [
+  "Maximum speed",
+  "Estimated range",
+  "Motor power",
+  "Load capacity",
+  "Dimensions",
+  "Charging time"
+] as const;
+
+const mobilitySpecifications = [
+  {
+    model: "Flag Ship",
+    values: [
+      "50 km/h",
+      "60-80 km",
+      "1,800 W",
+      "Up to 1,200 kg",
+      "3300 x 1299 x 1460 mm",
+      "6-8 hours"
+    ]
+  },
+  {
+    model: "Black Panther",
+    values: [
+      "50 km/h",
+      "60-80 km",
+      "1,500 W",
+      "Up to 800 kg",
+      "3070 x 1180 x 1410 mm",
+      "6-8 hours"
+    ]
+  }
+] as const;
+
 // TODO: Future media gallery can include additional compressed mobility clips after review.
 // Secondary raw clip currently kept in assets: /assets/mobility/ev-tricycle-video-01.mp4
 
@@ -136,6 +218,135 @@ export default function MobilityPage() {
                 </span>
               </div>
             </article>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="border-b border-border bg-[#f3f6f8] py-24 md:py-32">
+        <div className="container">
+          <Reveal className="max-w-2xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+              Product Models
+            </p>
+            <h2 className="mt-4 text-3xl font-semibold leading-tight text-foreground md:text-[2.45rem]">
+              Practical platforms for local logistics.
+            </h2>
+          </Reveal>
+
+          <div className="mt-12 grid gap-6 lg:grid-cols-2">
+            {mobilityModels.map((model, index) => (
+              <Reveal key={model.name} delay={index * 0.06}>
+                <article className="h-full overflow-hidden rounded-lg border border-[#d2dee6] bg-white shadow-[0_18px_54px_rgba(11,18,32,0.07)]">
+                  <div className="relative aspect-[3/2] overflow-hidden bg-[#dce8f2]">
+                    <Image
+                      src={model.image}
+                      alt={`${model.name} electric logistics tricycle`}
+                      fill
+                      sizes="(min-width: 1024px) 50vw, 100vw"
+                      className="object-cover transition-transform duration-700 hover:scale-[1.025]"
+                    />
+                  </div>
+                  <div className="p-6 md:p-8">
+                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">
+                      Product Reference
+                    </p>
+                    <h3 className="mt-3 text-2xl font-semibold text-foreground">
+                      {model.name}
+                    </h3>
+                    <p className="mt-3 max-w-xl text-sm leading-7 text-muted-foreground">
+                      {model.description}
+                    </p>
+                  </div>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-border bg-background py-24 md:py-32">
+        <div className="container">
+          <Reveal className="max-w-2xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+              Key Product Features
+            </p>
+            <h2 className="mt-4 text-3xl font-semibold leading-tight text-foreground md:text-[2.45rem]">
+              Built around everyday commercial use.
+            </h2>
+          </Reveal>
+
+          <div className="mt-12 grid gap-x-5 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+            {mobilityFeatures.map((feature, index) => (
+              <Reveal key={feature.title} delay={index * 0.035}>
+                <article>
+                  <div className="relative aspect-[3/2] overflow-hidden rounded-lg border border-[#d2dee6] bg-[#eef3f6]">
+                    <Image
+                      src={feature.image}
+                      alt=""
+                      fill
+                      sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                      className="object-cover transition-transform duration-700 hover:scale-[1.03]"
+                    />
+                  </div>
+                  <h3 className="mt-5 text-lg font-semibold text-foreground">
+                    {feature.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-7 text-muted-foreground">
+                    {feature.description}
+                  </p>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal delay={0.08} className="mt-16">
+            <details className="group border-y border-[#c8d6df] bg-[#f8fafb] px-5 md:px-8">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-6 text-lg font-semibold text-foreground marker:content-none">
+                Compare model specifications
+                <span
+                  className="text-2xl font-light text-primary transition-transform duration-300 group-open:rotate-45"
+                  aria-hidden="true"
+                >
+                  +
+                </span>
+              </summary>
+              <div className="overflow-x-auto border-t border-border pb-7 pt-5">
+                <table className="w-full min-w-[720px] border-collapse text-left">
+                  <thead>
+                    <tr>
+                      <th className="w-[28%] pb-4 pr-6 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                        Specification
+                      </th>
+                      {mobilitySpecifications.map((item) => (
+                        <th
+                          key={item.model}
+                          className="pb-4 pr-6 text-sm font-semibold text-foreground"
+                        >
+                          {item.model}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {specificationLabels.map((label, rowIndex) => (
+                      <tr key={label} className="border-t border-border">
+                        <th className="py-4 pr-6 text-sm font-medium text-muted-foreground">
+                          {label}
+                        </th>
+                        {mobilitySpecifications.map((item) => (
+                          <td key={item.model} className="py-4 pr-6 text-sm text-foreground">
+                            {item.values[rowIndex]}
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+                <p className="mt-5 text-xs leading-6 text-muted-foreground">
+                  Specifications are reference values from the supplied product material and may vary by configuration.
+                </p>
+              </div>
+            </details>
           </Reveal>
         </div>
       </section>
