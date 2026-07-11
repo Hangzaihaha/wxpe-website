@@ -1,101 +1,131 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 import { Reveal } from "@/components/reveal";
 import { SiteHeader } from "@/components/site-header";
-import { companyTimeline, navItems } from "@/lib/site-data";
+import { heritageTimeline, navItems } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "About WXPE | From Manufacturing Roots to Digital Energy",
+  title: "About WXPE | Industrial Experience for Digital Energy",
   description:
-    "Learn how WXPE combines Malaysian manufacturing discipline, local project coordination and partner-backed technology for digital energy deployment.",
+    "WXPE builds on the wider WXP-WSA ecosystem's Malaysian manufacturing, OEM supply and international partnership experience for digital energy deployment.",
   openGraph: {
-    title: "About WXPE | From Manufacturing Roots to Digital Energy",
+    title: "About WXPE | Industrial Experience for Digital Energy",
     description:
-      "Malaysian execution capability supporting energy storage, microgrids and electric mobility.",
-    images: ["/assets/energy/bess-project-aerial-01.jpg"]
+      "Industrial execution and local delivery supporting energy storage, microgrids and electric mobility.",
+    images: ["/assets/about/about-hero-energy.webp"]
   }
 };
+
+const internationalMarkets = [
+  "Malaysia",
+  "China",
+  "Australia",
+  "United States",
+  "ASEAN",
+  "Europe"
+] as const;
+
+const manufacturingCapabilities = [
+  {
+    title: "Local Manufacturing",
+    description: "Practical Malaysian industrial and production capability."
+  },
+  {
+    title: "Quality and OEM Experience",
+    description: "Automotive supply, assembly and quality-system experience."
+  },
+  {
+    title: "Project Delivery",
+    description: "Local coordination, warehousing, logistics and operational support."
+  }
+] as const;
+
+const transitionAreas = [
+  "Battery Energy Storage",
+  "Solar Hybrid Microgrids",
+  "Energy-as-a-Service",
+  "Electric Mobility"
+] as const;
 
 export default function AboutPage() {
   return (
     <main className="min-h-screen overflow-hidden bg-background text-foreground">
       <SiteHeader />
 
-      <section className="border-b border-border bg-background pb-20 pt-[136px] md:pb-28 md:pt-[156px]">
+      <section className="border-b border-border bg-background pb-16 pt-[128px] md:pb-20 md:pt-[144px]">
         <div className="container">
           <Reveal className="max-w-4xl">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
               About WXPE
             </p>
-            <h1 className="mt-5 text-balance text-4xl font-semibold leading-[1.08] text-foreground md:text-[3.75rem]">
-              From Manufacturing Roots to Digital Energy
+            <h1 className="mt-5 text-balance text-4xl font-semibold leading-[1.08] text-foreground md:text-[3.55rem]">
+              30 Years of Industrial Experience.
+              <span className="block text-primary">A New Chapter in Digital Energy.</span>
             </h1>
-            <p className="mt-6 max-w-2xl text-base leading-8 text-muted-foreground md:text-lg">
-              WXPE brings Malaysian manufacturing discipline, local project
-              coordination and partner-backed technology together for practical
-              energy deployment.
+            <p className="mt-6 max-w-3xl text-base leading-8 text-muted-foreground md:text-lg">
+              Rooted in Malaysian manufacturing and strengthened by international
+              partnerships, WXPE brings industrial execution, local delivery and
+              partner-backed technology into energy storage, microgrids and
+              electric mobility.
             </p>
           </Reveal>
 
-          <Reveal delay={0.1} className="mt-12 md:mt-16">
+          <Reveal delay={0.1} className="mt-10 md:mt-12">
             <figure>
-              <div className="relative min-h-[320px] overflow-hidden rounded-lg border border-[#cfdae1] bg-[#e7edf1] shadow-[0_26px_72px_rgba(11,18,32,0.11)] md:aspect-[16/7] md:min-h-0">
+              <div className="relative min-h-[320px] overflow-hidden rounded-lg border border-[#cfdae1] bg-[#e7edf1] shadow-[0_24px_64px_rgba(11,18,32,0.1)] md:aspect-[16/7] md:min-h-0">
                 <Image
-                  src="/assets/energy/bess-project-aerial-01.jpg"
-                  alt="Energy storage infrastructure reference at an industrial site"
+                  src="/assets/about/about-hero-energy.webp"
+                  alt="Solar generation and battery storage at an industrial facility"
                   fill
                   priority
                   sizes="(min-width: 1536px) 1180px, calc(100vw - 40px)"
                   className="object-cover"
                 />
               </div>
-              <figcaption className="mt-4 text-xs uppercase tracking-[0.14em] text-muted-foreground">
-                Energy infrastructure reference visual
+              <figcaption className="mt-3 text-xs uppercase tracking-[0.14em] text-muted-foreground">
+                Digital energy infrastructure reference visual
               </figcaption>
             </figure>
           </Reveal>
         </div>
       </section>
 
-      <section className="border-b border-border bg-[#f3f6f8] py-20 md:py-28">
+      <section className="border-b border-border bg-[#f3f6f8] py-16 md:py-20">
         <div className="container">
-          <Reveal className="grid gap-6 lg:grid-cols-[0.7fr_1.3fr] lg:items-end">
+          <Reveal className="grid gap-5 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-                Company Evolution
+                Heritage Timeline
               </p>
-              <h2 className="mt-4 text-3xl font-semibold leading-tight text-foreground md:text-[2.7rem]">
-                Capability built step by step.
+              <h2 className="mt-4 text-3xl font-semibold leading-tight text-foreground md:text-[2.6rem]">
+                Industrial foundations. A focused energy future.
               </h2>
             </div>
-            <p className="max-w-2xl text-base leading-8 text-muted-foreground lg:justify-self-end">
-              Established manufacturing and delivery experience now supports a
-              focused transition into localized energy storage, microgrids and
-              electric mobility.
+            <p className="max-w-2xl text-sm leading-7 text-muted-foreground lg:justify-self-end md:text-base md:leading-8">
+              This timeline reflects the wider WXP-WSA ecosystem that WXPE builds
+              on, from manufacturing origins to the digital-energy transition.
             </p>
           </Reveal>
 
-          <div className="mt-12 grid border-y border-[#cbd8e0] md:grid-cols-5">
-            {companyTimeline.map((item, index) => {
-              const isCurrent = index === companyTimeline.length - 1;
+          <div className="mt-10 grid gap-px border-y border-[#cbd8e0] bg-[#cbd8e0] md:grid-cols-3 lg:grid-cols-6">
+            {heritageTimeline.map((item, index) => {
+              const isCurrent = index === heritageTimeline.length - 1;
 
               return (
                 <Reveal
                   key={item.year}
-                  delay={index * 0.04}
-                  className={cn(
-                    "relative border-b border-[#cbd8e0] last:border-b-0 md:border-b-0 md:border-r md:last:border-r-0",
-                    isCurrent && "bg-[#e8f1f6]"
-                  )}
+                  delay={index * 0.035}
+                  className={cn("bg-white", isCurrent && "bg-[#e7f1f6]")}
                 >
-                  <article className="min-h-[210px] px-5 py-7 md:min-h-[260px] md:px-6 md:py-8">
+                  <article className="min-h-[176px] px-5 py-6 lg:min-h-[220px]">
                     <div className="flex items-center justify-between gap-3">
                       <span
                         className={cn(
-                          "text-2xl font-semibold text-primary md:text-[1.8rem]",
+                          "text-xl font-semibold text-primary",
                           isCurrent && "text-foreground"
                         )}
                       >
@@ -103,20 +133,15 @@ export default function AboutPage() {
                       </span>
                       <span
                         className={cn(
-                          "size-2.5 rounded-full bg-[#9eb5c4]",
+                          "size-2 rounded-full bg-[#9eb5c4]",
                           isCurrent && "bg-accent ring-4 ring-white"
                         )}
                         aria-hidden="true"
                       />
                     </div>
-                    <div className="mt-9 border-t border-[#cbd8e0] pt-5">
-                      <h3 className="text-base font-semibold text-foreground">
-                        {item.title}
-                      </h3>
-                      <p className="mt-3 text-sm leading-6 text-muted-foreground">
-                        {item.description}
-                      </p>
-                    </div>
+                    <h3 className="mt-8 border-t border-[#d8e2e8] pt-4 text-sm font-semibold leading-6 text-foreground">
+                      {item.title}
+                    </h3>
                   </article>
                 </Reveal>
               );
@@ -125,47 +150,143 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-background py-20 md:py-28">
-        <div className="container grid gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:gap-16">
-          <Reveal>
-            <figure>
-              <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-[#cfdae1] bg-[#e7edf1] shadow-[0_20px_56px_rgba(11,18,32,0.09)]">
-                <Image
-                  src="/assets/energy/industrial-bess-reference-01.jpg"
-                  alt="Industrial energy storage infrastructure reference"
-                  fill
-                  sizes="(min-width: 1024px) 54vw, 100vw"
-                  className="object-cover"
-                />
-              </div>
-              <figcaption className="mt-4 text-xs uppercase tracking-[0.14em] text-muted-foreground">
-                Industrial energy systems reference visual
-              </figcaption>
-            </figure>
+      <section className="border-b border-border bg-background py-14 md:py-16">
+        <div className="container">
+          <Reveal className="max-w-3xl">
+            <h2 className="text-3xl font-semibold leading-tight text-foreground md:text-[2.45rem]">
+              International Experience, Local Execution
+            </h2>
+            <p className="mt-5 text-base leading-8 text-muted-foreground">
+              WXPE connects Malaysian delivery capability with international
+              cooperation experience across the wider WXP-WSA ecosystem.
+            </p>
           </Reveal>
 
-          <Reveal delay={0.1} className="max-w-xl">
+          <Reveal delay={0.08} className="mt-9">
+            <div className="grid grid-cols-2 gap-px border-y border-border bg-border sm:grid-cols-3 lg:grid-cols-6">
+              {internationalMarkets.map((market) => (
+                <div
+                  key={market}
+                  className="flex min-h-20 items-center bg-white px-4 py-5 text-sm font-semibold text-foreground"
+                >
+                  {market}
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="border-b border-border bg-[#eef3f6] py-16 md:py-20">
+        <div className="container">
+          <Reveal className="max-w-3xl">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-              Local Capability
+              Manufacturing Foundation
             </p>
             <h2 className="mt-4 text-3xl font-semibold leading-tight text-foreground md:text-[2.55rem]">
-              Local execution with an energy focus.
+              Built on practical industrial capability.
             </h2>
-            <p className="mt-6 text-base leading-8 text-muted-foreground">
-              WXPE applies quality discipline and delivery experience to energy
-              projects that require clear coordination, practical localization
-              and long-term operating support.
-            </p>
-            <div className="mt-8 grid gap-4 border-y border-border py-6 sm:grid-cols-3 lg:grid-cols-1">
-              {["Project coordination", "Localization pathways", "Lifecycle support"].map(
-                (item) => (
-                  <div key={item} className="flex items-center gap-3">
-                    <span className="size-2 shrink-0 rounded-full bg-accent" aria-hidden="true" />
-                    <span className="text-sm font-semibold text-foreground">{item}</span>
-                  </div>
-                )
-              )}
+          </Reveal>
+
+          <div className="mt-10 grid gap-5 md:grid-cols-2">
+            <Reveal>
+              <figure>
+                <div className="relative aspect-video overflow-hidden rounded-lg border border-[#cbd8e0] bg-white">
+                  <Image
+                    src="/assets/about/warehouse-interior.webp"
+                    alt="Malaysian industrial warehouse and materials storage"
+                    fill
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+                <figcaption className="mt-3 text-xs uppercase tracking-[0.14em] text-muted-foreground">
+                  Warehouse and materials handling
+                </figcaption>
+              </figure>
+            </Reveal>
+            <Reveal delay={0.06}>
+              <figure>
+                <div className="relative aspect-video overflow-hidden rounded-lg border border-[#cbd8e0] bg-white">
+                  <Image
+                    src="/assets/about/assembly-line.webp"
+                    alt="Automotive assembly line in a Malaysian manufacturing facility"
+                    fill
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+                <figcaption className="mt-3 text-xs uppercase tracking-[0.14em] text-muted-foreground">
+                  Assembly and production environment
+                </figcaption>
+              </figure>
+            </Reveal>
+          </div>
+
+          <div className="mt-10 grid border-t border-[#cbd8e0] md:grid-cols-3">
+            {manufacturingCapabilities.map((capability, index) => (
+              <Reveal
+                key={capability.title}
+                delay={index * 0.04}
+                className="border-b border-[#cbd8e0] md:border-b-0 md:border-r md:last:border-r-0"
+              >
+                <article
+                  className={cn(
+                    "py-6 md:min-h-[150px] md:px-6",
+                    index === 0 && "md:pl-0"
+                  )}
+                >
+                  <h3 className="text-base font-semibold text-foreground">
+                    {capability.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                    {capability.description}
+                  </p>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-background py-16 md:py-20">
+        <div className="container">
+          <Reveal className="grid gap-6 lg:grid-cols-[0.86fr_1.14fr] lg:items-end">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+                Digital Energy Transition
+              </p>
+              <h2 className="mt-4 text-3xl font-semibold leading-tight text-foreground md:text-[2.65rem]">
+                Industrial Discipline for the Energy Transition
+              </h2>
             </div>
+            <p className="max-w-2xl text-base leading-8 text-muted-foreground lg:justify-self-end">
+              From 2024 onward, WXPE is applying this industrial foundation to
+              localized energy and mobility deployment.
+            </p>
+          </Reveal>
+
+          <Reveal delay={0.08} className="mt-9">
+            <div className="grid gap-px border-y border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
+              {transitionAreas.map((area) => (
+                <div
+                  key={area}
+                  className="flex min-h-24 items-center bg-white px-5 py-6 text-sm font-semibold text-foreground"
+                >
+                  {area}
+                </div>
+              ))}
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.12}>
+            <Link
+              href="/#solutions"
+              className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-foreground"
+            >
+              Explore Our Solutions
+              <ArrowRight className="size-4" aria-hidden="true" />
+            </Link>
           </Reveal>
         </div>
       </section>

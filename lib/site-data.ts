@@ -137,31 +137,30 @@ export const mobilityUseCases = [
   "Mobile commerce"
 ] as const;
 
-export const companyTimeline = [
+export const heritageTimeline = [
+  {
+    year: "1995",
+    title: "Manufacturing Origins"
+  },
+  {
+    year: "1999-2009",
+    title: "OEM and Industrial Growth"
+  },
+  {
+    year: "2014",
+    title: "International Expansion through WSA Venture"
+  },
   {
     year: "2019",
-    title: "Established",
-    description: "Manufacturing partnership established and automotive supply operations began."
+    title: "WXP Autohaus Established"
   },
   {
-    year: "2020",
-    title: "Industrial Capability",
-    description: "Factory operations expanded and IATF 16949 quality certification was achieved."
-  },
-  {
-    year: "2021",
-    title: "OEM Qualification",
-    description: "Major automotive customer quality audit requirements were completed."
-  },
-  {
-    year: "2022-2023",
-    title: "Scale & Expansion",
-    description: "Vehicle programs, warehouse capacity and local delivery capability expanded."
+    year: "2020-2023",
+    title: "Factory, Certification and OEM Capability Expansion"
   },
   {
     year: "2024-Now",
-    title: "Energy Transition",
-    description: "Local capabilities are extending into EV mobility, battery systems and digital energy."
+    title: "Transition into EV Mobility and Digital Energy"
   }
 ] as const;
 
