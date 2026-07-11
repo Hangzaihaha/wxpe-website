@@ -1,7 +1,5 @@
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/reveal";
 
 export function HeroSection() {
@@ -26,41 +24,24 @@ export function HeroSection() {
 
         <div className="absolute inset-0 z-10 flex items-center py-14 md:py-20">
           <div className="container">
-            <Reveal className="flex max-w-[42rem] flex-col gap-7">
-              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#9fe8c2]">
-                LOCALIZED DIGITAL ENERGY
-              </span>
-              <h1 className="text-balance text-[3rem] font-semibold leading-[1.02] tracking-normal text-white sm:text-[3.75rem] lg:text-[4.6rem]">
-                <span className="block">Localized Energy Storage</span>
+            <Reveal className="flex max-w-[64rem] flex-col gap-6 md:gap-7">
+              <h1 className="text-balance text-[2.8rem] font-semibold leading-[1.05] tracking-normal text-white sm:text-[3.6rem] lg:text-[4rem]">
+                <span className="block lg:whitespace-nowrap">
+                  Localized Energy &amp; Mobility
+                </span>
                 <span className="block">for Malaysia</span>
               </h1>
-              <div className="flex flex-col gap-6">
-                <p className="max-w-[34rem] text-[1.1rem] leading-8 text-white/85">
-                  Battery storage, solar hybrid microgrids and flexible energy
-                  deployment models.
+              <div className="flex flex-col gap-5">
+                <p className="max-w-[38rem] text-base leading-7 text-white/85 sm:text-[1.08rem] sm:leading-8">
+                  Battery storage, solar hybrid systems and practical electric
+                  mobility solutions for industrial and commercial applications.
                 </p>
                 <div className="flex flex-wrap gap-x-5 gap-y-2 text-xs font-semibold uppercase tracking-[0.16em] text-white/70">
                   <span>BESS</span>
                   <span>Solar Hybrid</span>
-                  <span>EMS</span>
-                  <span>Energy-as-a-Service</span>
+                  <span>Microgrid</span>
+                  <span>EV Mobility</span>
                 </div>
-              </div>
-              <div className="flex flex-col gap-3 sm:flex-row">
-                <Button asChild size="lg">
-                  <a href="#solutions">
-                    Explore Solutions
-                    <ArrowRight data-icon="inline-end" aria-hidden="true" />
-                  </a>
-                </Button>
-                <Button
-                  asChild
-                  size="lg"
-                  variant="outline"
-                  className="border-white/40 bg-white/10 text-white shadow-sm backdrop-blur-md hover:bg-white/20"
-                >
-                  <a href="#contact">Start a Pilot Project</a>
-                </Button>
               </div>
             </Reveal>
           </div>
