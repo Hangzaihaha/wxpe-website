@@ -17,7 +17,7 @@ import {
 export function SiteHeader() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-white/90 shadow-[0_8px_28px_rgba(11,18,32,0.05)] backdrop-blur-xl">
-      <div className="container flex h-[72px] items-center justify-between gap-5 py-4">
+      <div className="mx-auto flex h-[72px] w-full max-w-[1220px] items-center gap-5 px-4 py-4 sm:px-5">
         <Link href="/" className="flex items-center gap-3" aria-label="WXPE home">
           <Image
             src="/assets/brand/wxpe-mark.svg"
@@ -33,7 +33,7 @@ export function SiteHeader() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-4 xl:gap-6 lg:flex" aria-label="Primary">
+        <nav className="ml-auto hidden items-center gap-5 lg:flex xl:gap-7" aria-label="Primary">
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -44,12 +44,6 @@ export function SiteHeader() {
             </Link>
           ))}
         </nav>
-
-        <div className="hidden items-center gap-3 lg:flex">
-          <Button asChild>
-            <Link href="/#contact">Start a Pilot Project</Link>
-          </Button>
-        </div>
 
         <Sheet>
           <SheetTrigger asChild>
@@ -72,11 +66,6 @@ export function SiteHeader() {
                   </Link>
                 </SheetClose>
               ))}
-              <SheetClose asChild>
-                <Button asChild className="mt-2">
-                  <Link href="/#contact">Start a Pilot Project</Link>
-                </Button>
-              </SheetClose>
             </div>
           </SheetContent>
         </Sheet>

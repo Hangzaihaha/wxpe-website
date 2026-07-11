@@ -20,8 +20,8 @@ export const navItems = [
   { label: "Microgrid", href: "/#microgrid" },
   { label: "Projects", href: "/#projects" },
   { label: "Mobility", href: "/mobility" },
-  { label: "About", href: "/#about" },
-  { label: "Contact", href: "/#contact" }
+  { label: "About Us", href: "/about" },
+  { label: "Contact Us", href: "/#contact" }
 ] as const;
 
 export const painPoints = [

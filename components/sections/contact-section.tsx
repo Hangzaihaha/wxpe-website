@@ -110,7 +110,7 @@ export function ContactSection() {
           <nav className="flex flex-wrap gap-x-6 gap-y-3" aria-label="Footer">
             {navItems
               .filter((item) =>
-                ["Solutions", "Energy-as-a-Service", "Microgrid", "Projects", "Mobility", "About", "Contact"].includes(
+                ["Solutions", "Energy-as-a-Service", "Microgrid", "Projects", "Mobility", "About Us", "Contact Us"].includes(
                   item.label
                 )
               )
