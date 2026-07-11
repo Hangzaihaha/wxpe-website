@@ -15,9 +15,7 @@ import {
 } from "lucide-react";
 
 export const navItems = [
-  { label: "Solutions", href: "/#solutions" },
-  { label: "Energy-as-a-Service", href: "/#eaas" },
-  { label: "Microgrid", href: "/#microgrid" },
+  { label: "Solutions", href: "/solutions" },
   { label: "Projects", href: "/#projects" },
   { label: "Mobility", href: "/mobility" },
   { label: "About Us", href: "/about" },
@@ -44,6 +42,7 @@ export const painPoints = [
 
 export const solutions = [
   {
+    id: "battery-storage",
     title: "Battery Energy Storage",
     description: "Modular storage for industrial and commercial energy sites.",
     tags: ["BESS", "C&I", "Resilience"],
@@ -51,13 +50,15 @@ export const solutions = [
     image: "/assets/energy/bess-container-site-01.jpg"
   },
   {
-    title: "Peak Shaving & Cost Optimization",
+    id: "peak-shaving",
+    title: "Peak Shaving and Cost Optimization",
     description: "Reduce demand peaks and improve site energy economics.",
     tags: ["Peak Shaving", "EMS", "Tariffs"],
     icon: LineChart,
     image: "/assets/energy/industrial-bess-reference-01.jpg"
   },
   {
+    id: "solar-hybrid",
     title: "Solar Hybrid Microgrid",
     description: "Coordinate PV, BESS, EMS and site loads for resilience.",
     tags: ["PV", "Microgrid", "Backup"],
@@ -65,6 +66,7 @@ export const solutions = [
     image: "/assets/energy/solar-storage-reference-01.jpg"
   },
   {
+    id: "digital-energy-management",
     title: "EMS & Digital Energy Management",
     description: "Monitor and optimize distributed assets through EMS control.",
     tags: ["EMS", "Cloud", "Dispatch"],
@@ -97,6 +99,7 @@ export const deliveryFocus = [
 export const commercialModels = [
   "Zero-CAPEX Option",
   "EMC / PPA Structure",
+  "Leasing Model",
   "Long-Term Operation Support"
 ] as const;
 

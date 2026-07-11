@@ -20,7 +20,10 @@ export function SolutionsSection() {
 
             return (
               <Reveal key={item.title} delay={index * 0.05}>
-                <article className="group overflow-hidden rounded-lg border border-[#d2dee6] bg-card shadow-[0_18px_54px_rgba(11,18,32,0.07)] transition-all hover:-translate-y-1 hover:border-primary/35 hover:shadow-[0_26px_70px_rgba(11,18,32,0.105)]">
+                <article
+                  id={item.id}
+                  className="group scroll-mt-24 overflow-hidden rounded-lg border border-[#d2dee6] bg-card shadow-[0_18px_54px_rgba(11,18,32,0.07)] transition-all hover:-translate-y-1 hover:border-primary/35 hover:shadow-[0_26px_70px_rgba(11,18,32,0.105)]"
+                >
                   <div className="relative aspect-[16/9] overflow-hidden bg-[#eef3f6]">
                     {/*
                       Temporary reference visual extracted from supplied PDF materials.

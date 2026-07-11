@@ -6,7 +6,7 @@ import { Reveal } from "@/components/reveal";
 
 export function EnergyServiceSection() {
   return (
-    <section id="eaas" className="section-padding border-b border-border bg-[#eef3f6]">
+    <section id="energy-deployment" className="section-padding scroll-mt-20 border-b border-border bg-[#eef3f6]">
       <div className="container grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
         <Reveal>
           <div className="relative min-h-[520px] overflow-hidden rounded-lg border border-[#d2dee6] bg-[#07111f] shadow-[0_26px_76px_rgba(11,18,32,0.105)]">
@@ -45,7 +45,7 @@ export function EnergyServiceSection() {
             </p>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
+          <div className="grid gap-4 sm:grid-cols-2">
             {commercialModels.map((model) => (
               <article
                 key={model}
