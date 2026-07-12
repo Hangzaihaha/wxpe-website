@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+
+import { PageEntry } from "@/components/page-entry";
+
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -25,8 +28,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" data-scroll-behavior="smooth">
+      <body>
+        <PageEntry>{children}</PageEntry>
+      </body>
     </html>
   );
 }

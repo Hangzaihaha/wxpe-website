@@ -11,16 +11,14 @@ export function HeroSection() {
           photography or video when available, then revisit the composition.
         */}
         <Image
-          src="/assets/energy/home-hero-energy-storage.jpg"
-          alt="Solar panels and battery energy storage infrastructure"
+          src="/assets/energy/wxpe-branded-energy-hero.png"
+          alt="WXPE-branded battery energy storage beside solar panels"
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[57%_bottom] md:object-[50%_bottom]"
+          className="object-cover object-[52%_bottom] md:object-bottom"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(4,18,32,0.56)_0%,rgba(4,18,32,0.38)_34%,rgba(4,18,32,0.2)_62%,rgba(4,18,32,0.08)_100%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(4,18,32,0.04)_0%,rgba(4,18,32,0)_45%,rgba(4,18,32,0.22)_100%)]" />
-        <div className="absolute inset-0 quiet-grid opacity-[0.12]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(4,18,32,0.52)_0%,rgba(4,18,32,0.34)_38%,rgba(4,18,32,0.14)_68%,rgba(4,18,32,0.05)_100%)]" />
 
         <div className="absolute inset-0 z-10 flex items-center py-14 md:py-20">
           <div className="container">

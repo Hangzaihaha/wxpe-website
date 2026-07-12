@@ -170,14 +170,23 @@ export const heritageTimeline = [
 export const projectReferences = [
   {
     title: "BESS Planning References",
-    description: "Demand management and C&I storage patterns for solution planning."
+    description: "Demand management and C&I storage patterns for solution planning.",
+    href: null
   },
   {
     title: "Solar Hybrid Logic",
-    description: "PV, BESS and EMS topology references for site-level design."
+    description: "PV, BESS and EMS topology references for site-level design.",
+    href: null
+  },
+  {
+    title: "Electric Mobility Applications",
+    description:
+      "Electric tricycles for last-mile logistics, industrial sites and commercial fleet operations.",
+    href: "/mobility"
   },
   {
     title: "Future Case Studies",
-    description: "Public references will be added after approval and anonymization."
+    description: "Public references will be added after approval and anonymization.",
+    href: null
   }
 ] as const;

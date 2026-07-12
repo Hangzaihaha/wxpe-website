@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
 import { projectReferences } from "@/lib/site-data";
@@ -15,10 +16,10 @@ export function ProjectsSection() {
           />
         </Reveal>
 
-        <div className="grid gap-5 lg:grid-cols-3">
-          {projectReferences.map((item, index) => (
-            <Reveal key={item.title} delay={index * 0.04}>
-              <article className="group flex h-full min-h-40 flex-col justify-between gap-6 rounded-lg border border-[#d8e2e8] bg-card p-6 shadow-[0_14px_34px_rgba(11,18,32,0.05)] transition-all hover:-translate-y-1 hover:border-[#c8d7e0] hover:shadow-[0_20px_48px_rgba(11,18,32,0.08)]">
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          {projectReferences.map((item, index) => {
+            const card = (
+              <article className="group flex h-full min-h-52 flex-col justify-between gap-6 rounded-lg border border-[#d8e2e8] bg-card p-6 shadow-[0_14px_34px_rgba(11,18,32,0.05)] transition-all hover:-translate-y-1 hover:border-[#c8d7e0] hover:shadow-[0_20px_48px_rgba(11,18,32,0.08)]">
                 <ArrowUpRight
                   className="size-5 text-muted-foreground transition-colors group-hover:text-primary"
                   aria-hidden="true"
@@ -32,8 +33,24 @@ export function ProjectsSection() {
                   </p>
                 </div>
               </article>
-            </Reveal>
-          ))}
+            );
+
+            return (
+              <Reveal key={item.title} delay={index * 0.04} className="h-full">
+                {item.href ? (
+                  <Link
+                    href={item.href}
+                    className="block h-full rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                    aria-label={`${item.title}: ${item.description}`}
+                  >
+                    {card}
+                  </Link>
+                ) : (
+                  card
+                )}
+              </Reveal>
+            );
+          })}
         </div>
       </div>
     </section>
