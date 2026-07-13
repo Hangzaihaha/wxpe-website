@@ -11,6 +11,7 @@ import {
   PlugZap,
   ShieldCheck,
   SunMedium,
+  Truck,
   Zap
 } from "lucide-react";
 
@@ -25,18 +26,24 @@ export const navItems = [
 export const painPoints = [
   {
     title: "Cost Pressure",
-    description: "Peak demand, rising tariffs and upfront CAPEX pressure margins.",
+    description: "Peak demand, rising tariffs and upfront investment pressure.",
     icon: LineChart
   },
   {
     title: "Power Reliability",
-    description: "Unstable supply, outages and backup gaps disrupt operations.",
+    description: "Supply instability and outages can interrupt critical operations.",
     icon: PlugZap
   },
   {
     title: "Project Complexity",
-    description: "Technical planning, compliance and local delivery must align.",
+    description: "Storage, solar, EMS and site requirements must work as one system.",
     icon: Building2
+  },
+  {
+    title: "Fleet & Last-Mile Efficiency",
+    description:
+      "Reduce short-distance logistics costs with practical electric mobility.",
+    icon: Truck
   }
 ] as const;
 
