@@ -177,7 +177,8 @@ export const heritageTimeline = [
 export const projectReferences = [
   {
     title: "BESS Planning References",
-    description: "Demand management and C&I storage patterns for solution planning.",
+    description:
+      "Load profile analysis, peak shaving logic and storage dispatch references for solution planning.",
     href: null
   },
   {

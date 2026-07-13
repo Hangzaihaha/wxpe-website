@@ -4,6 +4,8 @@ import Link from "next/link";
 import {
   ArrowRight,
   Building2,
+  Check,
+  Download,
   Factory,
   PackageCheck,
   Store,
@@ -78,7 +80,26 @@ const mobilityModels = [
     description:
       "Compact electric logistics tricycle for urban delivery, campuses, factories and flexible site operations.",
     image: "/assets/mobility/models/black-panther.webp"
+  },
+  {
+    name: "Warrior",
+    description:
+      "Versatile electric cargo tricycle for local delivery, small businesses and short-haul operations.",
+    image: "/assets/mobility/models/warrior.webp"
+  },
+  {
+    name: "Warrior Courier Cart",
+    description:
+      "Enclosed electric delivery vehicle for parcels, protected cargo and last-mile logistics.",
+    image: "/assets/mobility/models/warrior-courier-cart.webp"
   }
+] as const;
+
+const mobileFoodCartPoints = [
+  "Customizable stainless-steel service area",
+  "Supports multiple cooking and vending formats",
+  "External power capability with battery options",
+  "Suitable for events, night markets and commercial sites"
 ] as const;
 
 const mobilityFeatures = [
@@ -115,11 +136,10 @@ const mobilityFeatures = [
 ] as const;
 
 const specificationLabels = [
-  "Maximum speed",
-  "Estimated range",
   "Motor power",
-  "Load capacity",
-  "Dimensions",
+  "Estimated range",
+  "Maximum load",
+  "Vehicle dimensions",
   "Charging time"
 ] as const;
 
@@ -127,9 +147,8 @@ const mobilitySpecifications = [
   {
     model: "Flag Ship",
     values: [
-      "50 km/h",
-      "60-80 km",
       "1,800 W",
+      "60-80 km",
       "Up to 1,200 kg",
       "3300 x 1299 x 1460 mm",
       "6-8 hours"
@@ -138,11 +157,40 @@ const mobilitySpecifications = [
   {
     model: "Black Panther",
     values: [
-      "50 km/h",
-      "60-80 km",
       "1,500 W",
+      "60-80 km",
       "Up to 800 kg",
       "3070 x 1180 x 1410 mm",
+      "6-8 hours"
+    ]
+  },
+  {
+    model: "Warrior",
+    values: [
+      "1,200 W",
+      "60-80 km",
+      "Up to 500 kg",
+      "2910 x 1070 x 1365 mm",
+      "6-8 hours"
+    ]
+  },
+  {
+    model: "Courier Cart",
+    values: [
+      "1,200 W",
+      "60-80 km",
+      "Up to 500 kg",
+      "2910 x 1070 x 1365 mm",
+      "6-8 hours"
+    ]
+  },
+  {
+    model: "Mobile Food Cart",
+    values: [
+      "1,200 W",
+      "60-80 km",
+      "Up to 500 kg",
+      "2910 x 1070 x 1365 mm",
       "6-8 hours"
     ]
   }
@@ -261,6 +309,43 @@ export default function MobilityPage() {
               </Reveal>
             ))}
           </div>
+
+          <Reveal delay={0.1} className="mt-10 md:mt-14">
+            <article className="grid overflow-hidden rounded-xl border border-[#d2dee6] bg-white shadow-[0_24px_70px_rgba(11,18,32,0.08)] lg:grid-cols-[1.08fr_0.92fr] lg:items-stretch">
+              <div className="relative min-h-[320px] overflow-hidden bg-[#dbe7ef] sm:min-h-[420px] lg:min-h-[520px]">
+                <Image
+                  src="/assets/mobility/models/warrior-mobile-food-cart.webp"
+                  alt="Warrior electric mobile food cart"
+                  fill
+                  sizes="(min-width: 1024px) 55vw, 100vw"
+                  className="object-cover transition-transform duration-700 motion-safe:hover:scale-[1.015]"
+                />
+              </div>
+
+              <div className="flex flex-col justify-center p-7 sm:p-10 lg:p-12 xl:p-14">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+                  Commercial Mobility
+                </p>
+                <h3 className="mt-4 text-3xl font-semibold leading-tight text-foreground md:text-[2.35rem]">
+                  Mobile Food Cart
+                </h3>
+                <p className="mt-5 text-base leading-8 text-muted-foreground">
+                  A flexible electric vending platform for food operators, night
+                  markets, commercial districts and mobile catering.
+                </p>
+                <ul className="mt-8 space-y-4">
+                  {mobileFoodCartPoints.map((point) => (
+                    <li key={point} className="flex gap-3 text-sm leading-6 text-foreground/80">
+                      <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-[#e5f1eb] text-[#2f7457]">
+                        <Check className="size-3" aria-hidden="true" />
+                      </span>
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+          </Reveal>
         </div>
       </section>
 
@@ -311,7 +396,7 @@ export default function MobilityPage() {
                 </span>
               </summary>
               <div className="overflow-x-auto border-t border-border pb-7 pt-5">
-                <table className="w-full min-w-[720px] border-collapse text-left">
+                <table className="w-full min-w-[980px] border-collapse text-left">
                   <thead>
                     <tr>
                       <th className="w-[28%] pb-4 pr-6 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
@@ -343,7 +428,7 @@ export default function MobilityPage() {
                   </tbody>
                 </table>
                 <p className="mt-5 text-xs leading-6 text-muted-foreground">
-                  Specifications are reference values from the supplied product material and may vary by configuration.
+                  Specifications are reference values and may vary by configuration and future product updates.
                 </p>
               </div>
             </details>
@@ -398,6 +483,43 @@ export default function MobilityPage() {
               capability, spare parts support and future fleet energy
               integration.
             </p>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="border-b border-border bg-background py-20 md:py-24">
+        <div className="container">
+          <Reveal>
+            <div className="flex flex-col gap-8 rounded-xl bg-[#f3f6f8] p-7 sm:p-10 md:flex-row md:items-center md:justify-between lg:p-12">
+              <div className="max-w-2xl">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+                  Product Brochure
+                </p>
+                <h2 className="mt-4 text-2xl font-semibold leading-tight text-foreground md:text-[2rem]">
+                  Explore the Full EV Mobility Range
+                </h2>
+                <p className="mt-3 text-sm leading-7 text-muted-foreground md:text-base">
+                  View complete model specifications, product features and
+                  application options.
+                </p>
+              </div>
+
+              <div className="flex shrink-0 flex-col items-start gap-3 md:items-end">
+                <a
+                  href="/downloads/evmobii-product-brochure.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  download
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-primary px-5 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                >
+                  Download Product Brochure
+                  <Download className="size-4" aria-hidden="true" />
+                </a>
+                <span className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">
+                  PDF · 15 pages
+                </span>
+              </div>
+            </div>
           </Reveal>
         </div>
       </section>
