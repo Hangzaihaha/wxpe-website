@@ -12,9 +12,9 @@ export default function Home() {
       <SiteHeader />
       <HeroSection />
       <HomeSolutionsSection />
+      <ProjectsSection />
       <PainPointsSection />
       <AboutSection />
-      <ProjectsSection />
       <ContactSection />
     </main>
   );

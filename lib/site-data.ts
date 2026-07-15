@@ -17,7 +17,7 @@ import {
 
 export const navItems = [
   { label: "Solutions", href: "/solutions" },
-  { label: "Projects", href: "/#projects" },
+  { label: "Projects", href: "/projects" },
   { label: "Mobility", href: "/mobility" },
   { label: "About Us", href: "/about" },
   { label: "Contact Us", href: "/#contact" }
@@ -193,8 +193,9 @@ export const projectReferences = [
     href: "/mobility"
   },
   {
-    title: "Future Case Studies",
-    description: "Public references will be added after approval and anonymization.",
-    href: null
+    title: "Selected Project References",
+    description:
+      "Anonymized storage, solar and charging applications from within WXPE's wider ecosystem.",
+    href: "/projects"
   }
 ] as const;
