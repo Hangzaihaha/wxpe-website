@@ -1,212 +1,189 @@
-"use client";
+import type { SVGProps } from "react";
+import { ArrowRight, MessageCircle } from "lucide-react";
 
-import { FormEvent, useState } from "react";
-import { ArrowRight, Headphones, Mail, MessageCircle } from "lucide-react";
-
-import { navItems } from "@/lib/site-data";
-import { Button } from "@/components/ui/button";
-import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Reveal } from "@/components/reveal";
-import { SectionHeading } from "@/components/section-heading";
+import { Button } from "@/components/ui/button";
+import { navItems } from "@/lib/site-data";
 
-const inputClassName =
-  "rounded-xl border-[#dbe3e7] bg-[#f8fafb] shadow-none";
+function FacebookIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" {...props}>
+      <path
+        fill="currentColor"
+        d="M13.55 21v-8h2.7l.4-3h-3.1V8.1c0-.87.24-1.46 1.55-1.46h1.66V3.96c-.29-.04-1.27-.13-2.42-.13-2.4 0-4.04 1.47-4.04 4.16V10H7.58v3h2.72v8h3.25Z"
+      />
+    </svg>
+  );
+}
+
+function InstagramIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" {...props}>
+      <rect
+        x="3.5"
+        y="3.5"
+        width="17"
+        height="17"
+        rx="5"
+        stroke="currentColor"
+        strokeWidth="1.8"
+      />
+      <circle
+        cx="12"
+        cy="12"
+        r="4"
+        stroke="currentColor"
+        strokeWidth="1.8"
+      />
+      <circle cx="17.35" cy="6.75" r="1.1" fill="currentColor" />
+    </svg>
+  );
+}
+
+const contactLinkClassName =
+  "outline-none transition-colors duration-200 hover:text-primary focus-visible:rounded-sm focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 focus-visible:ring-offset-[#eef3f6]";
 
 export function ContactSection() {
-  const [submitted, setSubmitted] = useState(false);
-
-  function onSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setSubmitted(true);
-  }
-
   return (
-    <section id="contact" className="bg-[#eef3f6] pb-0 pt-20 md:pt-28">
-      <div className="container flex flex-col gap-12 md:gap-14">
-        <Reveal>
-          <SectionHeading
-            title="Let's Discuss Your Project"
-            description="Talk to our team about energy storage, solar hybrid systems, microgrids or electric mobility."
-          />
-        </Reveal>
+    <section
+      id="contact"
+      aria-labelledby="contact-title"
+      className="relative scroll-mt-[72px] overflow-hidden bg-[#eef3f6] pt-24 md:pt-32"
+    >
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[44rem] bg-[radial-gradient(circle_at_32%_30%,rgba(255,255,255,0.9),rgba(238,243,246,0)_55%)]"
+      />
 
-        <div className="grid items-stretch gap-6 lg:grid-cols-[0.92fr_1.08fr] lg:gap-8">
-          <Reveal className="h-full">
-            <div className="h-full overflow-hidden rounded-3xl bg-white shadow-[0_22px_70px_rgba(11,18,32,0.065)]">
-              <div className="p-7 md:p-8">
-                <div className="flex items-start gap-4">
-                  <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-[#e7f5ed] text-[#167147]">
-                    <MessageCircle aria-hidden="true" className="size-[18px]" />
-                  </span>
-                  <div className="min-w-0 flex-1">
-                    <p className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
-                      Sales WhatsApp
-                    </p>
-                    <div className="mt-3 flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
-                      <a
-                        href="tel:+60179951928"
-                        className="whitespace-nowrap text-xl font-semibold text-foreground transition-colors hover:text-primary"
-                      >
-                        +60 17-995 1928
-                      </a>
-                      <Button asChild size="lg" className="w-full shrink-0 sm:w-fit">
-                        <a
-                          href="https://wa.me/60179951928"
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          Chat with Sales
-                          <ArrowRight data-icon="inline-end" aria-hidden="true" />
-                        </a>
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+      <div className="container relative grid gap-16 pb-24 lg:grid-cols-[minmax(0,1.08fr)_minmax(360px,0.92fr)] lg:gap-0 lg:pb-28">
+        <div className="lg:border-r lg:border-[#c8d4dc] lg:pr-16 xl:pr-20">
+          <Reveal>
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-primary">
+              Contact Us
+            </p>
+            <span
+              aria-hidden="true"
+              className="mt-5 block h-0.5 w-11 bg-primary"
+            />
+            <h2
+              id="contact-title"
+              className="mt-9 max-w-2xl text-[2.3rem] font-[575] leading-[1.08] tracking-[-0.02em] text-foreground sm:text-[2.7rem] lg:text-[3.15rem]"
+            >
+              <span className="block">Let&rsquo;s Discuss</span>
+              <span className="block">Your Project</span>
+            </h2>
+            <p className="mt-8 max-w-xl text-base leading-8 text-muted-foreground md:text-lg md:leading-8">
+              Talk to our team about energy storage, solar hybrid systems,
+              microgrids or electric mobility.
+            </p>
+          </Reveal>
 
-              <div className="border-t border-[#e5eaed] p-7 md:p-8">
+          <Reveal delay={0.08} className="mt-12 md:mt-14">
+            <div className="flex items-start gap-5">
+              <MessageCircle
+                aria-hidden="true"
+                className="mt-1 size-11 shrink-0 stroke-[1.6] text-primary md:size-14"
+              />
+              <div className="min-w-0">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+                  Sales WhatsApp
+                </p>
                 <a
-                  href="mailto:sales@wxpgroup.com"
-                  className="flex items-start gap-4 rounded-xl outline-none transition-colors hover:text-primary focus-visible:ring-2 focus-visible:ring-ring"
+                  href="tel:+60179951928"
+                  className="mt-3 block text-[2rem] font-medium leading-none tracking-[-0.025em] text-foreground outline-none transition-colors hover:text-primary focus-visible:rounded-sm focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 focus-visible:ring-offset-[#eef3f6] sm:text-[2.35rem] md:text-[2.7rem]"
                 >
-                  <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-[#eef3f6] text-primary">
-                    <Mail aria-hidden="true" className="size-[18px]" />
-                  </span>
-                  <span className="min-w-0 pt-0.5">
-                    <span className="block text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
-                      Sales Email
-                    </span>
-                    <span className="mt-2 block break-all text-base font-medium text-foreground">
-                      sales@wxpgroup.com
-                    </span>
-                  </span>
+                  +60 17-995 1928
                 </a>
+                <Button
+                  asChild
+                  size="lg"
+                  className="group mt-7 h-14 w-full justify-between rounded-sm px-7 text-base shadow-none sm:w-80"
+                >
+                  <a
+                    href="https://wa.me/60179951928"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Chat with Sales
+                    <ArrowRight
+                      aria-hidden="true"
+                      className="transition-transform duration-300 group-hover:translate-x-1"
+                    />
+                  </a>
+                </Button>
               </div>
+            </div>
+          </Reveal>
+        </div>
 
-              <div className="border-t border-[#e5eaed] p-7 md:p-8">
-                <div className="flex items-start gap-4">
-                  <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-[#eef3f6] text-primary">
-                    <Headphones aria-hidden="true" className="size-[18px]" />
-                  </span>
-                  <div className="min-w-0 pt-0.5">
-                    <p className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
-                      Services &amp; Support
-                    </p>
-                    <div className="mt-2 flex flex-col items-start gap-2">
-                      <a
-                        href="mailto:admin@wxpgroup.com"
-                        className="break-all text-base font-medium text-foreground transition-colors hover:text-primary"
-                      >
-                        admin@wxpgroup.com
-                      </a>
-                      <a
-                        href="tel:+601161212957"
-                        className="text-base font-medium text-foreground transition-colors hover:text-primary"
-                      >
-                        +60 11-6121 2957
-                      </a>
-                    </div>
-                  </div>
-                </div>
+        <div className="border-t border-[#c8d4dc] lg:border-t-0 lg:pl-16 xl:pl-20">
+          <Reveal delay={0.06}>
+            <div className="border-b border-[#c8d4dc] py-9 lg:pt-20">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+                Sales Email
+              </p>
+              <a
+                href="mailto:sales@wxpgroup.com"
+                className={`mt-4 inline-block break-all text-xl font-medium tracking-[-0.015em] text-foreground sm:text-2xl ${contactLinkClassName}`}
+              >
+                sales@wxpgroup.com
+              </a>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.12}>
+            <div className="border-b border-[#c8d4dc] py-9 md:py-10">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+                Services &amp; Support
+              </p>
+              <div className="mt-4 flex flex-col items-start gap-2.5">
+                <a
+                  href="mailto:admin@wxpgroup.com"
+                  className={`break-all text-xl font-medium tracking-[-0.015em] text-foreground sm:text-2xl ${contactLinkClassName}`}
+                >
+                  admin@wxpgroup.com
+                </a>
+                <a
+                  href="tel:+601161212957"
+                  className={`text-lg font-medium text-foreground sm:text-xl ${contactLinkClassName}`}
+                >
+                  +60 11-6121 2957
+                </a>
               </div>
             </div>
           </Reveal>
 
-          <Reveal delay={0.1} className="h-full">
-            <form
-              onSubmit={onSubmit}
-              className="h-full rounded-3xl bg-white p-7 shadow-[0_22px_70px_rgba(11,18,32,0.065)] md:p-9"
-            >
-              <h3 className="mb-7 text-2xl font-semibold leading-tight text-foreground">
-                Project inquiry
-              </h3>
-              <FieldGroup className="gap-6">
-                <div className="grid gap-6 md:grid-cols-2">
-                  <Field>
-                    <FieldLabel htmlFor="name">Name</FieldLabel>
-                    <Input
-                      id="name"
-                      name="name"
-                      autoComplete="name"
-                      required
-                      className={inputClassName}
-                    />
-                  </Field>
-                  <Field>
-                    <FieldLabel htmlFor="company">Company</FieldLabel>
-                    <Input
-                      id="company"
-                      name="company"
-                      autoComplete="organization"
-                      required
-                      className={inputClassName}
-                    />
-                  </Field>
-                  <Field className="md:col-span-2">
-                    <FieldLabel htmlFor="contact">Email or Phone</FieldLabel>
-                    <Input
-                      id="contact"
-                      name="contact"
-                      required
-                      className={inputClassName}
-                    />
-                  </Field>
-                </div>
-                <Field>
-                  <FieldLabel htmlFor="projectType">Project Type</FieldLabel>
-                  <select
-                    id="projectType"
-                    name="projectType"
-                    defaultValue=""
-                    required
-                    className="flex h-12 w-full rounded-xl border border-[#dbe3e7] bg-[#f8fafb] px-4 py-3 text-sm text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                  >
-                    <option value="" disabled>
-                      Select a project type
-                    </option>
-                    <option value="battery-energy-storage">
-                      Battery Energy Storage
-                    </option>
-                    <option value="solar-hybrid-microgrid">
-                      Solar Hybrid / Microgrid
-                    </option>
-                    <option value="energy-as-a-service">
-                      Energy-as-a-Service
-                    </option>
-                    <option value="ev-mobility">EV Mobility</option>
-                    <option value="partnership">Partnership</option>
-                    <option value="other">Other</option>
-                  </select>
-                </Field>
-                <Field>
-                  <FieldLabel htmlFor="message">Message</FieldLabel>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    placeholder="Tell us about your site, energy challenge or partnership discussion."
-                    required
-                    className="min-h-36 rounded-xl border-[#dbe3e7] bg-[#f8fafb] shadow-none"
-                  />
-                </Field>
-                <Button type="submit" size="lg" className="w-full sm:w-fit">
-                  Submit Inquiry
-                  <ArrowRight data-icon="inline-end" aria-hidden="true" />
-                </Button>
-                {submitted ? (
-                  <p className="rounded-xl bg-accent/10 px-4 py-3 text-sm text-foreground">
-                    Thank you. WXPE can review the project details and define a
-                    suitable next step.
-                  </p>
-                ) : null}
-              </FieldGroup>
-            </form>
+          <Reveal delay={0.18}>
+            <div className="py-9 md:py-10">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+                Follow WXPE
+              </p>
+              <div className="mt-5 flex items-center gap-3">
+                <a
+                  href="https://www.facebook.com/share/1a6p6dgs6y/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Visit WXPE on Facebook"
+                  className="flex size-11 items-center justify-center rounded-full border border-[#b9c9d3] text-foreground outline-none transition-[background-color,border-color,color] duration-200 hover:border-primary hover:bg-white/60 hover:text-primary focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 focus-visible:ring-offset-[#eef3f6]"
+                >
+                  <FacebookIcon aria-hidden="true" className="size-5" />
+                </a>
+                <a
+                  href="https://www.instagram.com/wxpe_automotive/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Visit WXPE on Instagram"
+                  className="flex size-11 items-center justify-center rounded-full border border-[#b9c9d3] text-foreground outline-none transition-[background-color,border-color,color] duration-200 hover:border-primary hover:bg-white/60 hover:text-primary focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 focus-visible:ring-offset-[#eef3f6]"
+                >
+                  <InstagramIcon aria-hidden="true" className="size-5" />
+                </a>
+              </div>
+            </div>
           </Reveal>
         </div>
       </div>
 
-      <footer className="relative left-1/2 mt-24 w-screen -translate-x-1/2 bg-[#07111f] px-5 py-10 text-white md:py-12">
+      <footer className="relative bg-[#07111f] px-5 py-10 text-white md:py-12">
         <div className="container flex flex-col justify-between gap-8 md:flex-row md:items-start">
           <div>
             <div className="text-lg font-semibold text-white">WXPE</div>
@@ -231,7 +208,7 @@ export function ContactSection() {
                 <a
                   key={item.href}
                   href={item.href}
-                  className="text-sm text-white/68 transition-colors hover:text-white"
+                  className="text-sm text-white/68 outline-none transition-colors hover:text-white focus-visible:rounded-sm focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-4 focus-visible:ring-offset-[#07111f]"
                 >
                   {item.label}
                 </a>

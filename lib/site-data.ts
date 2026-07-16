@@ -27,23 +27,28 @@ export const painPoints = [
   {
     title: "Cost Pressure",
     description: "Peak demand, rising tariffs and upfront investment pressure.",
-    icon: LineChart
+    icon: LineChart,
+    response: "Demand optimization · Flexible deployment"
   },
   {
     title: "Power Reliability",
     description: "Supply instability and outages can interrupt critical operations.",
-    icon: PlugZap
+    icon: PlugZap,
+    response: "Storage backup · Resilient microgrids"
   },
   {
     title: "Project Complexity",
-    description: "Storage, solar, EMS and site requirements must work as one system.",
-    icon: Building2
+    description:
+      "Storage, solar, EMS and site requirements must work as one coordinated system.",
+    icon: Building2,
+    response: "Integrated planning · Local execution"
   },
   {
     title: "Fleet & Last-Mile Efficiency",
     description:
       "Reduce short-distance logistics costs with practical electric mobility.",
-    icon: Truck
+    icon: Truck,
+    response: "Electric tricycles · Commercial operations"
   }
 ] as const;
 
