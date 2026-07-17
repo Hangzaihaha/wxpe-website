@@ -5,20 +5,58 @@ import { PageEntry } from "@/components/page-entry";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://wxpe-website.vercel.app"),
-  title: "WXPE | Localized Energy Storage & Microgrid Solutions",
+  metadataBase: new URL("https://wxpenergy.com.my"),
+  title:
+    "WXPE | Battery Energy Storage, Solar Hybrid & Electric Mobility Solutions",
   description:
-    "WXPE develops localized battery energy storage, solar hybrid microgrid and digital energy solutions for Malaysia's industrial and commercial sectors.",
+    "WXPE provides integrated energy solutions including BESS, solar hybrid systems, microgrids and electric mobility solutions for commercial and industrial applications in Malaysia.",
+  keywords: [
+    "WXPE",
+    "battery energy storage Malaysia",
+    "BESS Malaysia",
+    "solar hybrid systems",
+    "microgrids Malaysia",
+    "commercial energy solutions",
+    "industrial energy solutions",
+    "electric mobility Malaysia"
+  ],
+  alternates: {
+    canonical: "/"
+  },
   icons: {
     icon: "/assets/brand/wxpe-mark.svg",
     shortcut: "/assets/brand/wxpe-mark.svg",
     apple: "/assets/brand/wxpe-mark.svg"
   },
   openGraph: {
-    title: "WXPE | Localized Energy Storage & Microgrid Solutions",
+    title:
+      "WXPE | Battery Energy Storage, Solar Hybrid & Electric Mobility Solutions",
     description:
-      "Battery storage, solar hybrid microgrid, EMS and flexible Energy-as-a-Service pathways for Malaysia.",
+      "WXPE provides integrated energy solutions including BESS, solar hybrid systems, microgrids and electric mobility solutions for commercial and industrial applications in Malaysia.",
+    url: "/",
+    siteName: "WXPE",
+    locale: "en_MY",
+    type: "website",
     images: ["/assets/wxpe-bess-site.png"]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "WXPE | Battery Energy Storage, Solar Hybrid & Electric Mobility Solutions",
+    description:
+      "WXPE provides integrated energy solutions including BESS, solar hybrid systems, microgrids and electric mobility solutions for commercial and industrial applications in Malaysia.",
+    images: ["/assets/wxpe-bess-site.png"]
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1
+    }
   }
 };
 

@@ -22,10 +22,14 @@ export const metadata: Metadata = {
   title: "EV Mobility Solutions | WXPE",
   description:
     "WXPE EV mobility solutions for Malaysia's local logistics, industrial parks, warehouses, plantations and commercial fleet applications.",
+  alternates: {
+    canonical: "/mobility"
+  },
   openGraph: {
     title: "EV Mobility Solutions | WXPE",
     description:
       "Smart electric tricycles for local logistics and commercial mobility.",
+    url: "/mobility",
     images: ["/assets/mobility/ev-tricycle-banner.jpg"]
   }
 };

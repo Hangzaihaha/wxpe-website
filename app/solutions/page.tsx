@@ -15,10 +15,14 @@ export const metadata: Metadata = {
   title: "Energy Solutions | WXPE",
   description:
     "Battery energy storage, peak shaving, solar hybrid microgrids, EMS and flexible Energy-as-a-Service pathways for Malaysian industrial and commercial sites.",
+  alternates: {
+    canonical: "/solutions"
+  },
   openGraph: {
     title: "Energy Solutions | WXPE",
     description:
       "Integrated storage, microgrid, energy-management and flexible deployment solutions.",
+    url: "/solutions",
     images: ["/assets/energy/solar-hybrid-microgrid.jpg"]
   }
 };

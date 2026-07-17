@@ -17,10 +17,14 @@ export const metadata: Metadata = {
   title: "Proven Energy Applications | WXPE",
   description:
     "Selected references across battery storage, commercial energy systems, distributed solar and charging infrastructure.",
+  alternates: {
+    canonical: "/projects"
+  },
   openGraph: {
     title: "Proven Energy Applications | WXPE",
     description:
       "Selected energy application references from within WXPE's wider ecosystem.",
+    url: "/projects",
     images: ["/assets/projects/references/utility-storage-hero.webp"]
   }
 };

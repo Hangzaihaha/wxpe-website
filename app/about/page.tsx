@@ -12,10 +12,14 @@ export const metadata: Metadata = {
   title: "About WXPE | Industrial Experience for Digital Energy",
   description:
     "WXPE builds on the wider WXP-WSA ecosystem's Malaysian manufacturing, OEM supply and international partnership experience for digital energy deployment.",
+  alternates: {
+    canonical: "/about"
+  },
   openGraph: {
     title: "About WXPE | Industrial Experience for Digital Energy",
     description:
       "Industrial execution and local delivery supporting energy storage, microgrids and electric mobility.",
+    url: "/about",
     images: ["/assets/about/about-hero-energy.webp"]
   }
 };
