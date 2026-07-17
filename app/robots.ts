@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/"
     },
-    sitemap: "https://wxpenergy.com.my/sitemap.xml"
+    sitemap: "https://www.wxpenergy.com.my/sitemap.xml"
   };
 }

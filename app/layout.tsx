@@ -5,7 +5,7 @@ import { PageEntry } from "@/components/page-entry";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://wxpenergy.com.my"),
+  metadataBase: new URL("https://www.wxpenergy.com.my"),
   title:
     "WXPE | Battery Energy Storage, Solar Hybrid & Electric Mobility Solutions",
   description:
