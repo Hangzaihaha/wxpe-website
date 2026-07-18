@@ -1,5 +1,5 @@
 import type { SVGProps } from "react";
-import { ArrowRight, MessageCircle } from "lucide-react";
+import { ArrowRight, ExternalLink, MapPin, MessageCircle } from "lucide-react";
 
 import { Reveal } from "@/components/reveal";
 import { Button } from "@/components/ui/button";
@@ -42,6 +42,30 @@ function InstagramIcon(props: SVGProps<SVGSVGElement>) {
 
 const contactLinkClassName =
   "outline-none transition-colors duration-200 hover:text-primary focus-visible:rounded-sm focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 focus-visible:ring-offset-[#eef3f6]";
+
+const locations = [
+  {
+    name: "Factory",
+    address: [
+      "12, Jalan Subang 7/4,",
+      "Taman Perindustrian Subang USJ 1,",
+      "47600 Subang Jaya,",
+      "Selangor, Malaysia"
+    ],
+    href: "https://www.google.com/maps/search/?api=1&query=12+Jalan+Subang+7%2F4+Taman+Perindustrian+Subang+USJ+1+47600+Subang+Jaya+Selangor"
+  },
+  {
+    name: "Office",
+    address: [
+      "A-302, Street Mall One South,",
+      "Jalan OS,",
+      "Taman Serdang Perdana 6,",
+      "Seri Kembangan,",
+      "Selangor, Malaysia"
+    ],
+    href: "https://www.google.com/maps/search/?api=1&query=A-302+Street+Mall+One+South+Jalan+OS+Taman+Serdang+Perdana+6+Seri+Kembangan+Selangor"
+  }
+] as const;
 
 export function ContactSection() {
   return (
@@ -182,6 +206,76 @@ export function ContactSection() {
           </Reveal>
         </div>
       </div>
+
+      <section
+        aria-labelledby="locations-title"
+        className="container relative pb-24 md:pb-28"
+      >
+        <div className="border-t border-[#c8d4dc] pt-16 md:pt-20">
+          <Reveal className="grid items-start gap-12 lg:grid-cols-[minmax(260px,0.72fr)_minmax(0,1.28fr)] lg:gap-16 xl:gap-20">
+            <div className="max-w-md">
+              <h3
+                id="locations-title"
+                className="scroll-mt-24 text-3xl font-semibold leading-tight tracking-[-0.02em] text-foreground md:text-[2.5rem]"
+              >
+                Locations
+              </h3>
+              <p className="mt-6 text-base leading-8 text-muted-foreground">
+                WXPE is based in Selangor, Malaysia, providing battery energy
+                storage systems, solar solutions, microgrid and digital energy
+                services for commercial and industrial applications.
+              </p>
+            </div>
+
+            <div className="border-y border-[#c8d4dc] md:grid md:grid-cols-2">
+              {locations.map((location, index) => (
+                <article
+                  key={location.name}
+                  className={
+                    index === 0
+                      ? "py-9 md:pr-10"
+                      : "border-t border-[#c8d4dc] py-9 md:border-l md:border-t-0 md:pl-10"
+                  }
+                >
+                  <div className="flex items-center gap-3">
+                    <MapPin
+                      aria-hidden="true"
+                      className="size-5 shrink-0 stroke-[1.7] text-primary"
+                    />
+                    <h4 className="text-xl font-semibold text-foreground">
+                      {location.name}
+                    </h4>
+                  </div>
+
+                  <address className="mt-5 min-h-32 text-sm not-italic leading-7 text-muted-foreground sm:text-base">
+                    {location.address.map((line) => (
+                      <span key={line} className="block">
+                        {line}
+                      </span>
+                    ))}
+                  </address>
+
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="mt-7 rounded-sm border-[#b9c9d3] bg-transparent px-5 shadow-none hover:border-primary hover:bg-white/70 hover:text-primary"
+                  >
+                    <a
+                      href={location.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`View WXPE ${location.name.toLowerCase()} location in Google Maps`}
+                    >
+                      View {location.name} Location
+                      <ExternalLink aria-hidden="true" />
+                    </a>
+                  </Button>
+                </article>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </section>
 
       <footer className="relative bg-[#07111f] px-5 py-10 text-white md:py-12">
         <div className="container flex flex-col justify-between gap-8 md:flex-row md:items-start">

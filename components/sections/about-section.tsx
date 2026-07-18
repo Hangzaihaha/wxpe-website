@@ -12,8 +12,8 @@ const heritagePoints = [
 
 export function AboutSection() {
   return (
-    <section id="about" className="border-b border-border bg-background py-16 md:py-20">
-      <div className="container grid gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-center lg:gap-14">
+    <section id="about" className="border-b border-border bg-background py-20 md:py-24">
+      <div className="mx-auto grid w-full max-w-[1360px] gap-12 px-5 lg:grid-cols-[0.78fr_1.1fr] lg:items-center lg:gap-16 xl:gap-20">
         <Reveal className="max-w-xl">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
             About WXPE
@@ -46,13 +46,14 @@ export function AboutSection() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <div className="relative aspect-[16/9] overflow-hidden rounded-lg border border-[#cfdae1] bg-[#e7edf1] shadow-[0_20px_54px_rgba(11,18,32,0.09)]">
+          <div className="relative overflow-hidden rounded-xl bg-[#e7edf1] shadow-[0_24px_64px_rgba(11,18,32,0.11)]">
             <Image
-              src="/assets/about/factory-exterior.webp"
-              alt="Malaysian industrial warehouse exterior"
-              fill
-              sizes="(min-width: 1024px) 56vw, 100vw"
-              className="object-cover"
+              src="/assets/about/wxpe-team-manufacturing-site.jpg"
+              alt="WXPE team at manufacturing facility in Malaysia"
+              width={2048}
+              height={963}
+              sizes="(min-width: 1360px) 735px, (min-width: 1024px) 55vw, calc(100vw - 40px)"
+              className="h-auto w-full object-contain"
             />
           </div>
         </Reveal>

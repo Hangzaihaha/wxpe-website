@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { Reveal } from "@/components/reveal";
+import { AboutManufacturingCapabilitySection } from "@/components/sections/about-manufacturing-capability-section";
 import { SiteHeader } from "@/components/site-header";
 import { heritageTimeline, navItems } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
@@ -31,21 +32,6 @@ const internationalMarkets = [
   "United States",
   "ASEAN",
   "Europe"
-] as const;
-
-const manufacturingCapabilities = [
-  {
-    title: "Local Manufacturing",
-    description: "Practical Malaysian industrial and production capability."
-  },
-  {
-    title: "Quality and OEM Experience",
-    description: "Automotive supply, assembly and quality-system experience."
-  },
-  {
-    title: "Project Delivery",
-    description: "Local coordination, warehousing, logistics and operational support."
-  }
 ] as const;
 
 const transitionAreas = [
@@ -97,6 +83,8 @@ export default function AboutPage() {
           </Reveal>
         </div>
       </section>
+
+      <AboutManufacturingCapabilitySection />
 
       <section className="border-b border-border bg-[#f3f6f8] py-16 md:py-20">
         <div className="container">
@@ -178,78 +166,6 @@ export default function AboutPage() {
               ))}
             </div>
           </Reveal>
-        </div>
-      </section>
-
-      <section className="border-b border-border bg-[#eef3f6] py-16 md:py-20">
-        <div className="container">
-          <Reveal className="max-w-3xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-              Manufacturing Foundation
-            </p>
-            <h2 className="mt-4 text-3xl font-semibold leading-tight text-foreground md:text-[2.55rem]">
-              Built on practical industrial capability.
-            </h2>
-          </Reveal>
-
-          <div className="mt-10 grid gap-5 md:grid-cols-2">
-            <Reveal>
-              <figure>
-                <div className="relative aspect-video overflow-hidden rounded-lg border border-[#cbd8e0] bg-white">
-                  <Image
-                    src="/assets/about/warehouse-interior.webp"
-                    alt="Malaysian industrial warehouse and materials storage"
-                    fill
-                    sizes="(min-width: 768px) 50vw, 100vw"
-                    className="object-cover"
-                  />
-                </div>
-                <figcaption className="mt-3 text-xs uppercase tracking-[0.14em] text-muted-foreground">
-                  Warehouse and materials handling
-                </figcaption>
-              </figure>
-            </Reveal>
-            <Reveal delay={0.06}>
-              <figure>
-                <div className="relative aspect-video overflow-hidden rounded-lg border border-[#cbd8e0] bg-white">
-                  <Image
-                    src="/assets/about/assembly-line.webp"
-                    alt="Automotive assembly line in a Malaysian manufacturing facility"
-                    fill
-                    sizes="(min-width: 768px) 50vw, 100vw"
-                    className="object-cover"
-                  />
-                </div>
-                <figcaption className="mt-3 text-xs uppercase tracking-[0.14em] text-muted-foreground">
-                  Assembly and production environment
-                </figcaption>
-              </figure>
-            </Reveal>
-          </div>
-
-          <div className="mt-10 grid border-t border-[#cbd8e0] md:grid-cols-3">
-            {manufacturingCapabilities.map((capability, index) => (
-              <Reveal
-                key={capability.title}
-                delay={index * 0.04}
-                className="border-b border-[#cbd8e0] md:border-b-0 md:border-r md:last:border-r-0"
-              >
-                <article
-                  className={cn(
-                    "py-6 md:min-h-[150px] md:px-6",
-                    index === 0 && "md:pl-0"
-                  )}
-                >
-                  <h3 className="text-base font-semibold text-foreground">
-                    {capability.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-6 text-muted-foreground">
-                    {capability.description}
-                  </p>
-                </article>
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
 
