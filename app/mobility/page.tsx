@@ -16,6 +16,7 @@ import {
 import { Reveal } from "@/components/reveal";
 import { SiteHeader } from "@/components/site-header";
 import { Button } from "@/components/ui/button";
+import { WxpeLogo } from "@/components/wxpe-logo";
 import { navItems } from "@/lib/site-data";
 
 export const metadata: Metadata = {
@@ -548,7 +549,7 @@ export default function MobilityPage() {
         <footer className="relative left-1/2 mt-24 w-screen -translate-x-1/2 bg-[#07111f] px-5 py-10 text-white md:py-12">
           <div className="container flex flex-col justify-between gap-8 md:flex-row md:items-start">
             <div>
-              <div className="text-lg font-semibold text-white">WXPE</div>
+              <WxpeLogo inverted />
               <p className="mt-3 max-w-md text-sm leading-7 text-white/68">
                 Localized Energy Storage, Microgrid and Digital Energy Solutions.
               </p>

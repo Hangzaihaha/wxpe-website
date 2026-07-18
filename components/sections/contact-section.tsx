@@ -3,6 +3,7 @@ import { ArrowRight, ExternalLink, MapPin, MessageCircle } from "lucide-react";
 
 import { Reveal } from "@/components/reveal";
 import { Button } from "@/components/ui/button";
+import { WxpeLogo } from "@/components/wxpe-logo";
 import { navItems } from "@/lib/site-data";
 
 function FacebookIcon(props: SVGProps<SVGSVGElement>) {
@@ -280,7 +281,7 @@ export function ContactSection() {
       <footer className="relative bg-[#07111f] px-5 py-10 text-white md:py-12">
         <div className="container flex flex-col justify-between gap-8 md:flex-row md:items-start">
           <div>
-            <div className="text-lg font-semibold text-white">WXPE</div>
+            <WxpeLogo inverted />
             <p className="mt-3 max-w-md text-sm leading-7 text-white/68">
               Localized Energy Storage, Microgrid and Digital Energy Solutions.
             </p>

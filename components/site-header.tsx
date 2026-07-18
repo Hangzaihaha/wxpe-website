@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -16,6 +15,7 @@ import {
 import { navItems } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { WxpeLogo } from "@/components/wxpe-logo";
 import {
   Sheet,
   SheetClose,
@@ -83,20 +83,7 @@ export function SiteHeader() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-white/90 shadow-[0_8px_28px_rgba(11,18,32,0.05)] backdrop-blur-xl">
       <div className="mx-auto flex h-[72px] w-full max-w-[1220px] items-center gap-5 px-4 py-4 sm:px-5">
-        <Link href="/" className="flex items-center gap-3" aria-label="WXPE home">
-          <Image
-            src="/assets/brand/wxpe-mark.svg"
-            alt=""
-            width={36}
-            height={36}
-            priority
-            unoptimized
-            className="size-9 shrink-0"
-          />
-          <span className="text-lg font-semibold tracking-normal text-foreground">
-            WXPE
-          </span>
-        </Link>
+        <WxpeLogo priority />
 
         <nav
           className="ml-7 hidden items-center gap-5 lg:flex xl:ml-10 xl:gap-7"

@@ -32,9 +32,9 @@ export function AboutManufacturingCapabilitySection() {
   return (
     <section
       aria-labelledby="manufacturing-capability-heading"
-      className="border-b border-border bg-background py-20 md:py-24 lg:py-28"
+      className="border-b border-border bg-background py-16 md:py-20 lg:py-24"
     >
-      <div className="container grid gap-12 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] lg:gap-16 xl:gap-24">
+      <div className="container grid gap-10 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] lg:gap-14 xl:gap-20">
         <Reveal className="max-w-xl">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
             Our Foundation
@@ -57,7 +57,7 @@ export function AboutManufacturingCapabilitySection() {
           {manufacturingCapabilities.map((capability, index) => (
             <li key={capability.title} className="border-b border-[#cbd8e0]">
               <Reveal delay={index * 0.035}>
-                <div className="grid grid-cols-[3.5rem_minmax(0,1fr)] gap-3 py-7 sm:grid-cols-[4.5rem_minmax(0,1fr)] sm:gap-5 md:py-8">
+                <div className="grid grid-cols-[3.5rem_minmax(0,1fr)] gap-3 py-6 sm:grid-cols-[4.5rem_minmax(0,1fr)] sm:gap-5 md:py-7">
                   <span className="pt-1 text-xs font-semibold tabular-nums tracking-[0.16em] text-primary">
                     {String(index + 1).padStart(2, "0")}
                   </span>
