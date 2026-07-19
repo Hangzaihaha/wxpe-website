@@ -20,7 +20,7 @@ export const navItems = [
   { label: "Projects", href: "/projects" },
   { label: "Mobility", href: "/mobility" },
   { label: "About Us", href: "/about" },
-  { label: "Contact Us", href: "/#contact" }
+  { label: "Contact Us", href: "/contact" }
 ] as const;
 
 export const painPoints = [

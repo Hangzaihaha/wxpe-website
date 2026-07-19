@@ -537,7 +537,7 @@ export default function MobilityPage() {
                 Interested in EV mobility for your fleet or site?
               </h2>
               <Button asChild size="lg">
-                <Link href="/#contact">
+                <Link href="/contact">
                   Start a Mobility Discussion
                   <ArrowRight data-icon="inline-end" aria-hidden="true" />
                 </Link>

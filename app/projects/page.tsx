@@ -288,7 +288,7 @@ export default function ProjectsPage() {
               size="lg"
               className="border-white/55 bg-transparent text-white hover:bg-white hover:text-[#071a2f]"
             >
-              <Link href="/#contact">
+              <Link href="/contact">
                 Contact Us
                 <ArrowRight aria-hidden="true" />
               </Link>

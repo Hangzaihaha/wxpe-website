@@ -111,7 +111,11 @@ export function SiteHeader() {
                   }}
                 >
                   <div className="flex items-center gap-1">
-                    <Link href={item.href} className={navLinkClass(active)}>
+                    <Link
+                      href={item.href}
+                      aria-current={active ? "page" : undefined}
+                      className={navLinkClass(active)}
+                    >
                       {item.label}
                     </Link>
                     <button
@@ -190,6 +194,7 @@ export function SiteHeader() {
               <Link
                 key={item.href}
                 href={item.href}
+                aria-current={active ? "page" : undefined}
                 className={navLinkClass(active)}
               >
                 {item.label}
@@ -218,6 +223,7 @@ export function SiteHeader() {
                 <SheetClose asChild key={item.href}>
                   <Link
                     href={item.href}
+                    aria-current={isActive(item.href) ? "page" : undefined}
                     className={cn(
                       "border-b border-border pb-4 text-base transition-colors hover:text-foreground",
                       isActive(item.href)
