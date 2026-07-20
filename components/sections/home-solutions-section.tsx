@@ -10,24 +10,28 @@ const solutionTiles = [
     title: "Battery Energy Storage",
     description: "Storage for cost control, resilience and site-level energy management.",
     image: "/assets/energy/bess-container-site-01.jpg",
+    imageAlt: "Aerial view of a containerized battery energy storage facility",
     href: "/solutions#battery-storage"
   },
   {
     title: "Solar Hybrid Microgrids",
     description: "Solar, storage and intelligent controls for resilient site operation.",
     image: "/assets/energy/solar-storage-reference-01.jpg",
+    imageAlt: "Rooftop and carport solar arrays at an industrial complex",
     href: "/solutions#solar-hybrid"
   },
   {
     title: "Flexible Energy Deployment Models",
     description: "Zero-CAPEX, EMC/PPA, leasing and lifecycle-support pathways.",
     image: "/assets/energy/bess-project-aerial-01.jpg",
+    imageAlt: "Battery energy storage containers and substation at sunset",
     href: "/solutions#energy-deployment"
   },
   {
     title: "Electric Mobility",
     description: "Commercial electric tricycles for local logistics and site operations.",
     image: "/assets/mobility/ev-tricycle-homepage.webp",
+    imageAlt: "Commercial electric tricycles for local logistics and site operations",
     href: "/mobility"
   }
 ] as const;
@@ -52,7 +56,7 @@ export function HomeSolutionsSection() {
               >
                 <Image
                   src={tile.image}
-                  alt=""
+                  alt={tile.imageAlt}
                   fill
                   sizes="(min-width: 768px) 50vw, 100vw"
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.035]"
