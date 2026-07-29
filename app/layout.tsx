@@ -18,7 +18,13 @@ export const metadata: Metadata = {
     "microgrids Malaysia",
     "commercial energy solutions",
     "industrial energy solutions",
-    "electric mobility Malaysia"
+    "electric mobility Malaysia",
+    "EVMobii",
+    "EVMobii Malaysia",
+    "WXPE EVMobii",
+    "commercial electric mobility Malaysia",
+    "electric tricycle Malaysia",
+    "electric cargo tricycle Malaysia"
   ],
   alternates: {
     canonical: "/"

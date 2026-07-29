@@ -14,22 +14,35 @@ import {
 } from "lucide-react";
 
 import { Reveal } from "@/components/reveal";
+import {
+  MobilityEcosystemSection,
+  MobilityEnergyTransitionSection,
+  WhyEVMobiiSection
+} from "@/components/sections/mobility-strategy-sections";
 import { SiteHeader } from "@/components/site-header";
 import { Button } from "@/components/ui/button";
 import { WxpeLogo } from "@/components/wxpe-logo";
 import { navItems } from "@/lib/site-data";
 
 export const metadata: Metadata = {
-  title: "EV Mobility Solutions | WXPE",
+  title: "EVMobii Malaysia | WXPE Commercial Electric Mobility",
   description:
-    "WXPE EV mobility solutions for Malaysia's local logistics, industrial parks, warehouses, plantations and commercial fleet applications.",
+    "EVMobii is WXPE's commercial electric mobility brand in Malaysia, providing electric cargo tricycles for industrial, logistics and last-mile applications.",
+  keywords: [
+    "EVMobii",
+    "EVMobii Malaysia",
+    "WXPE EVMobii",
+    "electric tricycle Malaysia",
+    "electric cargo tricycle Malaysia",
+    "commercial electric mobility Malaysia"
+  ],
   alternates: {
     canonical: "/mobility"
   },
   openGraph: {
-    title: "EV Mobility Solutions | WXPE",
+    title: "EVMobii Malaysia | WXPE Commercial Electric Mobility",
     description:
-      "Smart electric tricycles for local logistics and commercial mobility.",
+      "EVMobii is WXPE's Malaysian commercial electric mobility brand for industrial logistics, electric cargo transport and last-mile applications.",
     url: "/mobility",
     images: ["/assets/mobility/ev-tricycle-banner.jpg"]
   }
@@ -111,32 +124,38 @@ const mobilityFeatures = [
   {
     title: "Automotive-grade suspension",
     description: "External spring shock absorbers support stable commercial operation.",
-    image: "/assets/mobility/features/suspension.webp"
+    image: "/assets/mobility/features/suspension.webp",
+    imageAlt: "EVMobii commercial electric tricycle suspension detail"
   },
   {
     title: "High-strength cargo structure",
     description: "A reinforced liftable cargo bed supports practical loading and access.",
-    image: "/assets/mobility/features/cargo-structure.webp"
+    image: "/assets/mobility/features/cargo-structure.webp",
+    imageAlt: "Reinforced EVMobii electric cargo tricycle structure"
   },
   {
     title: "Smart digital dashboard",
     description: "A clear digital display keeps essential operating information visible.",
-    image: "/assets/mobility/features/digital-dashboard.webp"
+    image: "/assets/mobility/features/digital-dashboard.webp",
+    imageAlt: "EVMobii electric tricycle digital dashboard"
   },
   {
     title: "Forward and reverse drive",
     description: "Integrated controls support precise movement in compact work areas.",
-    image: "/assets/mobility/features/drive-control.webp"
+    image: "/assets/mobility/features/drive-control.webp",
+    imageAlt: "Forward and reverse controls on an EVMobii electric tricycle"
   },
   {
     title: "Hill-climbing mode",
     description: "Electric drive capability supports varied site and route conditions.",
-    image: "/assets/mobility/features/hill-climbing-motor.webp"
+    image: "/assets/mobility/features/hill-climbing-motor.webp",
+    imageAlt: "EVMobii electric tricycle drive motor for Malaysian commercial sites"
   },
   {
     title: "Local service and parts support",
     description: "WXPE is building local after-sales coordination and service capability.",
-    image: "/assets/mobility/features/service-support.webp"
+    image: "/assets/mobility/features/service-support.webp",
+    imageAlt: "Local service support for EVMobii commercial electric vehicles"
   }
 ] as const;
 
@@ -212,7 +231,7 @@ export default function MobilityPage() {
       <section className="relative isolate min-h-[760px] border-b border-border pt-[72px]">
         <Image
           src="/assets/mobility/ev-tricycle-banner.jpg"
-          alt="Electric tricycles for Malaysia local logistics"
+          alt="WXPE EVMobii electric cargo tricycles for commercial mobility in Malaysia"
           fill
           priority
           sizes="100vw"
@@ -224,34 +243,41 @@ export default function MobilityPage() {
 
         <div className="container relative z-10 flex min-h-[calc(84svh-72px)] items-end pb-14 pt-24 md:pb-20">
           <Reveal className="max-w-[480px] text-white drop-shadow-[0_2px_18px_rgba(0,0,0,0.28)]">
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-white/70">
-              EV MOBILITY ECOSYSTEM
+            <p className="text-xl font-semibold tracking-[-0.035em] text-white/92 md:text-2xl">
+              EVMobii
             </p>
             <h1 className="mt-5 text-balance text-4xl font-semibold leading-tight md:text-[3.05rem]">
-              Electric Mobility for Local Logistics
+              EVMobii: Mobility in Motion
             </h1>
             <p className="mt-5 text-base leading-8 text-white/78">
-              Smart electric tricycles for commercial mobility across logistics,
-              industrial parks and mobile commerce.
+              EVMobii is WXPE&apos;s commercial electric mobility solution for
+              Malaysia, developed for industrial, logistics and business
+              applications.
             </p>
+            <ul className="mt-6 flex max-w-xl flex-wrap gap-x-4 gap-y-2 text-xs font-semibold uppercase tracking-[0.12em] text-white/68">
+              {[
+                "Industrial logistics",
+                "Warehouses and factories",
+                "Industrial parks",
+                "Plantations",
+                "Campuses",
+                "Commercial districts",
+                "Last-mile delivery"
+              ].map((application) => (
+                <li key={application}>{application}</li>
+              ))}
+            </ul>
           </Reveal>
         </div>
       </section>
 
-      <section className="border-b border-border bg-background py-24 md:py-32">
+      <section
+        aria-label="EVMobii mobility video"
+        className="border-b border-border bg-background py-16 md:py-20"
+      >
         <div className="container">
-          <Reveal className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-semibold leading-tight text-foreground md:text-[2.6rem]">
-              Mobility in Motion
-            </h2>
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-muted-foreground">
-              A closer look at practical electric mobility for commercial and
-              industrial use cases.
-            </p>
-          </Reveal>
-
-          <Reveal delay={0.12} className="mx-auto mt-12 w-full max-w-[1120px]">
-            <article className="overflow-hidden rounded-xl border border-[#d2dee6] bg-white p-2 shadow-[0_30px_90px_rgba(11,18,32,0.14)] md:p-3">
+          <Reveal className="mx-auto w-full max-w-[1120px]">
+            <article className="overflow-hidden rounded-xl border border-[#d2dee6] bg-white p-2 shadow-[0_24px_70px_rgba(11,18,32,0.1)] md:p-3">
               <video
                 className="aspect-video w-full rounded-lg bg-[#07111f] object-cover"
                 controls
@@ -263,11 +289,11 @@ export default function MobilityPage() {
                 <source src={primaryVideo.src} type="video/mp4" />
               </video>
               <div className="flex items-center justify-between gap-4 px-4 py-4 md:px-5">
-                <h3 className="text-sm font-semibold text-foreground">
-                  {primaryVideo.title}
-                </h3>
+                <h2 className="text-sm font-semibold text-foreground">
+                  EVMobii commercial electric mobility in Malaysia
+                </h2>
                 <span className="hidden text-xs uppercase tracking-[0.16em] text-muted-foreground sm:inline">
-                  Controlled playback
+                  EVMobii Malaysia
                 </span>
               </div>
             </article>
@@ -275,15 +301,28 @@ export default function MobilityPage() {
         </div>
       </section>
 
-      <section className="border-b border-border bg-[#f3f6f8] py-24 md:py-32">
+      <MobilityEcosystemSection />
+
+      <section
+        aria-labelledby="evmobii-product-models-title"
+        className="border-b border-border bg-[#f3f6f8] py-24 md:py-32"
+      >
         <div className="container">
           <Reveal className="max-w-2xl">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-              Product Models
+              EVMobii Product Models
             </p>
-            <h2 className="mt-4 text-3xl font-semibold leading-tight text-foreground md:text-[2.45rem]">
-              Practical platforms for local logistics.
+            <h2
+              id="evmobii-product-models-title"
+              className="mt-4 text-3xl font-semibold leading-tight text-foreground md:text-[2.45rem]"
+            >
+              Electric tricycles for Malaysian commercial operations.
             </h2>
+            <p className="mt-5 max-w-2xl text-base leading-8 text-muted-foreground">
+              Explore EVMobii electric cargo tricycles and commercial electric
+              vehicles for logistics, industrial sites, plantations and
+              last-mile operations in Malaysia.
+            </p>
           </Reveal>
 
           <div className="mt-12 grid gap-6 lg:grid-cols-2">
@@ -293,15 +332,15 @@ export default function MobilityPage() {
                   <div className="relative aspect-[3/2] overflow-hidden bg-[#dce8f2]">
                     <Image
                       src={model.image}
-                      alt={`${model.name} electric logistics tricycle`}
+                      alt={`${model.name} EVMobii electric cargo tricycle for commercial operations in Malaysia`}
                       fill
                       sizes="(min-width: 1024px) 50vw, 100vw"
-                      className="object-cover transition-transform duration-700 hover:scale-[1.025]"
+                      className="object-cover transition-transform duration-700 motion-safe:hover:scale-[1.025]"
                     />
                   </div>
                   <div className="p-6 md:p-8">
                     <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">
-                      Product Reference
+                      EVMobii Product Reference
                     </p>
                     <h3 className="mt-3 text-2xl font-semibold text-foreground">
                       {model.name}
@@ -320,7 +359,7 @@ export default function MobilityPage() {
               <div className="relative min-h-[320px] overflow-hidden bg-[#dbe7ef] sm:min-h-[420px] lg:min-h-[520px]">
                 <Image
                   src="/assets/mobility/models/warrior-mobile-food-cart.webp"
-                  alt="Warrior electric mobile food cart"
+                  alt="EVMobii Warrior electric mobile food cart in Malaysia"
                   fill
                   sizes="(min-width: 1024px) 55vw, 100vw"
                   className="object-cover transition-transform duration-700 motion-safe:hover:scale-[1.015]"
@@ -354,6 +393,10 @@ export default function MobilityPage() {
         </div>
       </section>
 
+      <WhyEVMobiiSection />
+
+      <MobilityEnergyTransitionSection />
+
       <section className="border-b border-border bg-background py-24 md:py-32">
         <div className="container">
           <Reveal className="max-w-2xl">
@@ -372,10 +415,10 @@ export default function MobilityPage() {
                   <div className="relative aspect-[3/2] overflow-hidden rounded-lg border border-[#d2dee6] bg-[#eef3f6]">
                     <Image
                       src={feature.image}
-                      alt=""
+                      alt={feature.imageAlt}
                       fill
                       sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                      className="object-cover transition-transform duration-700 hover:scale-[1.03]"
+                      className="object-cover transition-transform duration-700 motion-safe:hover:scale-[1.03]"
                     />
                   </div>
                   <h3 className="mt-5 text-lg font-semibold text-foreground">
@@ -448,7 +491,7 @@ export default function MobilityPage() {
               Use Cases
             </p>
             <h2 className="mt-4 text-3xl font-semibold leading-tight text-foreground md:text-[2.45rem]">
-              Focused applications for local commercial mobility.
+              Commercial electric mobility applications in Malaysia.
             </h2>
           </Reveal>
 
@@ -483,7 +526,7 @@ export default function MobilityPage() {
           </Reveal>
           <Reveal delay={0.1}>
             <p className="max-w-3xl text-lg leading-9 text-muted-foreground">
-              EV Mobility supports local commercial electrification while
+              EVMobii supports local commercial electrification while
               creating a pathway for battery pack localization, service
               capability, spare parts support and future fleet energy
               integration.
@@ -501,7 +544,7 @@ export default function MobilityPage() {
                   Product Brochure
                 </p>
                 <h2 className="mt-4 text-2xl font-semibold leading-tight text-foreground md:text-[2rem]">
-                  Explore the Full EV Mobility Range
+                  Explore the Full EVMobii Range
                 </h2>
                 <p className="mt-3 text-sm leading-7 text-muted-foreground md:text-base">
                   View complete model specifications, product features and
@@ -534,7 +577,7 @@ export default function MobilityPage() {
           <Reveal>
             <div className="flex flex-col gap-8 border-t border-[#d2dee6] pt-12 md:flex-row md:items-center md:justify-between">
               <h2 className="max-w-2xl text-3xl font-semibold leading-tight text-foreground md:text-[2.4rem]">
-                Interested in EV mobility for your fleet or site?
+                Interested in EVMobii mobility for your fleet or site?
               </h2>
               <Button asChild size="lg">
                 <Link href="/contact">

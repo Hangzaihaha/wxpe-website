@@ -6,8 +6,8 @@ import { Reveal } from "@/components/reveal";
 
 const heritagePoints = [
   "Manufacturing Heritage",
-  "International Experience",
-  "Digital Energy Transition"
+  "Energy Technology Partnerships",
+  "Localized Clean Technology Deployment"
 ] as const;
 
 export function AboutSection() {
@@ -22,9 +22,30 @@ export function AboutSection() {
             From Manufacturing Heritage to Digital Energy
           </h2>
           <p className="mt-5 text-base leading-8 text-muted-foreground">
-            WXPE brings decades of Malaysian manufacturing, OEM supply and
-            international partnership experience into energy storage,
-            microgrids and electric mobility.
+            WXPE combines decades of Malaysian manufacturing experience,
+            energy technology partnerships and localized deployment capability
+            across{" "}
+            <Link
+              href="/solutions#battery-storage"
+              className="font-medium text-foreground underline decoration-primary/35 underline-offset-4 transition-colors hover:text-primary"
+            >
+              Battery Energy Storage Systems
+            </Link>
+            ,{" "}
+            <Link
+              href="/solutions#solar-hybrid"
+              className="font-medium text-foreground underline decoration-primary/35 underline-offset-4 transition-colors hover:text-primary"
+            >
+              Solar Hybrid Microgrids
+            </Link>{" "}
+            and{" "}
+            <Link
+              href="/mobility"
+              className="font-medium text-foreground underline decoration-primary/35 underline-offset-4 transition-colors hover:text-primary"
+            >
+              EVMobii commercial electric mobility
+            </Link>
+            .
           </p>
 
           <div className="mt-7 border-y border-border py-5">

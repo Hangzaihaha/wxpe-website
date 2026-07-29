@@ -44,6 +44,16 @@ export default function SolutionsPage() {
             <p className="mt-6 max-w-3xl text-base leading-8 text-muted-foreground md:text-lg">
               From battery storage and peak shaving to solar hybrid microgrids,
               intelligent control and flexible commercial models.
+              <span className="mt-3 block text-sm leading-7 md:text-base">
+                These energy capabilities complement{" "}
+                <Link
+                  href="/mobility"
+                  className="font-medium text-foreground underline decoration-primary/35 underline-offset-4 transition-colors hover:text-primary"
+                >
+                  WXPE&apos;s EVMobii commercial electric mobility
+                </Link>{" "}
+                through shared battery technology expertise.
+              </span>
             </p>
           </Reveal>
 

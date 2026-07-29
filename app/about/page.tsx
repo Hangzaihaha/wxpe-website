@@ -12,16 +12,16 @@ import { heritageTimeline, navItems } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "About WXPE | Industrial Experience for Digital Energy",
+  title: "About WXPE | Clean Energy & EVMobii Mobility Malaysia",
   description:
-    "WXPE builds on the wider WXP-WSA ecosystem's Malaysian manufacturing, OEM supply and international partnership experience for digital energy deployment.",
+    "WXPE combines Malaysian manufacturing experience with clean energy solutions and EVMobii, its commercial electric mobility brand for Malaysia.",
   alternates: {
     canonical: "/about"
   },
   openGraph: {
-    title: "About WXPE | Industrial Experience for Digital Energy",
+    title: "About WXPE | Clean Energy & EVMobii Mobility Malaysia",
     description:
-      "Industrial execution and local delivery supporting energy storage, microgrids and electric mobility.",
+      "WXPE manufacturing experience supporting clean energy solutions and EVMobii commercial electric mobility in Malaysia.",
     url: "/about",
     images: ["/assets/about/about-hero-energy.webp"]
   }
@@ -36,11 +36,49 @@ const internationalMarkets = [
   "Europe"
 ] as const;
 
-const transitionAreas = [
-  "Battery Energy Storage",
-  "Solar Hybrid Microgrids",
-  "Energy-as-a-Service",
-  "Electric Mobility"
+const transitionPillars = [
+  {
+    title: "Energy Transition",
+    description:
+      "Battery energy storage, solar hybrid microgrids and digital energy solutions for industrial and commercial applications.",
+    areas: [
+      {
+        label: "Battery Energy Storage Systems",
+        href: "/solutions#battery-storage"
+      },
+      {
+        label: "Solar Hybrid Microgrids",
+        href: "/solutions#solar-hybrid"
+      },
+      {
+        label: "Digital Energy Solutions",
+        href: "/solutions#digital-energy-management"
+      },
+      {
+        label: "Flexible Energy Deployment",
+        href: "/solutions#energy-deployment"
+      }
+    ]
+  },
+  {
+    title: "Mobility Transition",
+    description:
+      "EVMobii commercial electric mobility, battery capability and localized assembly and service development.",
+    areas: [
+      {
+        label: "EVMobii Commercial Electric Mobility",
+        href: "/mobility"
+      },
+      {
+        label: "Battery Capability",
+        href: "/mobility#evmobii-ecosystem-title"
+      },
+      {
+        label: "Local Assembly & Service",
+        href: "/mobility#evmobii-ecosystem-title"
+      }
+    ]
+  }
 ] as const;
 
 export default function AboutPage() {
@@ -55,14 +93,36 @@ export default function AboutPage() {
               About WXPE
             </p>
             <h1 className="mt-5 text-balance text-4xl font-semibold leading-[1.08] text-foreground md:text-[3.55rem]">
-              30 Years of Industrial Experience.
-              <span className="block text-primary">A New Chapter in Digital Energy.</span>
+              30+ Years of Manufacturing Experience.
+              <span className="block text-primary">
+                Building Malaysia&apos;s Clean Technology Future.
+              </span>
             </h1>
             <p className="mt-6 max-w-3xl text-base leading-8 text-muted-foreground md:text-lg">
-              Rooted in Malaysian manufacturing and strengthened by international
-              partnerships, WXPE brings industrial execution, local delivery and
-              partner-backed technology into energy storage, microgrids and
-              electric mobility.
+              WXPE is a Malaysian company combining manufacturing expertise,
+              energy technology partnerships and localized deployment capability
+              across{" "}
+              <Link
+                href="/solutions#battery-storage"
+                className="font-medium text-foreground underline decoration-primary/35 underline-offset-4 transition-colors hover:text-primary"
+              >
+                Battery Energy Storage Systems
+              </Link>
+              ,{" "}
+              <Link
+                href="/solutions#solar-hybrid"
+                className="font-medium text-foreground underline decoration-primary/35 underline-offset-4 transition-colors hover:text-primary"
+              >
+                Solar Hybrid Microgrids
+              </Link>{" "}
+              and{" "}
+              <Link
+                href="/mobility"
+                className="font-medium text-foreground underline decoration-primary/35 underline-offset-4 transition-colors hover:text-primary"
+              >
+                EVMobii commercial electric mobility
+              </Link>
+              .
             </p>
           </Reveal>
 
@@ -173,44 +233,83 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-background py-16 md:py-20">
+      <section className="bg-background py-20 md:py-24">
         <div className="container">
           <Reveal className="grid gap-6 lg:grid-cols-[0.86fr_1.14fr] lg:items-end">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-                Digital Energy Transition
+                Clean Technology Strategy
               </p>
               <h2 className="mt-4 text-3xl font-semibold leading-tight text-foreground md:text-[2.65rem]">
-                Industrial Discipline for the Energy Transition
+                Manufacturing Expertise for Two Connected Transitions
               </h2>
             </div>
             <p className="max-w-2xl text-base leading-8 text-muted-foreground lg:justify-self-end">
-              From 2024 onward, WXPE is applying this industrial foundation to
-              localized energy and mobility deployment.
+              WXPE applies its industrial foundation, engineering discipline and
+              localization strategy across both clean energy and commercial
+              electric mobility.
             </p>
           </Reveal>
 
-          <Reveal delay={0.08} className="mt-9">
-            <div className="grid gap-px border-y border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
-              {transitionAreas.map((area) => (
-                <div
-                  key={area}
-                  className="flex min-h-24 items-center bg-white px-5 py-6 text-sm font-semibold text-foreground"
-                >
-                  {area}
-                </div>
-              ))}
-            </div>
-          </Reveal>
+          <div className="mt-10 grid border-y border-[#c8d6df] lg:grid-cols-2">
+            {transitionPillars.map((pillar, index) => (
+              <Reveal
+                key={pillar.title}
+                delay={index * 0.07}
+                className={
+                  index === 0
+                    ? "border-b border-[#c8d6df] lg:border-b-0 lg:pr-12"
+                    : "lg:border-l lg:border-[#c8d6df] lg:pl-12"
+                }
+              >
+                <article className="py-10 lg:py-12">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+                    Pillar {String(index + 1).padStart(2, "0")}
+                  </p>
+                  <h3 className="mt-4 text-2xl font-semibold text-foreground md:text-[2rem]">
+                    {pillar.title}
+                  </h3>
+                  <p className="mt-5 max-w-xl text-sm leading-7 text-muted-foreground md:text-base md:leading-8">
+                    {pillar.description}
+                  </p>
+                  <ul className="mt-7 border-t border-border pt-5">
+                    {pillar.areas.map((area) => (
+                      <li key={area.label} className="border-b border-border last:border-b-0">
+                        <Link
+                          href={area.href}
+                          className="group flex items-center justify-between gap-4 py-3 text-sm font-semibold text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                        >
+                          {area.label}
+                          <ArrowRight
+                            className="size-3.5 shrink-0 text-primary/60 transition-transform duration-200 motion-safe:group-hover:translate-x-0.5"
+                            aria-hidden="true"
+                          />
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              </Reveal>
+            ))}
+          </div>
 
           <Reveal delay={0.12}>
-            <Link
-              href="/#solutions"
-              className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-foreground"
-            >
-              Explore Our Solutions
-              <ArrowRight className="size-4" aria-hidden="true" />
-            </Link>
+            <div className="mt-8 flex flex-wrap gap-x-7 gap-y-4">
+              <Link
+                href="/solutions"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-foreground"
+              >
+                Explore Our Solutions
+                <ArrowRight className="size-4" aria-hidden="true" />
+              </Link>
+              <Link
+                href="/mobility"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-foreground"
+              >
+                Explore EVMobii
+                <ArrowRight className="size-4" aria-hidden="true" />
+              </Link>
+            </div>
           </Reveal>
         </div>
       </section>
