@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { Pause, Play } from "lucide-react";
+import { Play } from "lucide-react";
 import Image from "next/image";
 import { useRef, useState } from "react";
 
@@ -100,26 +100,22 @@ export function MobilityHero() {
 
 export function MobilityVideoSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [hasStarted, setHasStarted] = useState(false);
 
-  function togglePlayback() {
+  function handlePlay() {
     const video = videoRef.current;
 
     if (!video) {
       return;
     }
 
-    if (video.paused) {
-      void video.play();
-    } else {
-      video.pause();
-    }
+    void video.play();
   }
 
   return (
     <section
       aria-label="EVMobii mobility video"
-      className="border-b border-border bg-background py-16 md:py-20"
+      className="border-b border-border bg-background py-10 md:py-20"
     >
       <div className="container">
         <Reveal className="mx-auto w-full max-w-[1120px]">
@@ -128,32 +124,26 @@ export function MobilityVideoSection() {
               <video
                 ref={videoRef}
                 className="aspect-video w-full object-cover transition-transform duration-700 motion-safe:group-hover:scale-[1.008]"
-                controls
+                controls={hasStarted}
                 muted
                 playsInline
                 preload="metadata"
                 poster="/assets/mobility/ev-tricycle-banner.jpg"
-                onPlay={() => setIsPlaying(true)}
-                onPause={() => setIsPlaying(false)}
-                onEnded={() => setIsPlaying(false)}
+                onPlay={() => setHasStarted(true)}
               >
                 <source src="/assets/mobility/ev-tricycle-video-02.mp4" type="video/mp4" />
               </video>
 
-              <button
-                type="button"
-                onClick={togglePlayback}
-                aria-label={isPlaying ? "Pause EVMobii mobility video" : "Play EVMobii mobility video"}
-                className={`absolute left-1/2 top-1/2 flex size-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/35 bg-[rgba(7,17,31,0.58)] text-white shadow-[0_16px_46px_rgba(0,0,0,0.28)] backdrop-blur-md transition-[background-color,opacity,transform] duration-300 hover:scale-105 hover:bg-[rgba(7,17,31,0.72)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#07111f] motion-reduce:hover:scale-100 md:size-20 ${
-                  isPlaying ? "opacity-0 group-hover:opacity-100 focus-visible:opacity-100" : "opacity-100"
-                }`}
-              >
-                {isPlaying ? (
-                  <Pause className="size-6 fill-current md:size-7" aria-hidden="true" />
-                ) : (
+              {!hasStarted ? (
+                <button
+                  type="button"
+                  onClick={handlePlay}
+                  aria-label="Play EVMobii mobility video"
+                  className="absolute left-1/2 top-1/2 flex size-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/35 bg-[rgba(7,17,31,0.58)] text-white shadow-[0_16px_46px_rgba(0,0,0,0.28)] backdrop-blur-md transition-[background-color,transform] duration-300 hover:scale-105 hover:bg-[rgba(7,17,31,0.72)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#07111f] motion-reduce:hover:scale-100 md:size-20"
+                >
                   <Play className="ml-1 size-6 fill-current md:size-7" aria-hidden="true" />
-                )}
-              </button>
+                </button>
+              ) : null}
             </div>
 
             <div className="flex items-center justify-between gap-4 px-4 py-4 md:px-6 md:py-5">

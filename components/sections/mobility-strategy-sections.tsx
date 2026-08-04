@@ -51,7 +51,7 @@ export function MobilityEcosystemSection() {
   return (
     <section
       aria-labelledby="evmobii-ecosystem-title"
-      className="border-b border-border bg-background py-20 md:py-28"
+      className="border-b border-border bg-background py-14 md:py-28"
     >
       <div className="container">
         <Reveal className="grid gap-6 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">

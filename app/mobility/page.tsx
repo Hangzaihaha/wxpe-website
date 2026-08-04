@@ -18,6 +18,7 @@ import {
   MobilityHero,
   MobilityVideoSection
 } from "@/components/sections/mobility-media-sections";
+import { MobilitySpecifications } from "@/components/sections/mobility-specifications";
 import {
   MobilityEcosystemSection,
   MobilityEnergyTransitionSection,
@@ -170,67 +171,6 @@ const mobilityFeatures = [
   }
 ] as const;
 
-const specificationLabels = [
-  "Motor power",
-  "Estimated range",
-  "Maximum load",
-  "Vehicle dimensions",
-  "Charging time"
-] as const;
-
-const mobilitySpecifications = [
-  {
-    model: "Flag Ship",
-    values: [
-      "1,800 W",
-      "60-80 km",
-      "Up to 1,200 kg",
-      "3300 x 1299 x 1460 mm",
-      "6-8 hours"
-    ]
-  },
-  {
-    model: "Black Panther",
-    values: [
-      "1,500 W",
-      "60-80 km",
-      "Up to 800 kg",
-      "3070 x 1180 x 1410 mm",
-      "6-8 hours"
-    ]
-  },
-  {
-    model: "Warrior",
-    values: [
-      "1,200 W",
-      "60-80 km",
-      "Up to 500 kg",
-      "2910 x 1070 x 1365 mm",
-      "6-8 hours"
-    ]
-  },
-  {
-    model: "Courier Cart",
-    values: [
-      "1,200 W",
-      "60-80 km",
-      "Up to 500 kg",
-      "2910 x 1070 x 1365 mm",
-      "6-8 hours"
-    ]
-  },
-  {
-    model: "Mobile Food Cart",
-    values: [
-      "1,200 W",
-      "60-80 km",
-      "Up to 500 kg",
-      "2910 x 1070 x 1365 mm",
-      "6-8 hours"
-    ]
-  }
-] as const;
-
 // TODO: Future media gallery can include additional compressed mobility clips after review.
 // Secondary raw clip currently kept in assets: /assets/mobility/ev-tricycle-video-01.mp4
 
@@ -337,7 +277,7 @@ export default function MobilityPage() {
 
       <MobilityEnergyTransitionSection />
 
-      <section className="border-b border-border bg-background py-24 md:py-32">
+      <section className="border-b border-border bg-background py-16 md:py-32">
         <div className="container">
           <Reveal className="max-w-2xl">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
@@ -374,58 +314,7 @@ export default function MobilityPage() {
             ))}
           </div>
 
-          <Reveal delay={0.08} className="mt-16">
-            <details className="group border-y border-[#c8d6df] bg-[#f8fafb] px-5 md:px-8">
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-6 text-lg font-semibold text-foreground marker:content-none">
-                Compare model specifications
-                <span
-                  className="text-2xl font-light text-primary transition-transform duration-300 group-open:rotate-45"
-                  aria-hidden="true"
-                >
-                  +
-                </span>
-              </summary>
-              <div className="overflow-x-auto border-t border-border pb-7">
-                <table className="w-full min-w-[980px] border-collapse text-left">
-                  <thead className="sticky top-0 z-20 bg-[#f8fafb] shadow-[0_1px_0_0_#d2dee6]">
-                    <tr>
-                      <th className="sticky left-0 z-30 w-[28%] bg-[#f8fafb] py-5 pr-6 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
-                        Specification
-                      </th>
-                      {mobilitySpecifications.map((item) => (
-                        <th
-                          key={item.model}
-                          className="py-5 pr-6 text-sm font-semibold text-foreground"
-                        >
-                          {item.model}
-                        </th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {specificationLabels.map((label, rowIndex) => (
-                      <tr
-                        key={label}
-                        className="group/row border-t border-border transition-colors hover:bg-primary/[0.045]"
-                      >
-                        <th className="sticky left-0 z-10 bg-[#f8fafb] py-4 pr-6 text-sm font-medium text-muted-foreground transition-colors group-hover/row:bg-[#eef5f9]">
-                          {label}
-                        </th>
-                        {mobilitySpecifications.map((item) => (
-                          <td key={item.model} className="py-4 pr-6 text-sm text-foreground">
-                            {item.values[rowIndex]}
-                          </td>
-                        ))}
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-                <p className="mt-5 text-xs leading-6 text-muted-foreground">
-                  Specifications are reference values and may vary by configuration and future product updates.
-                </p>
-              </div>
-            </details>
-          </Reveal>
+          <MobilitySpecifications />
         </div>
       </section>
 
