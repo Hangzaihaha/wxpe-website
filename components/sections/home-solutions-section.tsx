@@ -40,123 +40,147 @@ const mobilityTransitionTile = {
   href: "/mobility"
 } as const;
 
-export function HomeSolutionsSection() {
+type SolutionTile = (typeof energyTransitionTiles)[number] | typeof mobilityTransitionTile;
+
+function TransitionLabel({ id, children }: { id: string; children: string }) {
   return (
-    <section id="solutions" className="border-b border-border bg-background py-16 md:py-24">
+    <div className="flex items-center gap-4">
+      <h3
+        id={id}
+        className="shrink-0 text-sm font-semibold uppercase tracking-[0.16em] text-primary md:text-base"
+      >
+        {children}
+      </h3>
+      <span className="h-px flex-1 bg-[#c9d8e3]" aria-hidden="true" />
+    </div>
+  );
+}
+
+function FeaturedSolutionCard({
+  tile,
+  imageSizes,
+  imagePosition
+}: {
+  tile: SolutionTile;
+  imageSizes: string;
+  imagePosition?: string;
+}) {
+  return (
+    <Link
+      href={tile.href}
+      className="group relative block min-h-[430px] overflow-hidden rounded-[1.375rem] border border-[#cbd8e1] bg-brand-navy shadow-[0_20px_54px_rgba(7,17,31,0.09)] outline-none transition-[border-color,box-shadow,transform] duration-500 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_28px_72px_rgba(7,17,31,0.15)] focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 motion-reduce:hover:translate-y-0 md:min-h-[520px] xl:min-h-[570px]"
+    >
+      <Image
+        src={tile.image}
+        alt={tile.imageAlt}
+        fill
+        sizes={imageSizes}
+        className={`object-cover transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.035] ${imagePosition ?? ""}`}
+      />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,17,31,0.01)_24%,rgba(7,17,31,0.88)_100%)]" />
+
+      <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-6 p-6 text-white md:p-8">
+        <div className="max-w-xl">
+          <h4 className="text-2xl font-semibold leading-[1.1] tracking-[-0.02em] md:text-[2rem]">
+            {tile.title}
+          </h4>
+          <p className="mt-3 max-w-lg text-sm leading-6 text-white/78 md:text-[0.95rem] md:leading-7">
+            {tile.description}
+          </p>
+        </div>
+        <ArrowUpRight
+          aria-hidden="true"
+          className="size-6 shrink-0 transition-transform duration-300 motion-safe:group-hover:translate-x-1 motion-safe:group-hover:-translate-y-1"
+        />
+      </div>
+    </Link>
+  );
+}
+
+function SupportingSolutionCard({ tile }: { tile: SolutionTile }) {
+  return (
+    <Link
+      href={tile.href}
+      className="group grid min-h-[250px] overflow-hidden rounded-[1.375rem] border border-[#cbd8e1] bg-white shadow-[0_16px_44px_rgba(7,17,31,0.06)] outline-none transition-[border-color,box-shadow,transform] duration-500 hover:-translate-y-1 hover:border-primary/35 hover:shadow-[0_22px_56px_rgba(7,17,31,0.11)] focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 motion-reduce:hover:translate-y-0 sm:grid-cols-[0.96fr_1.04fr]"
+    >
+      <div className="relative min-h-52 overflow-hidden sm:min-h-full">
+        <Image
+          src={tile.image}
+          alt={tile.imageAlt}
+          fill
+          sizes="(min-width: 1024px) 25vw, (min-width: 640px) 45vw, 100vw"
+          className="object-cover transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.04]"
+        />
+      </div>
+      <div className="flex min-h-48 flex-col justify-between gap-8 p-6 md:p-7">
+        <div>
+          <h4 className="text-xl font-semibold leading-tight tracking-[-0.015em] text-foreground md:text-2xl">
+            {tile.title}
+          </h4>
+          <p className="mt-3 text-sm leading-6 text-muted-foreground">
+            {tile.description}
+          </p>
+        </div>
+        <ArrowUpRight
+          aria-hidden="true"
+          className="ml-auto size-5 text-primary transition-transform duration-300 motion-safe:group-hover:translate-x-1 motion-safe:group-hover:-translate-y-1"
+        />
+      </div>
+    </Link>
+  );
+}
+
+export function HomeSolutionsSection() {
+  const [batteryStorageTile, ...supportingEnergyTiles] = energyTransitionTiles;
+
+  return (
+    <section id="solutions" className="border-b border-border bg-[#f7f9fb] py-16 md:py-24">
       <div className="container">
         <Reveal>
           <SectionHeading
             title="Two Transitions. One Localized Technology Platform."
             description="WXPE combines energy technology, manufacturing experience and local deployment capability to support Malaysia's clean technology transition."
+            className="max-w-4xl"
           />
         </Reveal>
 
-        <div className="mt-12 grid gap-12 lg:grid-cols-[1.48fr_0.82fr] lg:gap-10">
-          <section aria-labelledby="energy-transition-title">
-            <div className="flex items-center gap-5">
-              <h3
-                id="energy-transition-title"
-                className="shrink-0 text-xl font-semibold text-foreground md:text-2xl"
-              >
-                Energy Transition
-              </h3>
-              <span className="h-px flex-1 bg-border" aria-hidden="true" />
-            </div>
-
-            <div className="mt-6 grid gap-5 sm:grid-cols-2">
-              {energyTransitionTiles.map((tile, index) => (
-                <Reveal
-                  key={tile.title}
-                  delay={index * 0.045}
-                  className={index === 0 ? "sm:col-span-2" : undefined}
-                >
-                  <Link
-                    href={tile.href}
-                    className={`group relative block overflow-hidden rounded-lg border border-[#d2dee6] bg-[#07111f] shadow-[0_18px_54px_rgba(11,18,32,0.08)] transition-[border-color,box-shadow] hover:border-primary/35 hover:shadow-[0_24px_64px_rgba(11,18,32,0.12)] ${
-                      index === 0 ? "aspect-[16/8]" : "aspect-[4/3]"
-                    }`}
-                  >
-                    <Image
-                      src={tile.image}
-                      alt={tile.imageAlt}
-                      fill
-                      sizes={
-                        index === 0
-                          ? "(min-width: 1024px) 62vw, 100vw"
-                          : "(min-width: 1024px) 31vw, (min-width: 640px) 50vw, 100vw"
-                      }
-                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.025]"
-                    />
-                    <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,17,31,0.02)_30%,rgba(7,17,31,0.86)_100%)]" />
-
-                    <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-5 p-5 text-white md:p-6">
-                      <div className="max-w-lg">
-                        <h4 className="text-lg font-semibold leading-tight md:text-xl">
-                          {tile.title}
-                        </h4>
-                        <p className="mt-2 text-sm leading-6 text-white/76">
-                          {tile.description}
-                        </p>
-                      </div>
-                      <ArrowUpRight
-                        aria-hidden="true"
-                        className="size-5 shrink-0 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                      />
-                    </div>
-                  </Link>
-                </Reveal>
-              ))}
-            </div>
-          </section>
-
-          <section
-            aria-labelledby="mobility-transition-title"
-            className="lg:border-l lg:border-border lg:pl-10"
-          >
-            <div className="flex items-center gap-5">
-              <h3
-                id="mobility-transition-title"
-                className="shrink-0 text-xl font-semibold text-foreground md:text-2xl"
-              >
-                Mobility Transition
-              </h3>
-              <span className="h-px flex-1 bg-border" aria-hidden="true" />
-            </div>
-
-            <Reveal delay={0.08} className="mt-6">
-              <Link
-                href={mobilityTransitionTile.href}
-                className="group relative block aspect-[4/5] overflow-hidden rounded-lg border border-[#d2dee6] bg-[#07111f] shadow-[0_18px_54px_rgba(11,18,32,0.08)] transition-[border-color,box-shadow] hover:border-primary/35 hover:shadow-[0_24px_64px_rgba(11,18,32,0.12)]"
-              >
-                <Image
-                  src={mobilityTransitionTile.image}
-                  alt={mobilityTransitionTile.imageAlt}
-                  fill
-                  sizes="(min-width: 1024px) 34vw, 100vw"
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.025]"
-                />
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,17,31,0.02)_28%,rgba(7,17,31,0.88)_100%)]" />
-
-                <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-5 p-6 text-white md:p-7">
-                  <div className="max-w-sm">
-                    <h4 className="text-xl font-semibold leading-tight md:text-2xl">
-                      {mobilityTransitionTile.title}
-                    </h4>
-                    <p className="mt-3 text-sm leading-6 text-white/76">
-                      {mobilityTransitionTile.description}
-                    </p>
-                  </div>
-                  <ArrowUpRight
-                    aria-hidden="true"
-                    className="size-5 shrink-0 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                  />
-                </div>
-              </Link>
-              <p className="mt-5 border-t border-border pt-4 text-sm font-medium leading-7 text-muted-foreground">
-                Battery capability · Local assembly · Commercial applications
-              </p>
+        <div className="mt-12 grid gap-x-6 gap-y-8 lg:grid-cols-12 lg:gap-x-7 lg:gap-y-7">
+          <section aria-labelledby="energy-transition-title" className="lg:col-span-7">
+            <TransitionLabel id="energy-transition-title">Energy Transition</TransitionLabel>
+            <Reveal delay={0.04} className="mt-5">
+              <FeaturedSolutionCard
+                tile={batteryStorageTile}
+                imageSizes="(min-width: 1536px) 680px, (min-width: 1024px) 58vw, 100vw"
+              />
             </Reveal>
           </section>
+
+          <section aria-labelledby="mobility-transition-title" className="lg:col-span-5">
+            <TransitionLabel id="mobility-transition-title">Mobility Transition</TransitionLabel>
+            <Reveal delay={0.1} className="mt-5">
+              <FeaturedSolutionCard
+                tile={mobilityTransitionTile}
+                imageSizes="(min-width: 1536px) 465px, (min-width: 1024px) 42vw, 100vw"
+                imagePosition="object-[56%_center]"
+              />
+            </Reveal>
+          </section>
+
+          {supportingEnergyTiles.map((tile, index) => (
+            <Reveal
+              key={tile.title}
+              delay={0.12 + index * 0.05}
+              className="lg:col-span-6"
+            >
+              <SupportingSolutionCard tile={tile} />
+            </Reveal>
+          ))}
+
+          <Reveal delay={0.2} className="lg:col-span-12">
+            <p className="border-t border-[#c9d8e3] pt-5 text-center text-sm font-medium leading-7 tracking-[0.01em] text-primary">
+              Battery capability · Local assembly · Commercial applications
+            </p>
+          </Reveal>
         </div>
       </div>
     </section>

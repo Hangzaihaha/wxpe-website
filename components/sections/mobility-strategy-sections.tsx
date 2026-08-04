@@ -68,7 +68,7 @@ export function MobilityEcosystemSection() {
           </p>
         </Reveal>
 
-        <div className="mt-12 grid border-y border-[#c8d6df] sm:grid-cols-2 lg:grid-cols-5">
+        <div className="mt-12 grid overflow-hidden rounded-xl border border-[#c8d6df] bg-white shadow-[0_18px_54px_rgba(11,18,32,0.06)] sm:grid-cols-2 lg:grid-cols-5">
           {ecosystemSteps.map((step, index) => {
             const Icon = step.icon;
 
@@ -76,17 +76,23 @@ export function MobilityEcosystemSection() {
               <Reveal
                 key={step.title}
                 delay={index * 0.045}
-                className="relative border-b border-[#c8d6df] last:border-b-0 sm:even:border-l sm:even:border-[#c8d6df] lg:border-b-0 lg:border-l lg:first:border-l-0"
+                className="group relative border-b border-[#c8d6df] last:border-b-0 sm:even:border-l sm:even:border-[#c8d6df] lg:border-b-0 lg:border-l lg:first:border-l-0"
               >
-                <article className="min-h-[210px] px-5 py-7 lg:min-h-[248px] lg:px-6 lg:py-8">
+                <article className="relative min-h-[210px] px-5 py-7 transition-colors duration-500 hover:bg-[#f5f9fc] lg:min-h-[248px] lg:px-6 lg:py-8">
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-primary transition-transform duration-500 motion-safe:group-hover:scale-x-100"
+                  />
                   <div className="flex items-center justify-between gap-4">
                     <span className="text-sm font-semibold tracking-[0.12em] text-primary">
                       {String(index + 1).padStart(2, "0")}
                     </span>
-                    <Icon
-                      aria-hidden="true"
-                      className="size-6 stroke-[1.5] text-primary"
-                    />
+                    <span className="flex size-10 items-center justify-center rounded-full border border-primary/20 bg-primary/[0.045] text-primary transition-colors duration-300 group-hover:border-primary/35 group-hover:bg-primary/[0.08]">
+                      <Icon
+                        aria-hidden="true"
+                        className="size-5 stroke-[1.5]"
+                      />
+                    </span>
                   </div>
                   <h3 className="mt-16 max-w-[12rem] text-lg font-semibold leading-7 text-foreground lg:mt-20">
                     {step.title}
@@ -94,7 +100,7 @@ export function MobilityEcosystemSection() {
                   {index < ecosystemSteps.length - 1 ? (
                     <ArrowRight
                       aria-hidden="true"
-                      className="absolute -right-3 top-1/2 z-10 hidden size-6 -translate-y-1/2 bg-white p-1 text-primary lg:block"
+                      className="absolute -right-3 top-1/2 z-10 hidden size-6 -translate-y-1/2 bg-white p-1 text-primary transition-transform duration-300 motion-safe:group-hover:translate-x-1 lg:block"
                     />
                   ) : null}
                 </article>
@@ -135,9 +141,9 @@ export function WhyEVMobiiSection() {
             <Reveal
               key={pillar.title}
               delay={index * 0.055}
-              className="border-b border-[#c8d6df] last:border-b-0 lg:border-b-0 lg:border-l lg:first:border-l-0"
+              className="group border-b border-[#c8d6df] last:border-b-0 lg:border-b-0 lg:border-l lg:first:border-l-0"
             >
-              <article className="px-1 py-8 sm:px-6 lg:min-h-[255px] lg:px-9 lg:py-9">
+              <article className="px-1 py-8 transition-colors duration-500 hover:bg-[#f7fafc] sm:px-6 lg:min-h-[255px] lg:px-9 lg:py-9">
                 <div className="flex items-center gap-4">
                   <p className="text-[2.75rem] font-light leading-none tracking-[-0.04em] text-primary/75">
                     {pillar.number}
@@ -210,14 +216,14 @@ export function MobilityEnergyTransitionSection() {
           </Reveal>
 
           <Reveal delay={0.08}>
-            <figure>
-              <div className="relative aspect-[16/9] overflow-hidden rounded-lg border border-[#d2dee6] bg-white">
+            <figure className="group">
+              <div className="relative aspect-[16/9] overflow-hidden rounded-xl border border-[#d2dee6] bg-white shadow-[0_20px_60px_rgba(11,18,32,0.08)] transition-[border-color,box-shadow,transform] duration-500 hover:-translate-y-1 hover:border-primary/30 hover:shadow-[0_28px_72px_rgba(11,18,32,0.13)] motion-reduce:hover:translate-y-0">
                 <Image
                   src="/assets/energy/industrial-bess-reference-01.jpg"
                   alt="Battery energy storage system supporting WXPE energy applications"
                   fill
                   sizes="(min-width: 1024px) 58vw, 100vw"
-                  className="object-cover transition-transform duration-700 motion-safe:hover:scale-[1.015]"
+                  className="object-cover transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.035]"
                 />
               </div>
               <figcaption className="mt-4 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
@@ -233,9 +239,9 @@ export function MobilityEnergyTransitionSection() {
             <Reveal
               key={step.title}
               delay={index * 0.045}
-              className="border-b border-[#c8d6df] last:border-b-0 lg:border-b-0 lg:border-l lg:first:border-l-0"
+              className="group border-b border-[#c8d6df] last:border-b-0 lg:border-b-0 lg:border-l lg:first:border-l-0"
             >
-              <li className="relative min-h-[144px] px-1 py-7 sm:px-6 lg:min-h-[180px] lg:px-8 lg:py-8">
+              <li className="relative min-h-[144px] px-1 py-7 transition-colors duration-500 hover:bg-white/75 sm:px-6 lg:min-h-[180px] lg:px-8 lg:py-8">
                 <p className="text-xs font-semibold tracking-[0.16em] text-primary/75">
                   {step.number}
                 </p>
@@ -245,7 +251,7 @@ export function MobilityEnergyTransitionSection() {
                 {index < transitionSteps.length - 1 ? (
                   <ArrowRight
                     aria-hidden="true"
-                    className="absolute -right-2 top-1/2 z-10 hidden size-4 -translate-y-1/2 bg-[#f3f6f8] text-primary/65 lg:block"
+                    className="absolute -right-2 top-1/2 z-10 hidden size-4 -translate-y-1/2 bg-[#f3f6f8] text-primary/65 transition-transform duration-300 motion-safe:group-hover:translate-x-1 lg:block"
                   />
                 ) : null}
               </li>

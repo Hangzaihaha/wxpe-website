@@ -15,6 +15,10 @@ import {
 
 import { Reveal } from "@/components/reveal";
 import {
+  MobilityHero,
+  MobilityVideoSection
+} from "@/components/sections/mobility-media-sections";
+import {
   MobilityEcosystemSection,
   MobilityEnergyTransitionSection,
   WhyEVMobiiSection
@@ -25,24 +29,28 @@ import { WxpeLogo } from "@/components/wxpe-logo";
 import { navItems } from "@/lib/site-data";
 
 export const metadata: Metadata = {
-  title: "EVMobii Malaysia | WXPE Commercial Electric Mobility",
+  title: "EVMobii Electric Tricycles Malaysia | WXPE",
   description:
-    "EVMobii is WXPE's commercial electric mobility brand in Malaysia, providing electric cargo tricycles for industrial, logistics and last-mile applications.",
+    "EVMobii is WXPE's commercial electric mobility brand in Malaysia for electric cargo, delivery and commercial three-wheeler applications.",
   keywords: [
     "EVMobii",
     "EVMobii Malaysia",
     "WXPE EVMobii",
     "electric tricycle Malaysia",
     "electric cargo tricycle Malaysia",
-    "commercial electric mobility Malaysia"
+    "commercial electric mobility Malaysia",
+    "commercial electric tricycle",
+    "electric delivery tricycle",
+    "electric three-wheeler",
+    "battery-powered cargo tricycle"
   ],
   alternates: {
     canonical: "/mobility"
   },
   openGraph: {
-    title: "EVMobii Malaysia | WXPE Commercial Electric Mobility",
+    title: "EVMobii Electric Tricycles Malaysia | WXPE",
     description:
-      "EVMobii is WXPE's Malaysian commercial electric mobility brand for industrial logistics, electric cargo transport and last-mile applications.",
+      "EVMobii is WXPE's Malaysian commercial electric mobility brand for electric cargo, delivery and industrial three-wheeler applications.",
     url: "/mobility",
     images: ["/assets/mobility/ev-tricycle-banner.jpg"]
   }
@@ -81,35 +89,38 @@ const useCases = [
   }
 ] as const;
 
-const primaryVideo = {
-  title: "Commercial mobility walkaround",
-  src: "/assets/mobility/ev-tricycle-video-02.mp4"
-} as const;
-
 const mobilityModels = [
   {
     name: "Flag Ship",
     description:
       "Higher-load electric logistics tricycle for industrial sites, municipalities, warehouses and commercial delivery.",
-    image: "/assets/mobility/models/flag-ship.webp"
+    image: "/assets/mobility/models/flag-ship.webp",
+    imageAlt:
+      "Flag Ship EVMobii electric three-wheeler for Malaysian industrial logistics"
   },
   {
     name: "Black Panther",
     description:
       "Compact electric logistics tricycle for urban delivery, campuses, factories and flexible site operations.",
-    image: "/assets/mobility/models/black-panther.webp"
+    image: "/assets/mobility/models/black-panther.webp",
+    imageAlt:
+      "Black Panther EVMobii commercial electric tricycle in Malaysia"
   },
   {
     name: "Warrior",
     description:
       "Versatile electric cargo tricycle for local delivery, small businesses and short-haul operations.",
-    image: "/assets/mobility/models/warrior.webp"
+    image: "/assets/mobility/models/warrior.webp",
+    imageAlt:
+      "Warrior EVMobii battery-powered cargo tricycle for commercial operations"
   },
   {
     name: "Warrior Courier Cart",
     description:
       "Enclosed electric delivery vehicle for parcels, protected cargo and last-mile logistics.",
-    image: "/assets/mobility/models/warrior-courier-cart.webp"
+    image: "/assets/mobility/models/warrior-courier-cart.webp",
+    imageAlt:
+      "Warrior Courier Cart EVMobii electric delivery tricycle for last-mile logistics"
   }
 ] as const;
 
@@ -227,79 +238,8 @@ export default function MobilityPage() {
   return (
     <main className="min-h-screen overflow-hidden bg-background text-foreground">
       <SiteHeader />
-
-      <section className="relative isolate min-h-[760px] border-b border-border pt-[72px]">
-        <Image
-          src="/assets/mobility/ev-tricycle-banner.jpg"
-          alt="WXPE EVMobii electric cargo tricycles for commercial mobility in Malaysia"
-          fill
-          priority
-          sizes="100vw"
-          className="origin-bottom scale-[1.18] object-cover object-bottom md:scale-[1.1]"
-        />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,17,31,0.76)_0%,rgba(9,31,55,0.48)_34%,rgba(7,17,31,0.07)_70%,rgba(7,17,31,0)_100%)]" />
-        <div className="absolute inset-x-0 top-0 h-[42%] bg-[linear-gradient(180deg,rgba(238,243,246,0.94)_0%,rgba(238,243,246,0.62)_34%,rgba(238,243,246,0)_100%)]" />
-        <div className="absolute inset-x-0 bottom-0 h-[28%] bg-[linear-gradient(180deg,rgba(7,17,31,0)_0%,rgba(7,17,31,0.12)_100%)]" />
-
-        <div className="container relative z-10 flex min-h-[calc(84svh-72px)] items-end pb-14 pt-24 md:pb-20">
-          <Reveal className="max-w-[480px] text-white drop-shadow-[0_2px_18px_rgba(0,0,0,0.28)]">
-            <p className="text-xl font-semibold tracking-[-0.035em] text-white/92 md:text-2xl">
-              EVMobii
-            </p>
-            <h1 className="mt-5 text-balance text-4xl font-semibold leading-tight md:text-[3.05rem]">
-              EVMobii: Mobility in Motion
-            </h1>
-            <p className="mt-5 text-base leading-8 text-white/78">
-              EVMobii is WXPE&apos;s commercial electric mobility solution for
-              Malaysia, developed for industrial, logistics and business
-              applications.
-            </p>
-            <ul className="mt-6 flex max-w-xl flex-wrap gap-x-4 gap-y-2 text-xs font-semibold uppercase tracking-[0.12em] text-white/68">
-              {[
-                "Industrial logistics",
-                "Warehouses and factories",
-                "Industrial parks",
-                "Plantations",
-                "Campuses",
-                "Commercial districts",
-                "Last-mile delivery"
-              ].map((application) => (
-                <li key={application}>{application}</li>
-              ))}
-            </ul>
-          </Reveal>
-        </div>
-      </section>
-
-      <section
-        aria-label="EVMobii mobility video"
-        className="border-b border-border bg-background py-16 md:py-20"
-      >
-        <div className="container">
-          <Reveal className="mx-auto w-full max-w-[1120px]">
-            <article className="overflow-hidden rounded-xl border border-[#d2dee6] bg-white p-2 shadow-[0_24px_70px_rgba(11,18,32,0.1)] md:p-3">
-              <video
-                className="aspect-video w-full rounded-lg bg-[#07111f] object-cover"
-                controls
-                muted
-                playsInline
-                preload="metadata"
-                poster="/assets/mobility/ev-tricycle-banner.jpg"
-              >
-                <source src={primaryVideo.src} type="video/mp4" />
-              </video>
-              <div className="flex items-center justify-between gap-4 px-4 py-4 md:px-5">
-                <h2 className="text-sm font-semibold text-foreground">
-                  EVMobii commercial electric mobility in Malaysia
-                </h2>
-                <span className="hidden text-xs uppercase tracking-[0.16em] text-muted-foreground sm:inline">
-                  EVMobii Malaysia
-                </span>
-              </div>
-            </article>
-          </Reveal>
-        </div>
-      </section>
+      <MobilityHero />
+      <MobilityVideoSection />
 
       <MobilityEcosystemSection />
 
@@ -328,14 +268,14 @@ export default function MobilityPage() {
           <div className="mt-12 grid gap-6 lg:grid-cols-2">
             {mobilityModels.map((model, index) => (
               <Reveal key={model.name} delay={index * 0.06}>
-                <article className="h-full overflow-hidden rounded-lg border border-[#d2dee6] bg-white shadow-[0_18px_54px_rgba(11,18,32,0.07)]">
+                <article className="group h-full overflow-hidden rounded-xl border border-[#d2dee6] bg-white shadow-[0_18px_54px_rgba(11,18,32,0.07)] transition-[border-color,box-shadow,transform] duration-500 hover:-translate-y-1 hover:border-primary/35 hover:shadow-[0_26px_68px_rgba(11,18,32,0.13)] motion-reduce:hover:translate-y-0">
                   <div className="relative aspect-[3/2] overflow-hidden bg-[#dce8f2]">
                     <Image
                       src={model.image}
-                      alt={`${model.name} EVMobii electric cargo tricycle for commercial operations in Malaysia`}
+                      alt={model.imageAlt}
                       fill
                       sizes="(min-width: 1024px) 50vw, 100vw"
-                      className="object-cover transition-transform duration-700 motion-safe:hover:scale-[1.025]"
+                      className="object-cover transition-transform duration-700 ease-out motion-safe:group-hover:scale-105"
                     />
                   </div>
                   <div className="p-6 md:p-8">
@@ -355,14 +295,14 @@ export default function MobilityPage() {
           </div>
 
           <Reveal delay={0.1} className="mt-10 md:mt-14">
-            <article className="grid overflow-hidden rounded-xl border border-[#d2dee6] bg-white shadow-[0_24px_70px_rgba(11,18,32,0.08)] lg:grid-cols-[1.08fr_0.92fr] lg:items-stretch">
+            <article className="group grid overflow-hidden rounded-xl border border-[#d2dee6] bg-white shadow-[0_24px_70px_rgba(11,18,32,0.08)] transition-[border-color,box-shadow,transform] duration-500 hover:-translate-y-1 hover:border-primary/30 hover:shadow-[0_30px_82px_rgba(11,18,32,0.13)] motion-reduce:hover:translate-y-0 lg:grid-cols-[1.08fr_0.92fr] lg:items-stretch">
               <div className="relative min-h-[320px] overflow-hidden bg-[#dbe7ef] sm:min-h-[420px] lg:min-h-[520px]">
                 <Image
                   src="/assets/mobility/models/warrior-mobile-food-cart.webp"
                   alt="EVMobii Warrior electric mobile food cart in Malaysia"
                   fill
                   sizes="(min-width: 1024px) 55vw, 100vw"
-                  className="object-cover transition-transform duration-700 motion-safe:hover:scale-[1.015]"
+                  className="object-cover transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.035]"
                 />
               </div>
 
@@ -411,22 +351,24 @@ export default function MobilityPage() {
           <div className="mt-12 grid gap-x-5 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
             {mobilityFeatures.map((feature, index) => (
               <Reveal key={feature.title} delay={index * 0.035}>
-                <article>
+                <article className="group h-full rounded-xl border border-transparent p-2 transition-[border-color,box-shadow,transform] duration-500 hover:-translate-y-1 hover:border-[#d2dee6] hover:bg-white hover:shadow-[0_20px_56px_rgba(11,18,32,0.09)] motion-reduce:hover:translate-y-0">
                   <div className="relative aspect-[3/2] overflow-hidden rounded-lg border border-[#d2dee6] bg-[#eef3f6]">
                     <Image
                       src={feature.image}
                       alt={feature.imageAlt}
                       fill
                       sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                      className="object-cover transition-transform duration-700 motion-safe:hover:scale-[1.03]"
+                      className="object-cover transition-transform duration-700 ease-out motion-safe:group-hover:scale-105"
                     />
                   </div>
-                  <h3 className="mt-5 text-lg font-semibold text-foreground">
-                    {feature.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-7 text-muted-foreground">
-                    {feature.description}
-                  </p>
+                  <div className="px-2 pb-3">
+                    <h3 className="mt-5 text-lg font-semibold text-foreground">
+                      {feature.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-7 text-muted-foreground">
+                      {feature.description}
+                    </p>
+                  </div>
                 </article>
               </Reveal>
             ))}
@@ -443,17 +385,17 @@ export default function MobilityPage() {
                   +
                 </span>
               </summary>
-              <div className="overflow-x-auto border-t border-border pb-7 pt-5">
+              <div className="overflow-x-auto border-t border-border pb-7">
                 <table className="w-full min-w-[980px] border-collapse text-left">
-                  <thead>
+                  <thead className="sticky top-0 z-20 bg-[#f8fafb] shadow-[0_1px_0_0_#d2dee6]">
                     <tr>
-                      <th className="w-[28%] pb-4 pr-6 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                      <th className="sticky left-0 z-30 w-[28%] bg-[#f8fafb] py-5 pr-6 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
                         Specification
                       </th>
                       {mobilitySpecifications.map((item) => (
                         <th
                           key={item.model}
-                          className="pb-4 pr-6 text-sm font-semibold text-foreground"
+                          className="py-5 pr-6 text-sm font-semibold text-foreground"
                         >
                           {item.model}
                         </th>
@@ -462,8 +404,11 @@ export default function MobilityPage() {
                   </thead>
                   <tbody>
                     {specificationLabels.map((label, rowIndex) => (
-                      <tr key={label} className="border-t border-border">
-                        <th className="py-4 pr-6 text-sm font-medium text-muted-foreground">
+                      <tr
+                        key={label}
+                        className="group/row border-t border-border transition-colors hover:bg-primary/[0.045]"
+                      >
+                        <th className="sticky left-0 z-10 bg-[#f8fafb] py-4 pr-6 text-sm font-medium text-muted-foreground transition-colors group-hover/row:bg-[#eef5f9]">
                           {label}
                         </th>
                         {mobilitySpecifications.map((item) => (
@@ -501,7 +446,7 @@ export default function MobilityPage() {
 
               return (
                 <Reveal key={item.title} delay={index * 0.04}>
-                  <article className="h-full min-h-[180px] rounded-lg border border-[#d2dee6] bg-white p-6 shadow-[0_16px_44px_rgba(11,18,32,0.055)]">
+                  <article className="group h-full min-h-[180px] rounded-lg border border-[#d2dee6] bg-white p-6 shadow-[0_16px_44px_rgba(11,18,32,0.055)] transition-[border-color,box-shadow,transform] duration-500 hover:-translate-y-1 hover:border-primary/30 hover:shadow-[0_22px_58px_rgba(11,18,32,0.1)] motion-reduce:hover:translate-y-0">
                     <Icon className="size-5 text-primary" aria-hidden="true" />
                     <h3 className="mt-10 text-lg font-semibold text-foreground">
                       {item.title}
