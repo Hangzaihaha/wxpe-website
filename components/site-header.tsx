@@ -4,48 +4,62 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import {
-  BatteryCharging,
-  ChevronDown,
-  Gauge,
-  HandCoins,
-  Menu,
-  Network,
-  X
-} from "lucide-react";
+import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
 
 import { navItems } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
 import { WxpeLogo } from "@/components/wxpe-logo";
 
+const menuEase = [0.22, 1, 0.36, 1] as const;
+
 const solutionMenuItems = [
   {
     title: "Battery Energy Storage",
-    description: "Storage for cost control and resilient site operation.",
-    href: "/solutions#battery-storage",
-    icon: BatteryCharging
+    href: "/solutions#battery-storage"
   },
   {
     title: "Solar Hybrid & Microgrid",
-    description: "Integrated solar, storage and site-level power systems.",
-    href: "/solutions#solar-hybrid",
-    icon: Network
+    href: "/solutions#solar-hybrid"
   },
   {
     title: "EMS & Energy Optimization",
-    description: "Intelligent monitoring, dispatch and energy control.",
-    href: "/solutions#digital-energy-management",
-    icon: Gauge
+    href: "/solutions#digital-energy-management"
   },
   {
     title: "Energy-as-a-Service",
-    description: "Flexible deployment and long-term operating support.",
-    href: "/solutions#energy-deployment",
-    icon: HandCoins
+    href: "/solutions#energy-deployment"
+  },
+  {
+    title: "Mobility",
+    href: "/mobility"
   }
 ] as const;
 
-const menuEase = [0.22, 1, 0.36, 1] as const;
+const exploreMenuItems = [
+  { title: "Projects", href: "/projects" },
+  { title: "About Us", href: "/about" },
+  { title: "Contact Us", href: "/contact" }
+] as const;
+
+const desktopMenuVariants = {
+  closed: {
+    opacity: 0,
+    y: -8,
+    clipPath: "inset(0 0 100% 0)",
+    transition: { duration: 0.18, ease: menuEase }
+  },
+  open: {
+    opacity: 1,
+    y: 0,
+    clipPath: "inset(0 0 0% 0)",
+    transition: { duration: 0.22, ease: menuEase }
+  }
+} as const;
+
+const reducedDesktopMenuVariants = {
+  closed: { opacity: 0, transition: { duration: 0.08 } },
+  open: { opacity: 1, transition: { duration: 0.1 } }
+} as const;
 
 const mobileMenuVariants = {
   closed: {
@@ -101,6 +115,11 @@ export function SiteHeader() {
   const [solutionsOpen, setSolutionsOpen] = useState(false);
   const mobileMenuButtonRef = useRef<HTMLButtonElement>(null);
   const mobileMenuNavRef = useRef<HTMLElement>(null);
+  const solutionsButtonRef = useRef<HTMLButtonElement>(null);
+  const solutionsPinnedOpenRef = useRef(false);
+  const solutionsCloseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(
+    null
+  );
 
   useEffect(() => {
     const syncHash = () => setCurrentHash(window.location.hash);
@@ -109,6 +128,52 @@ export function SiteHeader() {
     window.addEventListener("hashchange", syncHash);
     return () => window.removeEventListener("hashchange", syncHash);
   }, [pathname]);
+
+  useEffect(
+    () => () => {
+      if (solutionsCloseTimerRef.current) {
+        clearTimeout(solutionsCloseTimerRef.current);
+      }
+    },
+    []
+  );
+
+  useEffect(() => {
+    if (!solutionsOpen) {
+      return;
+    }
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        if (solutionsCloseTimerRef.current) {
+          clearTimeout(solutionsCloseTimerRef.current);
+          solutionsCloseTimerRef.current = null;
+        }
+        solutionsPinnedOpenRef.current = false;
+        setSolutionsOpen(false);
+        window.requestAnimationFrame(() => solutionsButtonRef.current?.focus());
+      }
+    };
+    const handleResize = () => {
+      if (window.innerWidth < 1024) {
+        if (solutionsCloseTimerRef.current) {
+          clearTimeout(solutionsCloseTimerRef.current);
+          solutionsCloseTimerRef.current = null;
+        }
+        solutionsPinnedOpenRef.current = false;
+        setSolutionsOpen(false);
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [solutionsOpen]);
 
   useEffect(() => {
     if (!mobileMenuOpen) {
@@ -243,6 +308,37 @@ export function SiteHeader() {
         : "border-transparent font-medium text-muted-foreground hover:text-foreground"
     );
 
+  function clearSolutionsCloseTimer() {
+    if (solutionsCloseTimerRef.current) {
+      clearTimeout(solutionsCloseTimerRef.current);
+      solutionsCloseTimerRef.current = null;
+    }
+  }
+
+  function openSolutionsMenu() {
+    clearSolutionsCloseTimer();
+    setSolutionsOpen(true);
+  }
+
+  function closeSolutionsMenu(restoreFocus = false) {
+    clearSolutionsCloseTimer();
+    solutionsPinnedOpenRef.current = false;
+    setSolutionsOpen(false);
+
+    if (restoreFocus) {
+      window.requestAnimationFrame(() => solutionsButtonRef.current?.focus());
+    }
+  }
+
+  function scheduleSolutionsClose() {
+    clearSolutionsCloseTimer();
+    solutionsCloseTimerRef.current = setTimeout(() => {
+      solutionsPinnedOpenRef.current = false;
+      setSolutionsOpen(false);
+      solutionsCloseTimerRef.current = null;
+    }, 150);
+  }
+
   function closeMobileMenu(restoreFocus = false) {
     setMobileMenuOpen(false);
 
@@ -258,12 +354,17 @@ export function SiteHeader() {
           "fixed inset-x-0 top-0 z-[70] border-b transition-[background-color,border-color,box-shadow] duration-300 lg:border-border lg:bg-white/90 lg:shadow-[0_8px_28px_rgba(11,18,32,0.05)] lg:backdrop-blur-xl",
           mobileMenuOpen
             ? "border-transparent bg-[#f5f5f7] shadow-none"
-            : "border-border bg-white/90 shadow-[0_8px_28px_rgba(11,18,32,0.05)] backdrop-blur-xl"
+            : "border-border bg-white/90 shadow-[0_8px_28px_rgba(11,18,32,0.05)] backdrop-blur-xl",
+          solutionsOpen &&
+            "lg:border-transparent lg:bg-white lg:shadow-none lg:backdrop-blur-none"
         )}
       >
         <div className="mx-auto flex h-[calc(64px+env(safe-area-inset-top))] w-full max-w-[1220px] items-center gap-5 pl-5 pr-[calc(1.25rem+var(--mobile-scrollbar-compensation,0px))] pt-[env(safe-area-inset-top)] lg:h-[72px] lg:px-4 lg:py-4 lg:pt-4 xl:px-5">
           <div
             aria-hidden={mobileMenuOpen ? "true" : undefined}
+            onMouseEnter={() => closeSolutionsMenu()}
+            onFocusCapture={() => closeSolutionsMenu()}
+            onClick={() => closeSolutionsMenu()}
             className={cn(
               "transition-opacity duration-200 lg:opacity-100",
               mobileMenuOpen && "pointer-events-none opacity-0"
@@ -272,48 +373,58 @@ export function SiteHeader() {
             <WxpeLogo priority />
           </div>
 
-        <nav
-          className="ml-7 hidden items-center gap-5 lg:flex xl:ml-10 xl:gap-7"
-          aria-label="Primary"
-        >
-          {navItems.map((item) => {
-            const active = isActive(item.href);
+          <nav
+            className="ml-7 hidden items-center gap-5 lg:flex xl:ml-10 xl:gap-7"
+            aria-label="Primary"
+          >
+            {navItems.map((item) => {
+              const active = isActive(item.href);
 
-            if (item.label === "Solutions") {
-              return (
-                <div
-                  key={item.href}
-                  className="relative"
-                  onMouseEnter={() => setSolutionsOpen(true)}
-                  onMouseLeave={() => setSolutionsOpen(false)}
-                  onBlurCapture={(event) => {
-                    if (!event.currentTarget.contains(event.relatedTarget as Node)) {
-                      setSolutionsOpen(false);
-                    }
-                  }}
-                  onKeyDown={(event) => {
-                    if (event.key === "Escape") {
-                      setSolutionsOpen(false);
-                    }
-                  }}
-                >
-                  <div className="flex items-center gap-1">
-                    <Link
-                      href={item.href}
-                      aria-current={active ? "page" : undefined}
-                      className={navLinkClass(active)}
-                    >
-                      {item.label}
-                    </Link>
+              if (item.label === "Solutions") {
+                return (
+                  <div
+                    key={item.href}
+                    onMouseEnter={openSolutionsMenu}
+                    onMouseLeave={scheduleSolutionsClose}
+                    onBlurCapture={(event) => {
+                      if (
+                        !event.currentTarget.contains(
+                          event.relatedTarget as Node | null
+                        )
+                      ) {
+                        scheduleSolutionsClose();
+                      }
+                    }}
+                  >
                     <button
+                      ref={solutionsButtonRef}
                       type="button"
-                      aria-label="Toggle Solutions menu"
-                      aria-haspopup="true"
                       aria-expanded={solutionsOpen}
-                      aria-controls="solutions-menu"
-                      onClick={() => setSolutionsOpen((open) => !open)}
-                      className="flex size-6 items-center justify-center text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                      aria-controls="solutions-mega-panel"
+                      onFocus={openSolutionsMenu}
+                      onMouseDown={(event) => event.preventDefault()}
+                      onClick={(event) => {
+                        clearSolutionsCloseTimer();
+                        if (event.detail === 0) {
+                          solutionsPinnedOpenRef.current = false;
+                          setSolutionsOpen((open) => !open);
+                          return;
+                        }
+
+                        if (solutionsPinnedOpenRef.current) {
+                          closeSolutionsMenu();
+                        } else {
+                          solutionsPinnedOpenRef.current = true;
+                          setSolutionsOpen(true);
+                        }
+                      }}
+                      className={cn(
+                        navLinkClass(active),
+                        "flex items-center gap-1.5 focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 focus-visible:ring-offset-white",
+                        solutionsOpen && "border-foreground/45 text-foreground"
+                      )}
                     >
+                      <span>Solutions</span>
                       <ChevronDown
                         aria-hidden="true"
                         className={cn(
@@ -322,73 +433,130 @@ export function SiteHeader() {
                         )}
                       />
                     </button>
-                  </div>
 
-                  <div
-                    id="solutions-menu"
-                    className={cn(
-                      "pointer-events-none invisible absolute left-0 top-full w-[620px] translate-y-2 pt-5 opacity-0 transition-all duration-200 ease-out",
-                      solutionsOpen &&
-                        "pointer-events-auto visible translate-y-0 opacity-100"
-                    )}
-                  >
-                    <div className="overflow-hidden rounded-lg border border-[#d6e0e6] bg-white shadow-[0_24px_64px_rgba(11,18,32,0.14)]">
-                      <div
-                        className="grid grid-cols-2 gap-1 p-3"
-                        aria-label="Energy solutions"
-                      >
-                        {solutionMenuItems.map((solution) => {
-                          const Icon = solution.icon;
-
-                          return (
-                            <Link
-                              key={solution.href}
-                              href={solution.href}
-                              onClick={() => setSolutionsOpen(false)}
-                              className="group/item grid grid-cols-[32px_1fr] gap-3 rounded-md px-3 py-3 transition-colors hover:bg-[#f3f6f8] focus-visible:bg-[#f3f6f8] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                            >
-                              <span className="flex size-8 items-center justify-center rounded-md bg-[#edf3f6] text-primary transition-colors group-hover/item:bg-[#e4edf2]">
-                                <Icon aria-hidden="true" className="size-4" />
-                              </span>
-                              <span>
-                                <span className="block text-sm font-semibold text-foreground">
-                                  {solution.title}
-                                </span>
-                                <span className="mt-1 block text-xs leading-5 text-muted-foreground">
-                                  {solution.description}
-                                </span>
-                              </span>
-                            </Link>
-                          );
-                        })}
-                      </div>
-                      <div className="border-t border-border bg-[#f8fafb] px-6 py-4">
-                        <Link
-                          href="/solutions"
-                          onClick={() => setSolutionsOpen(false)}
-                          className="text-sm font-semibold text-primary transition-colors hover:text-[#174f83] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    <AnimatePresence initial={false}>
+                      {solutionsOpen ? (
+                        <motion.div
+                          id="solutions-mega-panel"
+                          key="solutions-mega-panel"
+                          initial="closed"
+                          animate="open"
+                          exit="closed"
+                          variants={
+                            reduceMotion
+                              ? reducedDesktopMenuVariants
+                              : desktopMenuVariants
+                          }
+                          className="fixed inset-x-0 top-[72px] hidden overflow-hidden bg-white lg:block"
                         >
-                          View All Solutions →
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              );
-            }
+                          <div
+                            className="mx-auto grid w-full max-w-[1220px] grid-cols-[minmax(330px,1.35fr)_minmax(150px,0.65fr)_minmax(240px,0.9fr)] gap-12 px-4 py-11 xl:gap-20 xl:px-5 xl:py-12"
+                            style={{
+                              fontFamily:
+                                "-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Arial, sans-serif"
+                            }}
+                          >
+                            <section aria-labelledby="mega-solutions-heading">
+                              <h2
+                                id="mega-solutions-heading"
+                                className="text-xs font-medium leading-[1.4] text-[#6e737a]"
+                              >
+                                Solutions
+                              </h2>
+                              <ul className="mt-4 space-y-1.5">
+                                <li>
+                                  <Link
+                                    href="/solutions"
+                                    onClick={() => closeSolutionsMenu()}
+                                    className="group/mega inline-flex items-center gap-2 py-0.5 text-2xl font-semibold leading-[1.25] tracking-[-0.02em] text-[#0b1220] transition-[color,transform] duration-200 hover:translate-x-1 hover:text-primary hover:underline hover:decoration-1 hover:underline-offset-4 focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 xl:text-[1.625rem]"
+                                  >
+                                    View All Solutions
+                                    <ArrowRight
+                                      aria-hidden="true"
+                                      className="size-4 transition-transform duration-200 group-hover/mega:translate-x-0.5"
+                                    />
+                                  </Link>
+                                </li>
+                                {solutionMenuItems.map((solution) => (
+                                  <li key={solution.href}>
+                                    <Link
+                                      href={solution.href}
+                                      onClick={() => closeSolutionsMenu()}
+                                      className="inline-flex py-0.5 text-2xl font-semibold leading-[1.25] tracking-[-0.02em] text-[#0b1220] transition-[color,transform] duration-200 hover:translate-x-1 hover:text-primary hover:underline hover:decoration-1 hover:underline-offset-4 focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 xl:text-[1.625rem]"
+                                    >
+                                      {solution.title}
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
+                            </section>
 
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                aria-current={active ? "page" : undefined}
-                className={navLinkClass(active)}
-              >
-                {item.label}
-              </Link>
-            );
-          })}
-        </nav>
+                            <section aria-labelledby="mega-explore-heading">
+                              <h2
+                                id="mega-explore-heading"
+                                className="text-xs font-medium leading-[1.4] text-[#6e737a]"
+                              >
+                                Explore
+                              </h2>
+                              <ul className="mt-4 space-y-2">
+                                {exploreMenuItems.map((exploreItem) => (
+                                  <li key={exploreItem.href}>
+                                    <Link
+                                      href={exploreItem.href}
+                                      onClick={() => closeSolutionsMenu()}
+                                      className="inline-flex py-1 text-[0.9375rem] font-semibold leading-[1.4] text-[#182131] transition-[color,transform] duration-200 hover:translate-x-1 hover:text-primary hover:underline hover:underline-offset-4 focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4"
+                                    >
+                                      {exploreItem.title}
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
+                            </section>
+
+                            <section aria-labelledby="mega-mobility-heading">
+                              <h2
+                                id="mega-mobility-heading"
+                                className="text-xs font-medium leading-[1.4] text-[#6e737a]"
+                              >
+                                Mobility
+                              </h2>
+                              <Link
+                                href="/mobility"
+                                onClick={() => closeSolutionsMenu()}
+                                className="mt-4 inline-flex py-1 text-base font-semibold leading-[1.4] text-[#182131] transition-[color,transform] duration-200 hover:translate-x-1 hover:text-primary hover:underline hover:underline-offset-4 focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4"
+                              >
+                                EVMobii Commercial Electric Mobility
+                              </Link>
+                              <p className="mt-3 max-w-[280px] text-sm leading-6 text-[#68707b]">
+                                Commercial electric mobility for Malaysian
+                                operations.
+                              </p>
+                            </section>
+                          </div>
+                        </motion.div>
+                      ) : null}
+                    </AnimatePresence>
+                  </div>
+                );
+              }
+
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  aria-current={active ? "page" : undefined}
+                  onMouseEnter={() => closeSolutionsMenu()}
+                  onFocus={() => closeSolutionsMenu()}
+                  className={cn(
+                    navLinkClass(active),
+                    "focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 focus-visible:ring-offset-white"
+                  )}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+          </nav>
 
           <button
             ref={mobileMenuButtonRef}
@@ -433,6 +601,23 @@ export function SiteHeader() {
           </button>
         </div>
       </header>
+
+      <AnimatePresence initial={false}>
+        {solutionsOpen ? (
+          <motion.button
+            key="solutions-backdrop"
+            type="button"
+            tabIndex={-1}
+            aria-label="Close Solutions menu"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: reduceMotion ? 0.08 : 0.2 }}
+            onClick={() => closeSolutionsMenu()}
+            className="fixed inset-x-0 bottom-0 top-[72px] z-[60] hidden cursor-default border-0 bg-[#07111f]/20 p-0 backdrop-blur-[6px] lg:block"
+          />
+        ) : null}
+      </AnimatePresence>
 
       <AnimatePresence initial={false}>
         {mobileMenuOpen ? (
