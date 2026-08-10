@@ -6,17 +6,13 @@ export function HeroSection() {
   return (
     <section className="relative isolate overflow-hidden border-b border-border bg-[#071827] pt-[64px] lg:pt-[72px]">
       <div className="relative h-[calc(72svh-64px)] min-h-[500px] sm:h-[calc(76svh-64px)] sm:min-h-[560px] md:h-[calc(78svh-64px)] md:min-h-[620px] lg:h-[calc(78svh-72px)] lg:min-h-[700px]">
-        {/*
-          Approved temporary hero image. Replace with clean WXPE-owned project
-          photography or video when available, then revisit the composition.
-        */}
         <Image
-          src="/assets/energy/wxpe-branded-energy-hero.png"
-          alt="WXPE-branded battery energy storage beside solar panels"
+          src="/assets/energy/wxpe-energy-hero-clean.png"
+          alt="Battery energy storage equipment beside a solar panel installation"
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[52%_bottom] md:object-bottom"
+          className="object-cover object-[58%_bottom] sm:object-[55%_bottom] md:object-bottom"
         />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(4,18,32,0.52)_0%,rgba(4,18,32,0.34)_38%,rgba(4,18,32,0.14)_68%,rgba(4,18,32,0.05)_100%)]" />
 
