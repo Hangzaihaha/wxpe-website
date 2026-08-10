@@ -9,6 +9,7 @@ const energyTransitionTiles = [
   {
     title: "Battery Energy Storage Systems",
     description: "Storage for cost control, resilience and site-level energy management.",
+    mobileDescription: "Storage for cost control and resilient site operation.",
     image: "/assets/energy/bess-container-site-01.jpg",
     imageAlt: "Aerial view of a containerized battery energy storage facility",
     href: "/solutions#battery-storage"
@@ -16,6 +17,7 @@ const energyTransitionTiles = [
   {
     title: "Solar Hybrid Microgrids",
     description: "Solar, storage and intelligent controls for resilient site operation.",
+    mobileDescription: "Solar, storage and controls for resilient sites.",
     image: "/assets/energy/solar-storage-reference-01.jpg",
     imageAlt: "Rooftop and carport solar arrays at an industrial complex",
     href: "/solutions#solar-hybrid"
@@ -24,6 +26,7 @@ const energyTransitionTiles = [
     title: "Digital Energy Solutions",
     description:
       "EMS, energy optimization and flexible deployment pathways for coordinated site operation.",
+    mobileDescription: "EMS and optimization for coordinated site operation.",
     image: "/assets/energy/microgrid-reference-01.jpg",
     imageAlt: "Digital energy management for coordinated industrial site operation",
     href: "/solutions#digital-energy-management"
@@ -34,6 +37,7 @@ const mobilityTransitionTile = {
   title: "EVMobii Commercial Electric Mobility",
   description:
     "WXPE's EVMobii electric tricycles for Malaysian industrial logistics, commercial operations and last-mile delivery.",
+  mobileDescription: "Commercial electric mobility for Malaysian industry and logistics.",
   image: "/assets/mobility/ev-tricycle-homepage.webp",
   imageAlt:
     "WXPE EVMobii electric cargo tricycle for commercial mobility in Malaysia",
@@ -84,7 +88,10 @@ function FeaturedSolutionCard({
           <h4 className="text-2xl font-semibold leading-[1.1] tracking-[-0.02em] md:text-[2rem]">
             {tile.title}
           </h4>
-          <p className="mt-3 max-w-lg text-sm leading-6 text-white/78 md:text-[0.95rem] md:leading-7">
+          <p className="mt-2.5 max-w-lg text-sm leading-6 text-white/78 sm:hidden">
+            {tile.mobileDescription}
+          </p>
+          <p className="mt-3 hidden max-w-lg text-sm leading-6 text-white/78 sm:block md:text-[0.95rem] md:leading-7">
             {tile.description}
           </p>
         </div>
@@ -101,9 +108,9 @@ function SupportingSolutionCard({ tile }: { tile: SolutionTile }) {
   return (
     <Link
       href={tile.href}
-      className="group grid min-h-[250px] overflow-hidden rounded-[1.375rem] border border-[#cbd8e1] bg-white shadow-[0_16px_44px_rgba(7,17,31,0.06)] outline-none transition-[border-color,box-shadow,transform] duration-500 hover:-translate-y-1 hover:border-primary/35 hover:shadow-[0_22px_56px_rgba(7,17,31,0.11)] focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 motion-reduce:hover:translate-y-0 sm:grid-cols-[0.96fr_1.04fr]"
+      className="group grid min-h-[150px] grid-cols-[7rem_minmax(0,1fr)] overflow-hidden rounded-[1.125rem] border border-[#cbd8e1] bg-white shadow-[0_12px_32px_rgba(7,17,31,0.055)] outline-none transition-[border-color,box-shadow,transform] duration-200 active:scale-[0.985] hover:-translate-y-1 hover:border-primary/35 hover:shadow-[0_22px_56px_rgba(7,17,31,0.11)] focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 motion-reduce:hover:translate-y-0 sm:min-h-[250px] sm:grid-cols-[0.96fr_1.04fr] sm:rounded-[1.375rem] sm:shadow-[0_16px_44px_rgba(7,17,31,0.06)] sm:duration-500 sm:active:scale-100"
     >
-      <div className="relative min-h-52 overflow-hidden sm:min-h-full">
+      <div className="relative min-h-[150px] overflow-hidden sm:min-h-full">
         <Image
           src={tile.image}
           alt={tile.imageAlt}
@@ -112,18 +119,21 @@ function SupportingSolutionCard({ tile }: { tile: SolutionTile }) {
           className="object-cover transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.04]"
         />
       </div>
-      <div className="flex min-h-48 flex-col justify-between gap-8 p-6 md:p-7">
+      <div className="flex min-h-0 flex-col justify-between gap-4 p-4 sm:min-h-48 sm:gap-8 sm:p-6 md:p-7">
         <div>
-          <h4 className="text-xl font-semibold leading-tight tracking-[-0.015em] text-foreground md:text-2xl">
+          <h4 className="text-base font-semibold leading-[1.2] tracking-[-0.015em] text-foreground sm:text-xl sm:leading-tight md:text-2xl">
             {tile.title}
           </h4>
-          <p className="mt-3 text-sm leading-6 text-muted-foreground">
+          <p className="mt-2 text-[0.8125rem] leading-5 text-muted-foreground sm:hidden">
+            {tile.mobileDescription}
+          </p>
+          <p className="mt-3 hidden text-sm leading-6 text-muted-foreground sm:block">
             {tile.description}
           </p>
         </div>
         <ArrowUpRight
           aria-hidden="true"
-          className="ml-auto size-5 text-primary transition-transform duration-300 motion-safe:group-hover:translate-x-1 motion-safe:group-hover:-translate-y-1"
+          className="ml-auto size-[1.125rem] text-primary transition-transform duration-200 motion-safe:group-hover:translate-x-1 motion-safe:group-hover:-translate-y-1 sm:size-5 sm:duration-300"
         />
       </div>
     </Link>
@@ -134,17 +144,26 @@ export function HomeSolutionsSection() {
   const [batteryStorageTile, ...supportingEnergyTiles] = energyTransitionTiles;
 
   return (
-    <section id="solutions" className="border-b border-border bg-[#f7f9fb] py-16 md:py-24">
+    <section id="solutions" className="border-b border-border bg-[#f7f9fb] py-12 sm:py-16 md:py-24">
       <div className="container">
         <Reveal>
+          <div className="sm:hidden">
+            <h2 className="text-balance text-[1.85rem] font-semibold leading-[1.12] tracking-[-0.02em] text-foreground">
+              Localized Energy &amp; Mobility
+            </h2>
+            <p className="mt-3 max-w-xl text-[0.9375rem] leading-6 text-muted-foreground">
+              Battery storage, solar hybrid and commercial electric mobility
+              for Malaysia.
+            </p>
+          </div>
           <SectionHeading
             title="Two Transitions. One Localized Technology Platform."
             description="WXPE combines energy technology, manufacturing experience and local deployment capability to support Malaysia's clean technology transition."
-            className="max-w-4xl"
+            className="hidden max-w-4xl sm:flex"
           />
         </Reveal>
 
-        <div className="mt-12 grid gap-x-6 gap-y-8 lg:grid-cols-12 lg:gap-x-7 lg:gap-y-7">
+        <div className="mt-8 grid gap-x-6 gap-y-6 sm:mt-12 sm:gap-y-8 lg:grid-cols-12 lg:gap-x-7 lg:gap-y-7">
           <section aria-labelledby="energy-transition-title" className="lg:col-span-7">
             <TransitionLabel id="energy-transition-title">Energy Transition</TransitionLabel>
             <Reveal delay={0.04} className="mt-5">
@@ -177,7 +196,7 @@ export function HomeSolutionsSection() {
           ))}
 
           <Reveal delay={0.2} className="lg:col-span-12">
-            <p className="border-t border-[#c9d8e3] pt-5 text-center text-sm font-medium leading-7 tracking-[0.01em] text-primary">
+            <p className="hidden border-t border-[#c9d8e3] pt-5 text-center text-sm font-medium leading-7 tracking-[0.01em] text-primary sm:block">
               Battery capability · Local assembly · Commercial applications
             </p>
           </Reveal>
