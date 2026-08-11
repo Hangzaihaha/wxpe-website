@@ -194,24 +194,10 @@ export function MobilityEnergyTransitionSection() {
               From Mobility to Energy Transition
             </h2>
             <p className="mt-6 max-w-xl text-base leading-8 text-muted-foreground">
-              WXPE is building battery capabilities supporting both EVMobii
-              electric mobility and stationary energy solutions, leveraging
-              shared battery technology expertise across mobility and energy
-              storage applications. Explore WXPE&apos;s{" "}
-              <Link
-                href="/solutions#battery-storage"
-                className="font-medium text-foreground underline decoration-primary/35 underline-offset-4 transition-colors hover:text-primary"
-              >
-                battery energy storage
-              </Link>{" "}
-              and{" "}
-              <Link
-                href="/solutions#solar-hybrid"
-                className="font-medium text-foreground underline decoration-primary/35 underline-offset-4 transition-colors hover:text-primary"
-              >
-                solar and microgrid
-              </Link>{" "}
-              capabilities.
+              WXPE is developing battery capabilities with established
+              technology and manufacturing partners, supporting both EVMobii
+              electric mobility and stationary energy solutions through shared
+              battery technology expertise.
             </p>
           </Reveal>
 
@@ -224,7 +210,7 @@ export function MobilityEnergyTransitionSection() {
                   fill
                   quality={95}
                   sizes="(min-width: 1280px) 650px, (min-width: 1024px) 58vw, calc(100vw - 40px)"
-                  className="object-cover object-[50%_38%] transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.035]"
+                  className="scale-[1.32] object-cover object-[50%_27%] transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.35] sm:scale-[1.42] sm:object-[50%_29%] sm:motion-safe:group-hover:scale-[1.45] lg:scale-[1.5] lg:object-[50%_28%] lg:motion-safe:group-hover:scale-[1.53]"
                 />
               </div>
               <figcaption className="mt-4 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">

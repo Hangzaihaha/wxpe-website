@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import { Reveal } from "@/components/reveal";
 
 const manufacturingCapabilities = [
@@ -37,35 +35,22 @@ export function AboutManufacturingCapabilitySection() {
       className="border-b border-border bg-background py-16 md:py-20 lg:py-24"
     >
       <div className="container grid gap-10 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] lg:gap-14 xl:gap-20">
-        <Reveal>
-          <div className="max-w-xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-              Our Foundation
-            </p>
-            <h2
-              id="manufacturing-capability-heading"
-              className="mt-4 text-balance text-3xl font-semibold leading-[1.14] text-foreground md:text-[2.65rem]"
-            >
-              Manufacturing Capability Built for Energy
-            </h2>
-            <p className="mt-6 text-base leading-8 text-muted-foreground">
-              WXPE combines Malaysian manufacturing heritage, OEM supply-chain
-              experience and international partnerships to support the delivery
-              of battery energy storage, solar, microgrid and electric mobility
-              solutions.
-            </p>
-          </div>
-
-          <div className="relative mt-9 aspect-[4/3] overflow-hidden rounded-xl border border-[#d2dee6] bg-[#e3eaee] shadow-[0_20px_54px_rgba(11,18,32,0.08)] md:mt-10">
-            <Image
-              src="/assets/about/manufacturing-automation-line.webp"
-              alt="Automated manufacturing line and production equipment at a Malaysian industrial facility"
-              fill
-              quality={95}
-              sizes="(min-width: 1280px) 470px, (min-width: 1024px) 38vw, calc(100vw - 40px)"
-              className="object-cover object-[50%_64%]"
-            />
-          </div>
+        <Reveal className="max-w-xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+            Our Foundation
+          </p>
+          <h2
+            id="manufacturing-capability-heading"
+            className="mt-4 text-balance text-3xl font-semibold leading-[1.14] text-foreground md:text-[2.65rem]"
+          >
+            Manufacturing Capability Built for Energy
+          </h2>
+          <p className="mt-6 text-base leading-8 text-muted-foreground">
+            WXPE combines Malaysian manufacturing heritage, OEM supply-chain
+            experience and international partnerships to support the delivery of
+            battery energy storage, solar, microgrid and electric mobility
+            solutions.
+          </p>
         </Reveal>
 
         <ol className="border-t border-[#cbd8e0]">
