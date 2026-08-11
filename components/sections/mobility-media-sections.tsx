@@ -7,15 +7,6 @@ import { useRef, useState } from "react";
 
 import { Reveal } from "@/components/reveal";
 
-const mobilityApplications = [
-  "Industrial Logistics",
-  "Warehouse Operations",
-  "Industrial Parks",
-  "Plantations",
-  "Campus Mobility",
-  "Last-mile Delivery"
-] as const;
-
 const heroTextVariants = {
   hidden: {},
   visible: {
@@ -69,29 +60,15 @@ export function MobilityHero() {
             variants={reduceMotion ? undefined : heroTextItemVariants}
             className="mt-4 text-balance text-4xl font-semibold leading-[1.04] tracking-[-0.025em] md:text-[3.1rem]"
           >
-            <span className="block">EVMobii:</span>
+            <span className="sr-only">EVMobii: </span>
             <span className="block">Mobility in Motion</span>
           </motion.h1>
           <motion.p
             variants={reduceMotion ? undefined : heroTextItemVariants}
             className="mt-5 max-w-[430px] text-[0.95rem] leading-7 text-white/80 md:text-base md:leading-8"
           >
-            WXPE&apos;s commercial electric mobility solution for Malaysian
-            industrial, logistics and business operations.
+            Commercial electric mobility for Malaysian industry and logistics.
           </motion.p>
-          <motion.ul
-            variants={reduceMotion ? undefined : heroTextItemVariants}
-            className="mt-6 flex max-w-[470px] flex-wrap gap-2"
-          >
-            {mobilityApplications.map((application) => (
-              <li
-                key={application}
-                className="rounded-full border border-white/20 bg-white/[0.08] px-3 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.1em] text-white/78 md:text-[0.68rem]"
-              >
-                {application}
-              </li>
-            ))}
-          </motion.ul>
         </motion.div>
       </div>
     </section>

@@ -38,13 +38,13 @@ export function HeroSection() {
                   Battery storage, solar hybrid systems and practical electric
                   mobility solutions for industrial and commercial applications.
                 </p>
-                <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-[0.68rem] font-semibold uppercase tracking-[0.15em] text-primary sm:gap-x-4 sm:text-xs sm:tracking-[0.16em]">
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-[0.68rem] font-semibold uppercase tracking-[0.15em] text-[#07111f] sm:gap-x-4 sm:text-xs sm:tracking-[0.16em]">
                   <span>BESS</span>
-                  <span aria-hidden="true" className="text-[#7890a3]">·</span>
+                  <span aria-hidden="true" className="text-[#07111f]/55">·</span>
                   <span>Solar Hybrid</span>
-                  <span aria-hidden="true" className="text-[#7890a3]">·</span>
+                  <span aria-hidden="true" className="text-[#07111f]/55">·</span>
                   <span>Microgrid</span>
-                  <span aria-hidden="true" className="text-[#7890a3]">·</span>
+                  <span aria-hidden="true" className="text-[#07111f]/55">·</span>
                   <span>EV Mobility</span>
                 </div>
               </div>

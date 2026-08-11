@@ -93,7 +93,11 @@ function FeatureRow({
         delay={0.05}
         className={`order-1 ${reverse ? "min-[1200px]:order-1" : "min-[1200px]:order-2"}`}
       >
-        <div className="max-w-xl min-[1200px]:max-w-md">
+        <div
+          className={`max-w-xl min-[1200px]:max-w-md ${
+            reverse ? "min-[1200px]:ml-auto" : ""
+          }`}
+        >
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
             {eyebrow}
           </p>
