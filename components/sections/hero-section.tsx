@@ -4,40 +4,47 @@ import { Reveal } from "@/components/reveal";
 
 export function HeroSection() {
   return (
-    <section className="relative isolate overflow-hidden border-b border-border bg-[#071827] pt-[64px] lg:pt-[72px]">
-      <div className="relative h-[calc(72svh-64px)] min-h-[500px] sm:h-[calc(76svh-64px)] sm:min-h-[560px] md:h-[calc(78svh-64px)] md:min-h-[620px] lg:h-[calc(78svh-72px)] lg:min-h-[700px]">
+    <section className="relative isolate overflow-hidden border-b border-border bg-[#e8eef3] pt-[64px] lg:pt-[72px]">
+      <div className="relative h-[clamp(31.25rem,72svh,40rem)] sm:h-[clamp(35rem,74svh,43rem)] md:h-[clamp(38.75rem,76svh,45rem)] lg:h-[clamp(42.5rem,76svh,47.5rem)]">
         <Image
           src="/assets/energy/wxpe-energy-hero-clean.png"
           alt="Battery energy storage equipment beside a solar panel installation"
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[58%_bottom] sm:object-[55%_bottom] md:object-bottom"
+          className="object-cover object-[58%_bottom] [filter:brightness(1.09)_saturate(1.05)_contrast(1.02)] sm:object-[56%_bottom] md:object-[54%_bottom] lg:object-[50%_bottom]"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(4,18,32,0.52)_0%,rgba(4,18,32,0.34)_38%,rgba(4,18,32,0.14)_68%,rgba(4,18,32,0.05)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(247,250,253,0.88)_0%,rgba(247,250,253,0.78)_58%,rgba(247,250,253,0.34)_88%,rgba(247,250,253,0.08)_100%)] sm:bg-[linear-gradient(90deg,rgba(247,250,253,0.84)_0%,rgba(247,250,253,0.76)_40%,rgba(247,250,253,0.64)_62%,rgba(247,250,253,0.14)_82%,rgba(247,250,253,0.02)_92%)] lg:bg-[linear-gradient(90deg,rgba(247,250,253,0.82)_0%,rgba(247,250,253,0.76)_34%,rgba(247,250,253,0.62)_58%,rgba(247,250,253,0.20)_74%,rgba(247,250,253,0.02)_86%)]" />
 
-        <div className="absolute inset-0 z-10 flex items-center py-10 sm:py-12 md:py-20">
+        <div className="absolute inset-0 z-10 flex items-center py-10 sm:py-12 md:py-16">
           <div className="container">
-            <Reveal className="flex max-w-[64rem] flex-col gap-4 sm:gap-6 md:gap-7">
-              <h1 className="text-balance text-[2.4rem] font-semibold leading-[1.03] tracking-[-0.025em] text-white sm:text-[3.6rem] sm:leading-[1.05] sm:tracking-normal lg:text-[4rem]">
-                <span className="block lg:whitespace-nowrap">
+            <Reveal
+              distance={10}
+              duration={0.58}
+              className="flex max-w-[64rem] flex-col gap-6 sm:gap-7 md:gap-8"
+            >
+              <h1 className="text-balance text-[clamp(2.75rem,7.4vw,3.6rem)] font-semibold leading-[1.01] tracking-[-0.025em] text-[#0b1f33] sm:text-[clamp(3.6rem,6vw,4.45rem)] lg:text-[clamp(4rem,5.2vw,4.75rem)]">
+                <span className="block xl:whitespace-nowrap">
                   Localized Energy &amp; Mobility
                 </span>
                 <span className="block">for Malaysia</span>
               </h1>
-              <div className="flex flex-col gap-4 sm:gap-5">
-                <p className="max-w-[32rem] text-[0.95rem] leading-6 text-white/85 sm:hidden">
+              <div className="flex flex-col gap-5 sm:gap-6">
+                <p className="max-w-[32rem] text-[0.95rem] leading-6 text-[#334155] sm:hidden">
                   Battery storage, solar hybrid and practical electric mobility
                   for Malaysian industry.
                 </p>
-                <p className="hidden max-w-[38rem] text-base leading-7 text-white/85 sm:block sm:text-[1.08rem] sm:leading-8">
+                <p className="hidden max-w-[39rem] text-base leading-7 text-[#334155] sm:block sm:text-[1.125rem] sm:leading-8 lg:text-[1.2rem] lg:leading-[1.65]">
                   Battery storage, solar hybrid systems and practical electric
                   mobility solutions for industrial and commercial applications.
                 </p>
-                <div className="flex flex-wrap gap-x-4 gap-y-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-white/72 sm:gap-x-5 sm:gap-y-2 sm:text-xs sm:tracking-[0.16em] sm:text-white/70">
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-[0.68rem] font-semibold uppercase tracking-[0.15em] text-primary sm:gap-x-4 sm:text-xs sm:tracking-[0.16em]">
                   <span>BESS</span>
+                  <span aria-hidden="true" className="text-[#7890a3]">·</span>
                   <span>Solar Hybrid</span>
+                  <span aria-hidden="true" className="text-[#7890a3]">·</span>
                   <span>Microgrid</span>
+                  <span aria-hidden="true" className="text-[#7890a3]">·</span>
                   <span>EV Mobility</span>
                 </div>
               </div>

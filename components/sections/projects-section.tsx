@@ -10,7 +10,7 @@ export function ProjectsSection() {
     <section
       id="projects"
       aria-labelledby="projects-preview-title"
-      className="scroll-mt-[72px] border-b border-border bg-white py-20 md:py-28"
+      className="scroll-mt-[72px] border-b border-border bg-white pb-20 pt-16 md:pb-28 md:pt-20"
     >
       <div className="container grid items-center gap-12 lg:grid-cols-[minmax(300px,0.78fr)_minmax(0,1.22fr)] lg:gap-16 xl:gap-20">
         <div className="max-w-xl">
