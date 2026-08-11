@@ -12,11 +12,11 @@ export function HeroSection() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[58%_bottom] [filter:brightness(1.09)_saturate(1.05)_contrast(1.02)] sm:object-[56%_bottom] md:object-[54%_bottom] lg:object-[50%_bottom]"
+          className="object-cover object-[58%_bottom] [filter:brightness(1.04)_saturate(1.07)_contrast(1.05)] sm:object-[56%_bottom] md:object-[54%_bottom] lg:object-[50%_bottom]"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(247,250,253,0.88)_0%,rgba(247,250,253,0.78)_58%,rgba(247,250,253,0.34)_88%,rgba(247,250,253,0.08)_100%)] sm:bg-[linear-gradient(90deg,rgba(247,250,253,0.84)_0%,rgba(247,250,253,0.76)_40%,rgba(247,250,253,0.64)_62%,rgba(247,250,253,0.14)_82%,rgba(247,250,253,0.02)_92%)] lg:bg-[linear-gradient(90deg,rgba(247,250,253,0.82)_0%,rgba(247,250,253,0.76)_34%,rgba(247,250,253,0.62)_58%,rgba(247,250,253,0.20)_74%,rgba(247,250,253,0.02)_86%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(244,248,252,0.26)_0%,rgba(244,248,252,0.13)_34%,rgba(244,248,252,0)_58%)]" />
 
-        <div className="absolute inset-0 z-10 flex items-center py-10 sm:py-12 md:py-16">
+        <div className="absolute inset-0 z-10 flex items-center pb-16 pt-6 sm:pb-20 sm:pt-8 md:pb-24 md:pt-10">
           <div className="container">
             <Reveal
               distance={10}

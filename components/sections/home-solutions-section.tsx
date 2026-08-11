@@ -37,7 +37,7 @@ const mobilityTransitionTile = {
   description:
     "WXPE's EVMobii electric tricycles for Malaysian industrial logistics, commercial operations and last-mile delivery.",
   mobileDescription: "Commercial electric mobility for Malaysian industry and logistics.",
-  image: "/assets/mobility/ev-tricycle-homepage.webp",
+  image: "/assets/mobility/evmobii-mobility-branded.webp",
   imageAlt:
     "WXPE EVMobii electric cargo tricycle for commercial mobility in Malaysia",
   href: "/mobility"
@@ -50,37 +50,39 @@ type SolutionTile =
 function FeatureRow({
   tile,
   eyebrow,
-  reverse = false,
-  imagePosition = "object-center"
+  reverse = false
 }: {
   tile: SolutionTile;
   eyebrow: string;
   reverse?: boolean;
-  imagePosition?: string;
 }) {
   const titleId = `${tile.href === "/mobility" ? "mobility" : "energy"}-transition-title`;
 
   return (
     <section
       aria-labelledby={titleId}
-      className="grid items-center gap-8 lg:grid-cols-12 lg:gap-14 xl:gap-20"
+      className={`grid items-center gap-8 md:gap-10 min-[1200px]:gap-10 min-[1440px]:gap-20 min-[1800px]:gap-[5.5rem] ${
+        reverse
+          ? "min-[1200px]:grid-cols-[minmax(360px,2fr)_minmax(0,3fr)]"
+          : "min-[1200px]:grid-cols-[minmax(0,3fr)_minmax(360px,2fr)]"
+      }`}
     >
       <Reveal
         distance={10}
         duration={0.56}
-        className={`order-2 lg:col-span-7 ${reverse ? "lg:order-2" : "lg:order-1"}`}
+        className={`order-2 ${reverse ? "min-[1200px]:order-2" : "min-[1200px]:order-1"}`}
       >
         <Link
           href={tile.href}
           aria-label={`Explore ${tile.title}`}
-          className="group relative block aspect-[4/3] overflow-hidden rounded-[1.25rem] border border-[#d5e0e7] bg-[#e8eef2] shadow-[0_18px_50px_rgba(11,31,51,0.075)] outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 sm:aspect-[16/10] lg:aspect-[16/9]"
+          className="relative block aspect-[16/9] w-full overflow-hidden rounded-[1.5rem] border border-[#d5e0e7] bg-[#e8eef2] shadow-[0_18px_50px_rgba(11,31,51,0.075)] outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
         >
           <Image
             src={tile.image}
             alt={tile.imageAlt}
             fill
-            sizes="(min-width: 1280px) 670px, (min-width: 1024px) 58vw, calc(100vw - 40px)"
-            className={`object-cover transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.02] ${imagePosition}`}
+            sizes="(min-width: 1776px) 995px, (min-width: 1440px) 790px, (min-width: 1200px) 63vw, (min-width: 768px) calc(100vw - 64px), calc(100vw - 40px)"
+            className="object-cover object-center"
           />
         </Link>
       </Reveal>
@@ -89,9 +91,9 @@ function FeatureRow({
         distance={10}
         duration={0.56}
         delay={0.05}
-        className={`order-1 lg:col-span-5 ${reverse ? "lg:order-1" : "lg:order-2"}`}
+        className={`order-1 ${reverse ? "min-[1200px]:order-1" : "min-[1200px]:order-2"}`}
       >
-        <div className="max-w-xl lg:max-w-md">
+        <div className="max-w-xl min-[1200px]:max-w-md">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
             {eyebrow}
           </p>
@@ -182,20 +184,21 @@ export function HomeSolutionsSection() {
             </p>
           </header>
         </Reveal>
+      </div>
 
-        <div className="mt-16 space-y-20 sm:mt-20 sm:space-y-24 md:mt-24 md:space-y-28">
-          <FeatureRow
-            tile={batteryStorageTile}
-            eyebrow="Energy Transition"
-          />
-          <FeatureRow
-            tile={mobilityTransitionTile}
-            eyebrow="Mobility Transition"
-            reverse
-            imagePosition="object-[56%_center]"
-          />
-        </div>
+      <div className="mx-auto mt-16 w-[calc(100%_-_2.5rem)] max-w-[1680px] space-y-20 sm:mt-20 sm:space-y-24 md:mt-24 md:w-[calc(100%_-_4rem)] md:space-y-28 min-[1200px]:space-y-40 min-[1440px]:w-[calc(100%_-_6rem)] min-[1776px]:w-full">
+        <FeatureRow
+          tile={batteryStorageTile}
+          eyebrow="Energy Transition"
+        />
+        <FeatureRow
+          tile={mobilityTransitionTile}
+          eyebrow="Mobility Transition"
+          reverse
+        />
+      </div>
 
+      <div className="container">
         <div className="mt-20 grid gap-14 sm:mt-24 lg:grid-cols-2 lg:gap-10">
           {supportingEnergyTiles.map((tile) => (
             <SupportingSolution key={tile.title} tile={tile} />
