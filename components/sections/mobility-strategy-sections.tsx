@@ -217,18 +217,19 @@ export function MobilityEnergyTransitionSection() {
 
           <Reveal delay={0.08}>
             <figure className="group">
-              <div className="relative aspect-[16/9] overflow-hidden rounded-xl border border-[#d2dee6] bg-white shadow-[0_20px_60px_rgba(11,18,32,0.08)] transition-[border-color,box-shadow,transform] duration-500 hover:-translate-y-1 hover:border-primary/30 hover:shadow-[0_28px_72px_rgba(11,18,32,0.13)] motion-reduce:hover:translate-y-0">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-[#d2dee6] bg-white shadow-[0_20px_60px_rgba(11,18,32,0.08)] transition-[border-color,box-shadow,transform] duration-500 hover:-translate-y-1 hover:border-primary/30 hover:shadow-[0_28px_72px_rgba(11,18,32,0.13)] motion-reduce:hover:translate-y-0 sm:aspect-[16/10] lg:aspect-[16/9]">
                 <Image
-                  src="/assets/energy/industrial-bess-reference-01.jpg"
-                  alt="Battery energy storage system supporting WXPE energy applications"
+                  src="/assets/energy/battery-module-agv-factory.webp"
+                  alt="Battery modules transported by an automated guided vehicle in a modern manufacturing facility"
                   fill
-                  sizes="(min-width: 1024px) 58vw, 100vw"
-                  className="object-cover transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.035]"
+                  quality={95}
+                  sizes="(min-width: 1280px) 650px, (min-width: 1024px) 58vw, calc(100vw - 40px)"
+                  className="object-cover object-[50%_38%] transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.035]"
                 />
               </div>
               <figcaption className="mt-4 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
                 <span className="h-px w-8 bg-primary/45" aria-hidden="true" />
-                Shared capability across mobility and energy
+                Shared battery expertise across mobility and energy
               </figcaption>
             </figure>
           </Reveal>

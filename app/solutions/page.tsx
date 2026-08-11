@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { SiteHeader } from "@/components/site-header";
+import { BatteryManufacturingSection } from "@/components/sections/battery-manufacturing-section";
 import { EnergyServiceSection } from "@/components/sections/energy-service-section";
 import { PartnerDeliverySection } from "@/components/sections/localization-section";
 import { MicrogridSection } from "@/components/sections/microgrid-section";
@@ -74,6 +75,7 @@ export default function SolutionsPage() {
       </section>
 
       <SolutionsSection />
+      <BatteryManufacturingSection />
       <MicrogridSection />
       <EnergyServiceSection />
       <PartnerDeliverySection />
