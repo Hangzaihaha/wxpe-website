@@ -210,7 +210,7 @@ export function MobilityEnergyTransitionSection() {
                   fill
                   quality={95}
                   sizes="(min-width: 1280px) 650px, (min-width: 1024px) 58vw, calc(100vw - 40px)"
-                  className="scale-[1.32] object-cover object-[50%_27%] transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.35] sm:scale-[1.42] sm:object-[50%_29%] sm:motion-safe:group-hover:scale-[1.45] lg:scale-[1.5] lg:object-[50%_28%] lg:motion-safe:group-hover:scale-[1.53]"
+                  className="scale-[1.48] object-cover object-[50%_30%] transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.51] sm:scale-[1.6] sm:object-[50%_31%] sm:motion-safe:group-hover:scale-[1.63] lg:scale-[1.72] lg:object-[50%_30%] lg:motion-safe:group-hover:scale-[1.75]"
                 />
               </div>
               <figcaption className="mt-4 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
