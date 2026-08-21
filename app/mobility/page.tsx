@@ -318,6 +318,39 @@ export default function MobilityPage() {
         </div>
       </section>
 
+      <section
+        aria-labelledby="mobility-real-work-title"
+        className="border-b border-border bg-background py-20 md:py-28"
+      >
+        <div className="container">
+          <Reveal className="grid gap-5 md:grid-cols-2 md:items-end md:gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:gap-20">
+            <h2
+              id="mobility-real-work-title"
+              className="text-3xl font-semibold leading-tight text-foreground md:text-[2rem] lg:text-[2.45rem]"
+            >
+              Built for Real Work
+            </h2>
+            <p className="max-w-2xl text-base leading-8 text-muted-foreground md:text-lg md:leading-9">
+              Practical electric mobility, designed around how businesses
+              actually use their vehicles every day.
+            </p>
+          </Reveal>
+
+          <Reveal delay={0.08} className="mt-9 md:mt-12">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-xl border border-[#d2dee6] bg-[#dce2e6] shadow-[0_22px_64px_rgba(11,18,32,0.08)] sm:aspect-[3/2] lg:aspect-[16/10]">
+              <Image
+                src="/assets/mobility/mobility-manufacturing-floor.jpg"
+                alt="Industrial robotic welding equipment and steel fabrication fixtures on a mobility production floor"
+                fill
+                quality={95}
+                sizes="(min-width: 1440px) 1280px, (min-width: 768px) calc(100vw - 64px), calc(100vw - 40px)"
+                className="object-cover object-[50%_52%] sm:object-[50%_44%] lg:object-[50%_36%]"
+              />
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       <section className="border-b border-border bg-[#f3f6f8] py-24 md:py-32">
         <div className="container">
           <Reveal className="max-w-2xl">
