@@ -84,6 +84,11 @@ export default function ProjectsPage() {
             <h2 className="text-balance text-3xl font-semibold leading-tight tracking-[-0.015em] md:text-[2.9rem]">
               Selected Project References
             </h2>
+            <p className="section-description mt-5">
+              These references show energy applications and project experience
+              from WXPE&apos;s technology partners and wider ecosystem. They are
+              not presented as projects owned or delivered by WXPE.
+            </p>
           </Reveal>
 
           <article className="mt-12 md:mt-16">
@@ -98,7 +103,7 @@ export default function ProjectsPage() {
             </ProjectMediaReveal>
 
             <Reveal delay={0.06}>
-              <div className="grid border-b border-border md:grid-cols-[1.2fr_0.62fr_1.18fr]">
+              <div className="grid border-b border-border md:grid-cols-[1fr_1fr_1.05fr]">
                 <div className="py-7 md:py-9 md:pr-10">
                   <p className={referenceLabelClassName}>Project Reference</p>
                   <h3 className="mt-3 text-2xl font-semibold leading-tight md:text-[1.9rem]">
@@ -107,10 +112,10 @@ export default function ProjectsPage() {
                 </div>
                 <div className="border-t border-border py-7 md:border-l md:border-t-0 md:px-9 md:py-9">
                   <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
-                    Verified capacity
+                    Capacity
                   </p>
-                  <p className="mt-3 text-2xl font-semibold tracking-[-0.02em] text-foreground md:text-[1.9rem]">
-                    100 MW / 200 MWh
+                  <p className="capacity-value mt-3">
+                    <span className="whitespace-nowrap">100 MW</span> / <span className="whitespace-nowrap">200 MWh</span>
                   </p>
                 </div>
                 <div className="border-t border-border py-7 md:border-l md:border-t-0 md:py-9 md:pl-9">
@@ -146,8 +151,8 @@ export default function ProjectsPage() {
                       operation.
                     </p>
                   </div>
-                  <p className="shrink-0 text-lg font-semibold text-foreground">
-                    50 MW / 100 MWh
+                  <p className="capacity-value shrink-0">
+                    <span className="whitespace-nowrap">50 MW</span> / <span className="whitespace-nowrap">100 MWh</span>
                   </p>
                 </div>
               </Reveal>
@@ -175,8 +180,8 @@ export default function ProjectsPage() {
                   <h3 className="text-2xl font-semibold leading-tight">
                     Commercial &amp; Industrial Storage
                   </h3>
-                  <p className="mt-3 text-lg font-semibold text-foreground">
-                    0.69 MW / 1.39 MWh
+                  <p className="capacity-value mt-3">
+                    <span className="whitespace-nowrap">0.69 MW</span> / <span className="whitespace-nowrap">1.39 MWh</span>
                   </p>
                   <p className="mt-3 text-sm leading-7 text-muted-foreground">
                     Behind-the-meter storage supporting commercial site energy
@@ -205,7 +210,7 @@ export default function ProjectsPage() {
           </ProjectMediaReveal>
 
           <Reveal delay={0.06}>
-            <div className="grid border-b border-[#cbd7de] md:grid-cols-[1.05fr_0.58fr_1.2fr]">
+            <div className="grid border-b border-[#cbd7de] md:grid-cols-[1fr_1fr_1.05fr]">
               <div className="py-7 md:py-9 md:pr-10">
                 <p className={referenceLabelClassName}>Selected Application</p>
                 <h2 className="mt-3 text-2xl font-semibold leading-tight md:text-[1.9rem]">
@@ -214,9 +219,9 @@ export default function ProjectsPage() {
               </div>
               <div className="border-t border-[#cbd7de] py-7 md:border-l md:border-t-0 md:px-9 md:py-9">
                 <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
-                  Verified capacity
+                  Capacity
                 </p>
-                <p className="mt-3 text-3xl font-semibold tracking-[-0.02em]">
+                <p className="capacity-value mt-3 whitespace-nowrap">
                   1.84 MWp
                 </p>
               </div>
@@ -252,14 +257,6 @@ export default function ProjectsPage() {
               <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-[-0.02em] md:text-[2.5rem]">
                 Public Charging Infrastructure
               </h2>
-              <div className="mt-8 border-t border-border pt-7">
-                <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
-                  Capacity
-                </p>
-                <p className="mt-3 text-base font-medium text-foreground">
-                  Capacity not stated in source
-                </p>
-              </div>
               <p className="mt-8 max-w-md text-base leading-8 text-muted-foreground">
                 Multi-unit charging infrastructure supporting public and
                 commercial access.
@@ -267,14 +264,10 @@ export default function ProjectsPage() {
             </Reveal>
           </div>
 
-          <p className="mt-9 max-w-4xl text-xs leading-6 text-muted-foreground/80 md:text-sm">
-            Selected references illustrate relevant technologies, applications
-            and delivery experience available within WXPE&apos;s wider ecosystem.
-          </p>
         </div>
       </section>
 
-      <section className="bg-[#071a2f] px-5 py-16 text-white md:py-20">
+      <section className="bg-[#071a2f] py-16 text-white md:py-20">
         <div className="container flex flex-col justify-between gap-8 md:flex-row md:items-center">
           <Reveal>
             <h2 className="text-3xl font-semibold tracking-[-0.02em] md:text-[2.6rem]">

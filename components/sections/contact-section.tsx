@@ -118,7 +118,7 @@ export function ContactSection() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Chat with Sales
+                Chat on WhatsApp
                 <ArrowRight
                   aria-hidden="true"
                   className="transition-transform duration-300 group-hover:translate-x-1"

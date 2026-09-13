@@ -1,84 +1,13 @@
 "use client";
 
 import { ChevronDown } from "lucide-react";
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 import { Reveal } from "@/components/reveal";
-
-const specificationFields = [
-  { key: "motorPower", label: "Motor power" },
-  { key: "estimatedRange", label: "Estimated range" },
-  { key: "maximumLoad", label: "Maximum load" },
-  { key: "vehicleDimensions", label: "Vehicle dimensions" },
-  { key: "chargingTime", label: "Charging time" }
-] as const;
-
-type SpecificationKey = (typeof specificationFields)[number]["key"];
-
-type MobilitySpecification = {
-  model: string;
-  specifications: Record<SpecificationKey, string>;
-};
-
-const mobilitySpecifications = [
-  {
-    model: "Flag Ship",
-    specifications: {
-      motorPower: "1,800 W",
-      estimatedRange: "60–80 km",
-      maximumLoad: "Up to 1,200 kg",
-      vehicleDimensions: "3300 × 1299 × 1460 mm",
-      chargingTime: "6–8 hours"
-    }
-  },
-  {
-    model: "Black Panther",
-    specifications: {
-      motorPower: "1,500 W",
-      estimatedRange: "60–80 km",
-      maximumLoad: "Up to 800 kg",
-      vehicleDimensions: "3070 × 1180 × 1410 mm",
-      chargingTime: "6–8 hours"
-    }
-  },
-  {
-    model: "Warrior",
-    specifications: {
-      motorPower: "1,200 W",
-      estimatedRange: "60–80 km",
-      maximumLoad: "Up to 500 kg",
-      vehicleDimensions: "2910 × 1070 × 1365 mm",
-      chargingTime: "6–8 hours"
-    }
-  },
-  {
-    model: "Courier Cart",
-    specifications: {
-      motorPower: "1,200 W",
-      estimatedRange: "60–80 km",
-      maximumLoad: "Up to 500 kg",
-      vehicleDimensions: "2910 × 1070 × 1365 mm",
-      chargingTime: "6–8 hours"
-    }
-  },
-  {
-    model: "Mobile Food Cart",
-    specifications: {
-      motorPower: "1,200 W",
-      estimatedRange: "60–80 km",
-      maximumLoad: "Up to 500 kg",
-      vehicleDimensions: "2910 × 1070 × 1365 mm",
-      chargingTime: "6–8 hours"
-    }
-  }
-] satisfies readonly MobilitySpecification[];
-
-const specificationNote =
-  "Specifications are reference values and may vary by configuration and future product updates.";
+import { mobilitySpecifications, specificationFields, specificationNote } from "@/lib/mobility-specifications";
 
 export function MobilitySpecifications() {
-  const desktopScrollRef = useRef<HTMLDivElement>(null);
-  const [selectedModel, setSelectedModel] = useState(
+  const [selectedModel, setSelectedModel] = useState<string>(
     mobilitySpecifications[0].model
   );
 
@@ -87,22 +16,11 @@ export function MobilitySpecifications() {
     mobilitySpecifications[0];
 
   return (
-    <Reveal delay={0.08} className="mt-10 md:mt-16">
-      <details
-        className="group border-y border-[#c8d6df] bg-[#f8fafb] px-5 md:px-8"
-        onToggle={(event) => {
-          if (event.currentTarget.open && desktopScrollRef.current) {
-            desktopScrollRef.current.scrollLeft = 0;
-          }
-        }}
-      >
-        <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between gap-6 rounded-sm py-4 text-base font-semibold text-foreground marker:content-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-[#f8fafb] md:py-6 md:text-lg">
+    <Reveal className="mt-14 md:mt-20">
+      <section id="model-comparison" aria-labelledby="model-comparison-title" className="scroll-mt-28 rounded-xl border border-border bg-[#f8fafb] px-5 md:px-8">
+        <h2 id="model-comparison-title" className="py-6 text-2xl font-semibold tracking-tight">
           Compare model specifications
-          <ChevronDown
-            aria-hidden="true"
-            className="size-5 shrink-0 text-primary transition-transform duration-300 group-open:rotate-180 motion-reduce:transition-none"
-          />
-        </summary>
+        </h2>
 
         <div className="border-t border-border pb-7">
           <div className="pt-5 md:hidden">
@@ -140,7 +58,7 @@ export function MobilitySpecifications() {
                   <dt className="text-sm leading-6 text-muted-foreground">
                     {field.label}
                   </dt>
-                  <dd className="text-right text-sm font-medium leading-6 text-foreground">
+                  <dd className="text-right text-sm font-medium leading-6 tabular-nums text-foreground">
                     {selectedSpecifications.specifications[field.key]}
                   </dd>
                 </div>
@@ -150,18 +68,22 @@ export function MobilitySpecifications() {
 
           <div className="hidden md:block">
             <div
-              ref={desktopScrollRef}
-              className="overflow-x-auto overscroll-x-contain"
+              tabIndex={0}
+              role="region"
+              aria-label="Model specifications comparison table"
+              className="overflow-x-auto overscroll-x-contain focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             >
-              <table className="w-full min-w-[980px] border-collapse text-left">
+              <table aria-describedby="model-specification-note" className="w-full min-w-[960px] table-fixed border-collapse text-left">
+                <caption className="sr-only">EVMobii model specifications</caption>
                 <thead className="sticky top-0 z-20 bg-[#f8fafb] shadow-[0_1px_0_0_#d2dee6]">
                   <tr>
-                    <th className="sticky left-0 z-30 w-[28%] bg-[#f8fafb] py-5 pr-6 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                    <th scope="col" className="sticky left-0 z-30 w-[18%] bg-[#f8fafb] py-5 pr-6 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
                       Specification
                     </th>
                     {mobilitySpecifications.map((item) => (
                       <th
                         key={item.model}
+                        scope="col"
                         className="py-5 pr-6 text-sm font-semibold text-foreground"
                       >
                         {item.model}
@@ -175,13 +97,13 @@ export function MobilitySpecifications() {
                       key={field.key}
                       className="group/row border-t border-border transition-colors hover:bg-primary/[0.045]"
                     >
-                      <th className="sticky left-0 z-10 bg-[#f8fafb] py-4 pr-6 text-sm font-medium text-muted-foreground transition-colors group-hover/row:bg-[#eef5f9]">
+                      <th scope="row" className="sticky left-0 z-10 bg-[#f8fafb] py-4 pr-6 text-sm font-medium text-muted-foreground transition-colors group-hover/row:bg-[#eef5f9]">
                         {field.label}
                       </th>
                       {mobilitySpecifications.map((item) => (
                         <td
                           key={item.model}
-                          className="py-4 pr-6 text-sm text-foreground"
+                          className="py-4 pr-4 text-sm leading-6 tabular-nums text-foreground"
                         >
                           {item.specifications[field.key]}
                         </td>
@@ -193,11 +115,11 @@ export function MobilitySpecifications() {
             </div>
           </div>
 
-          <p className="mt-5 text-xs leading-6 text-muted-foreground">
+          <p id="model-specification-note" className="mt-5 text-sm leading-6 text-muted-foreground">
             {specificationNote}
           </p>
         </div>
-      </details>
+      </section>
     </Reveal>
   );
 }

@@ -50,7 +50,7 @@
   }
 
   .section-padding {
-    @apply py-24 md:py-32;
+    @apply py-20 md:py-28;
   }
 
   .quiet-grid {
@@ -61,4 +61,30 @@
     mask-image: linear-gradient(to bottom, black, transparent 74%);
   }
 
+}
+
+@layer components {
+  .section-title {
+    @apply text-balance text-3xl font-semibold leading-tight tracking-[-0.02em] text-foreground md:text-[2.75rem];
+  }
+
+  .section-description {
+    @apply max-w-2xl text-base leading-8 text-muted-foreground md:text-lg;
+  }
+
+  .surface-card {
+    @apply rounded-xl border border-border bg-card;
+  }
+
+  .text-link {
+    @apply inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-primary underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4;
+  }
+
+  .capacity-value {
+    @apply text-xl font-semibold leading-snug tracking-tight tabular-nums text-foreground md:text-2xl;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
 }

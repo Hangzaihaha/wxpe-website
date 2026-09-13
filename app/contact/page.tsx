@@ -148,7 +148,7 @@ export default function ContactPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Chat with Sales
+                  Chat on WhatsApp
                   <ArrowRight
                     aria-hidden="true"
                     className="transition-transform duration-300 group-hover:translate-x-1"
@@ -339,7 +339,7 @@ export default function ContactPage() {
 
       <section
         aria-labelledby="contact-closing-title"
-        className="bg-[#071a2f] px-5 py-14 text-white md:py-16"
+        className="bg-[#071a2f] py-14 text-white md:py-16"
       >
         <div className="container flex flex-col justify-between gap-8 md:flex-row md:items-center">
           <Reveal>
@@ -362,7 +362,7 @@ export default function ContactPage() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Talk to the WXPE Team
+                Chat on WhatsApp
                 <ArrowRight
                   aria-hidden="true"
                   className="transition-transform duration-300 group-hover:translate-x-1"

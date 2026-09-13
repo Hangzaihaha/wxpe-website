@@ -22,7 +22,7 @@ export function SolutionsSection() {
               <Reveal key={item.title} delay={index * 0.05}>
                 <article
                   id={item.id}
-                  className="group scroll-mt-24 overflow-hidden rounded-lg border border-[#d2dee6] bg-card shadow-[0_18px_54px_rgba(11,18,32,0.07)] transition-all hover:-translate-y-1 hover:border-primary/35 hover:shadow-[0_26px_70px_rgba(11,18,32,0.105)]"
+                  className="surface-card group h-full scroll-mt-24 overflow-hidden transition-colors duration-200 hover:border-primary/35"
                 >
                   <div className="relative aspect-[16/9] overflow-hidden bg-[#eef3f6]">
                     {/*
@@ -34,7 +34,7 @@ export function SolutionsSection() {
                       alt=""
                       fill
                       sizes="(min-width: 768px) 50vw, 100vw"
-                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                      className="object-cover"
                     />
                     <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,17,31,0)_48%,rgba(7,17,31,0.34)_100%)]" />
                     <div className="absolute left-5 top-5 flex size-10 items-center justify-center rounded-md bg-white/90 text-primary shadow-[0_12px_30px_rgba(11,18,32,0.16)]">

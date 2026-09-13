@@ -139,7 +139,7 @@ export default function AboutPage() {
                 />
               </div>
               <figcaption className="mt-3 text-xs uppercase tracking-[0.14em] text-muted-foreground">
-                Digital energy infrastructure reference visual
+                Solar generation and battery storage
               </figcaption>
             </figure>
           </Reveal>

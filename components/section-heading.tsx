@@ -21,11 +21,11 @@ export function SectionHeading({
         className
       )}
     >
-      <h2 className="text-balance text-3xl font-semibold leading-tight tracking-normal text-foreground md:text-[2.75rem]">
+      <h2 className="section-title">
         {title}
       </h2>
       {description ? (
-        <p className="max-w-2xl text-base leading-8 text-muted-foreground md:text-lg">
+        <p className="section-description">
           {description}
         </p>
       ) : null}

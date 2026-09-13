@@ -12,10 +12,11 @@ export function PartnerDeliverySection() {
             description="WXPE works with technology and supply-chain partners to bring battery storage, PCS, EMS and project planning capabilities into Malaysia."
           />
           <p className="text-base leading-8 text-muted-foreground">
-            The public story stays carefully separated: WXPE focuses on local
-            customer access, project development, delivery coordination and
-            service support, while partner capabilities are treated as
-            partner-backed resources rather than WXPE-owned projects.
+            WXPE supports local customers with project development, delivery
+            coordination and service support. Technology and equipment
+            capabilities are provided through our partners; their project
+            experience is distinct from WXPE&apos;s own work. Local assembly
+            remains part of our development roadmap.
           </p>
         </Reveal>
 
@@ -25,7 +26,7 @@ export function PartnerDeliverySection() {
 
             return (
               <Reveal key={item.title} delay={index * 0.04}>
-                <article className="flex items-start gap-5 rounded-lg border border-[#d8e2e8] bg-card p-6 shadow-[0_14px_38px_rgba(11,18,32,0.055)] transition-all hover:-translate-y-1 hover:border-[#c8d7e0] hover:shadow-[0_22px_56px_rgba(11,18,32,0.09)]">
+                <article className="surface-card flex items-start gap-5 p-6">
                   <Icon className="mt-1 size-5 text-accent" aria-hidden="true" />
                   <div className="flex flex-col gap-2">
                     <h3 className="text-lg font-semibold leading-snug text-foreground">

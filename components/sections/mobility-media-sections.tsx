@@ -1,7 +1,9 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { Play } from "lucide-react";
+import { ArrowRight, Download, Play } from "lucide-react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useRef, useState } from "react";
 
@@ -30,46 +32,46 @@ export function MobilityHero() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section className="relative isolate min-h-[760px] border-b border-border pt-[72px]">
-      <Image
-        src="/assets/mobility/ev-tricycle-banner.jpg"
-        alt="WXPE EVMobii electric cargo tricycles for commercial mobility in Malaysia"
-        fill
-        priority
-        sizes="100vw"
-        className="origin-bottom scale-[1.18] object-cover object-bottom md:scale-[1.1]"
-      />
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,17,31,0.76)_0%,rgba(9,31,55,0.48)_34%,rgba(7,17,31,0.07)_70%,rgba(7,17,31,0)_100%)]" />
-      <div className="absolute inset-x-0 top-0 h-[42%] bg-[linear-gradient(180deg,rgba(238,243,246,0.94)_0%,rgba(238,243,246,0.62)_34%,rgba(238,243,246,0)_100%)]" />
-      <div className="absolute inset-x-0 bottom-0 h-[28%] bg-[linear-gradient(180deg,rgba(7,17,31,0)_0%,rgba(7,17,31,0.12)_100%)]" />
-
-      <div className="container relative z-10 flex min-h-[calc(84svh-72px)] items-end pb-14 pt-24 md:pb-20">
+    <section className="border-b border-border bg-secondary pt-[72px]">
+      <div className="container py-10 md:py-14">
         <motion.div
           variants={reduceMotion ? undefined : heroTextVariants}
           initial={reduceMotion ? false : "hidden"}
           animate={reduceMotion ? undefined : "visible"}
-          className="max-w-[500px] text-white drop-shadow-[0_2px_18px_rgba(0,0,0,0.28)]"
+          className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-end lg:gap-16"
         >
-          <motion.p
-            variants={reduceMotion ? undefined : heroTextItemVariants}
-            className="text-xs font-semibold uppercase tracking-[0.2em] text-white/78 md:text-sm"
-          >
-            EVMobii
-          </motion.p>
-          <motion.h1
-            variants={reduceMotion ? undefined : heroTextItemVariants}
-            className="mt-4 text-balance text-4xl font-semibold leading-[1.04] tracking-[-0.025em] md:text-[3.1rem]"
-          >
-            <span className="sr-only">EVMobii: </span>
-            <span className="block">Mobility in Motion</span>
-          </motion.h1>
-          <motion.p
-            variants={reduceMotion ? undefined : heroTextItemVariants}
-            className="mt-5 max-w-[430px] text-[0.95rem] leading-7 text-white/80 md:text-base md:leading-8"
-          >
-            Commercial electric mobility for Malaysian industry and logistics.
-          </motion.p>
+          <div>
+            <motion.p variants={reduceMotion ? undefined : heroTextItemVariants}
+              className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+              EVMobii
+            </motion.p>
+            <motion.h1 variants={reduceMotion ? undefined : heroTextItemVariants}
+              className="mt-4 text-balance text-4xl font-semibold leading-[1.04] tracking-[-0.025em] text-[#0b1f33] md:text-[3.5rem]">
+              <span className="sr-only">EVMobii: </span>Mobility in Motion
+            </motion.h1>
+          </div>
+          <div>
+            <motion.p variants={reduceMotion ? undefined : heroTextItemVariants}
+              className="max-w-[430px] text-base leading-8 text-muted-foreground md:text-lg">
+              Commercial electric mobility for Malaysian industry and logistics.
+            </motion.p>
+            <motion.div variants={reduceMotion ? undefined : heroTextItemVariants}
+              className="mt-6 flex flex-wrap gap-3">
+              <Button asChild><Link href="#models">View Models <ArrowRight aria-hidden="true" /></Link></Button>
+              <Button asChild variant="outline">
+                <a href="/downloads/evmobii-product-brochure.pdf" download target="_blank" rel="noopener noreferrer">
+                  Download Brochure <Download aria-hidden="true" />
+                </a>
+              </Button>
+            </motion.div>
+          </div>
         </motion.div>
+      </div>
+      <div className="relative aspect-[4/3] max-h-[620px] overflow-hidden sm:aspect-[2/1] lg:aspect-[5/2]">
+        <Image src="/assets/mobility/evmobii-mobility-branded.webp"
+          alt="EVMobii electric cargo and commercial three-wheelers"
+          fill priority quality={95} sizes="100vw"
+          className="object-cover object-[50%_100%]" />
       </div>
     </section>
   );

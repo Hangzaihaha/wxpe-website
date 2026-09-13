@@ -57,7 +57,7 @@ export function MobilityEcosystemSection() {
         <Reveal className="grid gap-6 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
           <h2
             id="evmobii-ecosystem-title"
-            className="text-balance text-3xl font-semibold leading-tight text-foreground md:text-[2.75rem]"
+            className="section-title"
           >
             EVMobii Ecosystem
           </h2>
@@ -111,8 +111,9 @@ export function MobilityEcosystemSection() {
 
         <Reveal delay={0.12}>
           <p className="mt-7 max-w-3xl border-l-2 border-accent pl-5 text-sm leading-7 text-muted-foreground md:text-base">
-            Building battery capabilities supporting both EVMobii electric
-            mobility and stationary energy solutions.
+            EVMobii supports local commercial electrification while creating a
+            pathway for battery pack localization, service capability, spare
+            parts support and future fleet energy integration.
           </p>
         </Reveal>
       </div>
@@ -130,7 +131,7 @@ export function WhyEVMobiiSection() {
         <Reveal>
           <h2
             id="why-evmobii-title"
-            className="text-3xl font-semibold leading-tight text-foreground md:text-[2.65rem]"
+            className="section-title"
           >
             Why EVMobii
           </h2>
@@ -189,7 +190,7 @@ export function MobilityEnergyTransitionSection() {
             <span className="block h-1 w-14 bg-accent" aria-hidden="true" />
             <h2
               id="mobility-energy-transition-title"
-              className="mt-7 text-balance text-3xl font-semibold leading-tight text-foreground md:text-[2.75rem]"
+              className="section-title mt-7"
             >
               From Mobility to Energy Transition
             </h2>
