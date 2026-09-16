@@ -4,7 +4,7 @@ import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 
 import { Reveal } from "@/components/reveal";
-import { mobilitySpecifications, specificationFields, specificationNote } from "@/lib/mobility-specifications";
+import { batteryNote, chargingNote, mobilitySpecifications, rangeNote, specificationFields, specificationNote } from "@/lib/mobility-specifications";
 
 export function MobilitySpecifications() {
   const [selectedModel, setSelectedModel] = useState<string>(
@@ -115,9 +115,12 @@ export function MobilitySpecifications() {
             </div>
           </div>
 
-          <p id="model-specification-note" className="mt-5 text-sm leading-6 text-muted-foreground">
-            {specificationNote}
-          </p>
+          <div id="model-specification-note" className="mt-5 space-y-2 text-sm leading-6 text-muted-foreground">
+            <p>{rangeNote}</p>
+            <p>{chargingNote}</p>
+            <p>{batteryNote}</p>
+            <p>{specificationNote}</p>
+          </div>
         </div>
       </section>
     </Reveal>

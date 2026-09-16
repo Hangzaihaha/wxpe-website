@@ -4,8 +4,9 @@ import { ArrowRight } from "lucide-react";
 
 import { Reveal } from "@/components/reveal";
 import { MobilitySpecifications } from "@/components/sections/mobility-specifications";
+import { MobilityModelDetails } from "@/components/sections/mobility-model-details";
 import { contactData } from "@/lib/contact-data";
-import { mobilitySpecifications, specificationFields, specificationNote } from "@/lib/mobility-specifications";
+import { mobilitySpecifications, cardSpecificationFields, rangeNote } from "@/lib/mobility-specifications";
 
 const modelContent = {
   "Flag Ship": {
@@ -71,17 +72,20 @@ export function MobilityModels() {
                   <div className="flex flex-1 flex-col p-6">
                     <h3 className="text-2xl font-semibold leading-tight tracking-tight">{model.model}</h3>
                     <p className="mt-3 text-sm leading-7 text-muted-foreground md:min-h-[84px]">{content.description}</p>
-                    <dl className="mt-6 divide-y divide-border border-y border-border">
-                      {specificationFields.slice(0, 3).map((field) => (
-                        <div key={field.key} className="flex justify-between gap-3 py-3 text-sm leading-6">
-                          <dt className="text-muted-foreground">{field.label}</dt>
-                          <dd className="text-right font-semibold tabular-nums">{model.specifications[field.key]}</dd>
+                    <dl className="mt-6 grid grid-cols-2 gap-x-4 gap-y-5 border-y border-border py-5">
+                      {cardSpecificationFields.map((field) => (
+                        <div key={field.key} className="min-w-0 text-sm leading-6">
+                          <dt className="text-xs leading-5 text-muted-foreground">{field.label}</dt>
+                          <dd className="mt-1 font-semibold tabular-nums">{model.specifications[field.key]}</dd>
                         </div>
                       ))}
                     </dl>
+                    <Link href={`#specs-${model.id}`} className="text-link mt-4 self-start" aria-label={`Full specifications for ${model.model}`}>
+                      Full specifications <ArrowRight className="size-4" aria-hidden="true" />
+                    </Link>
                     <a href={inquiry} target="_blank" rel="noopener noreferrer"
                       aria-label={`Ask about ${model.model} on WhatsApp`}
-                      className="text-link mt-5 self-start">
+                      className="text-link mt-auto self-start pt-2">
                       Ask on WhatsApp <ArrowRight className="size-4" aria-hidden="true" />
                     </a>
                   </div>
@@ -90,8 +94,9 @@ export function MobilityModels() {
             );
           })}
         </div>
-        <p className="mt-6 max-w-3xl text-sm leading-6 text-muted-foreground">{specificationNote}</p>
+        <p className="mt-6 max-w-3xl text-sm leading-6 text-muted-foreground">{rangeNote}</p>
         <MobilitySpecifications />
+        <MobilityModelDetails />
       </div>
     </section>
   );
