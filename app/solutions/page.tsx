@@ -7,6 +7,7 @@ import { EnergyServiceSection } from "@/components/sections/energy-service-secti
 import { PartnerDeliverySection } from "@/components/sections/localization-section";
 import { MicrogridSection } from "@/components/sections/microgrid-section";
 import { SolutionsSection } from "@/components/sections/solutions-section";
+import { EnergyArchitectureSection } from "@/components/sections/energy-architecture-section";
 import { Reveal } from "@/components/reveal";
 import { WxpeLogo } from "@/components/wxpe-logo";
 import { navItems } from "@/lib/site-data";
@@ -74,6 +75,7 @@ export default function SolutionsPage() {
       </section>
 
       <SolutionsSection />
+      <EnergyArchitectureSection />
       <MicrogridSection />
       <EnergyServiceSection />
       <PartnerDeliverySection />

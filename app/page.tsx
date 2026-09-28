@@ -9,7 +9,7 @@ import { SiteHeader } from "@/components/site-header";
 export default function Home() {
   return (
     <main className="min-h-screen overflow-hidden bg-background">
-      <SiteHeader />
+      <SiteHeader compactMobile />
       <HeroSection />
       <HomeSolutionsSection />
       <ProjectsSection />

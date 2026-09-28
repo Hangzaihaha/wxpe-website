@@ -83,6 +83,18 @@
   .capacity-value {
     @apply text-xl font-semibold leading-snug tracking-tight tabular-nums text-foreground md:text-2xl;
   }
+
+  .home-cta {
+    @apply inline-flex min-h-11 w-fit items-center gap-2 border-b border-primary/35 pb-1 text-sm font-semibold text-primary outline-none transition-colors duration-200 hover:border-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4;
+  }
+
+  .home-media {
+    @apply overflow-hidden rounded-2xl;
+  }
+
+  .home-eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.14em] text-primary;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

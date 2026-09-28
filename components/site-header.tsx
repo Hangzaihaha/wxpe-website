@@ -191,7 +191,7 @@ const mobileMenuItemVariants = {
   }
 } as const;
 
-export function SiteHeader() {
+export function SiteHeader({ compactMobile = false }: { compactMobile?: boolean }) {
   const pathname = usePathname();
   const reduceMotion = useReducedMotion();
   const [currentHash, setCurrentHash] = useState("");
@@ -529,7 +529,7 @@ export function SiteHeader() {
             "lg:border-transparent lg:bg-white lg:shadow-none lg:backdrop-blur-none"
         )}
       >
-        <div className="mx-auto flex h-[calc(64px+env(safe-area-inset-top))] w-full max-w-[1220px] items-center gap-5 pl-5 pr-[calc(1.25rem+var(--mobile-scrollbar-compensation,0px))] pt-[env(safe-area-inset-top)] lg:h-[72px] lg:px-4 lg:py-4 lg:pt-4 xl:px-5">
+        <div className={cn("mx-auto flex w-full max-w-[1220px] items-center gap-5 pl-5 pr-[calc(1.25rem+var(--mobile-scrollbar-compensation,0px))] pt-[env(safe-area-inset-top)] lg:h-[72px] lg:px-4 lg:py-4 lg:pt-4 xl:px-5", compactMobile ? "h-[calc(56px+env(safe-area-inset-top))]" : "h-[calc(64px+env(safe-area-inset-top))]")}>
           <div
             aria-hidden={mobileMenuOpen ? "true" : undefined}
             onMouseEnter={() => closeSolutionsMenu()}

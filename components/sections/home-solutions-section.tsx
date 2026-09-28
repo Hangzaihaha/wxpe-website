@@ -61,7 +61,7 @@ function FeatureRow({
   return (
     <section
       aria-labelledby={titleId}
-      className={`grid items-center gap-8 md:gap-10 min-[1200px]:gap-10 min-[1440px]:gap-20 min-[1800px]:gap-[5.5rem] ${
+      className={`grid items-center gap-7 md:gap-10 min-[1200px]:gap-10 min-[1440px]:gap-20 min-[1800px]:gap-[5.5rem] ${
         reverse
           ? "min-[1200px]:grid-cols-[minmax(360px,2fr)_minmax(0,3fr)]"
           : "min-[1200px]:grid-cols-[minmax(0,3fr)_minmax(360px,2fr)]"
@@ -75,7 +75,7 @@ function FeatureRow({
         <Link
           href={tile.href}
           aria-label={`Explore ${tile.title}`}
-          className="relative block aspect-[16/9] w-full overflow-hidden rounded-[1.5rem] border border-[#d5e0e7] bg-[#e8eef2] shadow-[0_18px_50px_rgba(11,31,51,0.075)] outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
+          className="home-media relative block aspect-[16/9] w-full border border-[#d5e0e7] bg-[#e8eef2] shadow-[0_18px_50px_rgba(11,31,51,0.075)] outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
         >
           <Image
             src={tile.image}
@@ -98,16 +98,23 @@ function FeatureRow({
             reverse ? "min-[1200px]:ml-auto" : ""
           }`}
         >
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+          <p className="home-eyebrow">
             {eyebrow}
           </p>
           <h3
             id={titleId}
-            className="mt-4 text-balance text-[2rem] font-semibold leading-[1.08] tracking-[-0.025em] text-[#0b1f33] sm:text-[2.4rem] lg:text-[2.65rem]"
+            className="mt-[14px] text-balance text-[2rem] font-semibold leading-[1.08] tracking-[-0.025em] text-[#0b1f33] sm:mt-4 sm:text-[2.4rem] lg:text-[2.65rem]"
           >
-            {tile.title}
+            {tile.href === "/mobility" ? (
+              <>
+                <span className="block">EVMobii</span>{" "}
+                <span className="mt-2 block text-[1.35rem] font-medium leading-tight tracking-[-0.015em] sm:text-[1.75rem] lg:text-[1.85rem]">
+                  Commercial Electric Mobility
+                </span>
+              </>
+            ) : tile.title}
           </h3>
-          <p className="mt-5 text-[0.9375rem] leading-7 text-[#475569] sm:hidden">
+          <p className="mt-[18px] text-[0.9375rem] leading-7 text-[#475569] sm:hidden">
             {tile.mobileDescription}
           </p>
           <p className="mt-5 hidden text-base leading-8 text-[#475569] sm:block">
@@ -115,7 +122,7 @@ function FeatureRow({
           </p>
           <Link
             href={tile.href}
-            className="group mt-7 inline-flex min-h-11 items-center gap-2 border-b border-primary/35 pb-1 text-sm font-semibold text-primary outline-none transition-colors duration-200 hover:border-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
+            className="home-cta group mt-6 sm:mt-7"
           >
             {tile.href === "/mobility" ? "Explore Mobility" : "Explore Solution"}
             <ArrowRight
@@ -134,9 +141,9 @@ function SupportingSolution({ tile }: { tile: SolutionTile }) {
     <Reveal distance={10} duration={0.54}>
       <Link
         href={tile.href}
-        className="group block border-t border-[#cbd8e1] pt-6 outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
+        className="group block border-t border-[#cbd8e1] pt-[21px] sm:pt-6 outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
       >
-        <div className="relative aspect-[16/9] overflow-hidden rounded-[1.125rem] border border-[#d5e0e7] bg-[#e8eef2] shadow-[0_14px_40px_rgba(11,31,51,0.055)]">
+        <div className="home-media relative aspect-[16/9] border border-[#d5e0e7] bg-[#e8eef2] shadow-[0_14px_40px_rgba(11,31,51,0.055)]">
           <Image
             src={tile.image}
             alt={tile.imageAlt}
@@ -145,7 +152,7 @@ function SupportingSolution({ tile }: { tile: SolutionTile }) {
             className="object-cover transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.02]"
           />
         </div>
-        <div className="mt-6 flex items-start justify-between gap-6">
+        <div className="mt-[21px] sm:mt-6">
           <div className="max-w-lg">
             <h3 className="text-balance text-xl font-semibold leading-tight tracking-[-0.02em] text-[#0b1f33] sm:text-2xl">
               {tile.title}
@@ -157,10 +164,7 @@ function SupportingSolution({ tile }: { tile: SolutionTile }) {
               {tile.description}
             </p>
           </div>
-          <ArrowRight
-            aria-hidden="true"
-            className="mt-1 size-5 shrink-0 text-primary transition-transform duration-200 motion-safe:group-hover:translate-x-0.5"
-          />
+          <span className="home-cta mt-5">Explore Solution <ArrowRight aria-hidden="true" className="size-4 transition-transform duration-200 motion-safe:group-hover:translate-x-0.5" /></span>
         </div>
       </Link>
     </Reveal>
@@ -173,15 +177,15 @@ export function HomeSolutionsSection() {
   return (
     <section
       id="solutions"
-      className="scroll-mt-[72px] border-b border-border bg-white pb-16 pt-20 sm:pb-20 sm:pt-24 md:pb-20 md:pt-32"
+      className="scroll-mt-[72px] border-b border-border bg-white pb-14 pt-[70px] sm:pb-20 sm:pt-24 md:pb-20 md:pt-32"
     >
       <div className="container">
         <Reveal distance={10} duration={0.58}>
           <header className="max-w-[57rem]">
-            <h2 className="text-balance text-[2.25rem] font-semibold leading-[1.06] tracking-[-0.03em] text-[#0b1f33] sm:text-[3rem] md:text-[3.5rem]">
-              Two Transitions. One Localized Technology Platform.
+            <h2 className="text-[clamp(1.75rem,7.7vw,2.25rem)] font-semibold leading-[1.1] tracking-[-0.03em] text-[#0b1f33] sm:text-balance sm:text-[3rem] sm:leading-[1.06] md:text-[3.5rem]">
+              <span className="block sm:inline">Two Transitions.</span>{" "}<span className="block sm:inline">One Localized</span>{" "}<span className="block sm:inline">Technology Platform.</span>
             </h2>
-            <p className="mt-6 max-w-3xl text-base leading-8 text-[#475569] sm:text-lg">
+            <p className="mt-[21px] max-w-3xl text-base leading-7 text-[#475569] sm:mt-6 sm:text-lg sm:leading-8">
               WXPE combines energy technology, manufacturing experience and local
               deployment capability to support Malaysia&apos;s clean technology
               transition.
@@ -190,7 +194,7 @@ export function HomeSolutionsSection() {
         </Reveal>
       </div>
 
-      <div className="mx-auto mt-16 w-[calc(100%_-_2.5rem)] max-w-[1680px] space-y-20 sm:mt-20 sm:space-y-24 md:mt-24 md:w-[calc(100%_-_4rem)] md:space-y-28 min-[1200px]:space-y-40 min-[1440px]:w-[calc(100%_-_6rem)] min-[1776px]:w-full">
+      <div className="mx-auto mt-14 w-[calc(100%_-_2.5rem)] max-w-[1680px] space-y-[70px] sm:mt-20 sm:space-y-24 md:mt-24 md:w-[calc(100%_-_4rem)] md:space-y-28 min-[1200px]:space-y-40 min-[1440px]:w-[calc(100%_-_6rem)] min-[1776px]:w-full">
         <FeatureRow
           tile={batteryStorageTile}
           eyebrow="Energy Transition"
@@ -203,13 +207,13 @@ export function HomeSolutionsSection() {
       </div>
 
       <div className="container">
-        <div className="mt-20 grid gap-14 sm:mt-24 lg:grid-cols-2 lg:gap-10">
+        <div className="mt-[70px] grid gap-12 sm:mt-24 sm:gap-14 lg:grid-cols-2 lg:gap-10">
           {supportingEnergyTiles.map((tile) => (
             <SupportingSolution key={tile.title} tile={tile} />
           ))}
         </div>
 
-        <Reveal distance={8} duration={0.5} className="mt-16 sm:mt-20">
+        <Reveal distance={8} duration={0.5} className="mt-14 sm:mt-20">
           <p className="border-t border-[#cbd8e1] pt-6 text-center text-xs font-medium uppercase leading-6 tracking-[0.14em] text-[#64748b] sm:text-sm sm:normal-case sm:tracking-[0.04em]">
             Battery capability · Local assembly · Commercial applications
           </p>

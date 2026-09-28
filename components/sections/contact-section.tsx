@@ -5,7 +5,6 @@ import { ArrowRight } from "lucide-react";
 
 import { Reveal } from "@/components/reveal";
 import { SiteFooter } from "@/components/site-footer";
-import { Button } from "@/components/ui/button";
 import { contactData } from "@/lib/contact-data";
 
 function FacebookIcon(props: SVGProps<SVGSVGElement>) {
@@ -53,8 +52,8 @@ export function ContactSection() {
       aria-labelledby="contact-title"
       className="scroll-mt-[72px] border-t border-[#c8d4dc] bg-[#eef3f6]"
     >
-      <div className="container py-16 md:py-20 lg:py-24">
-        <Reveal className="grid items-center gap-11 lg:grid-cols-[minmax(0,1.08fr)_minmax(390px,0.92fr)] lg:gap-20">
+      <div className="container py-14 md:py-20 lg:py-24">
+        <Reveal className="grid items-center gap-[38px] md:gap-11 lg:grid-cols-[minmax(0,1.08fr)_minmax(390px,0.92fr)] lg:gap-20">
           <div className="max-w-3xl">
             <h2
               id="contact-title"
@@ -62,19 +61,19 @@ export function ContactSection() {
             >
               Planning an Energy Project in Malaysia?
             </h2>
-            <p className="mt-6 max-w-2xl text-base leading-8 text-muted-foreground md:text-lg">
+            <p className="mt-[21px] max-w-2xl text-base leading-8 text-muted-foreground md:mt-6 md:text-lg">
               Talk to WXPE about battery energy storage, solar, microgrid and
               electric mobility solutions for commercial and industrial
               applications.
             </p>
             <Link
               href="/contact"
-              className={`${contactLinkClassName} group mt-7 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-primary`}
+              className="home-cta group mt-6 focus-visible:ring-offset-[#eef3f6] md:mt-7"
             >
               View Contact Details
               <ArrowRight
                 aria-hidden="true"
-                className="size-4 transition-transform duration-300 group-hover:translate-x-1"
+                className="size-4 transition-transform duration-200 motion-safe:group-hover:translate-x-0.5"
               />
             </Link>
           </div>
@@ -97,7 +96,7 @@ export function ContactSection() {
                 />
               </a>
               <div className="min-w-0 pt-0.5">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+                <p className="home-eyebrow">
                   Sales WhatsApp
                 </p>
                 <a
@@ -108,29 +107,24 @@ export function ContactSection() {
                 </a>
               </div>
             </div>
-            <Button
-              asChild
-              size="lg"
-              className="group mt-7 h-14 w-full justify-between rounded-sm px-7 text-base shadow-none sm:ml-16 sm:w-[19rem]"
+            <a
+              href={contactData.sales.whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="home-cta group mt-6 focus-visible:ring-offset-[#eef3f6] sm:ml-16 md:mt-7"
             >
-              <a
-                href={contactData.sales.whatsappHref}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Chat on WhatsApp
-                <ArrowRight
-                  aria-hidden="true"
-                  className="transition-transform duration-300 group-hover:translate-x-1"
-                />
-              </a>
-            </Button>
+              Chat on WhatsApp
+              <ArrowRight
+                aria-hidden="true"
+                className="size-4 transition-transform duration-200 motion-safe:group-hover:translate-x-0.5"
+              />
+            </a>
           </div>
         </Reveal>
 
-        <div className="mt-14 border-y border-[#b9c9d3] md:mt-16 md:grid md:grid-cols-[1fr_1fr_0.68fr]">
-          <Reveal className="border-b border-[#b9c9d3] py-7 md:border-b-0 md:border-r md:py-8 md:pr-8">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+        <div className="mt-12 border-y border-[#b9c9d3] md:mt-16 md:grid md:grid-cols-[1fr_1fr_0.68fr]">
+          <Reveal className="border-b border-[#b9c9d3] py-6 md:border-b-0 md:border-r md:py-8 md:pr-8">
+            <p className="home-eyebrow">
               Sales Email
             </p>
             <a
@@ -143,9 +137,9 @@ export function ContactSection() {
 
           <Reveal
             delay={0.05}
-            className="border-b border-[#b9c9d3] py-7 md:border-b-0 md:border-r md:px-8 md:py-8"
+            className="border-b border-[#b9c9d3] py-6 md:border-b-0 md:border-r md:px-8 md:py-8"
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+            <p className="home-eyebrow">
               Services &amp; Support
             </p>
             <div className="mt-3 flex flex-col items-start gap-1.5">
@@ -164,8 +158,8 @@ export function ContactSection() {
             </div>
           </Reveal>
 
-          <Reveal delay={0.1} className="py-7 md:py-8 md:pl-8 lg:pl-10">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+          <Reveal delay={0.1} className="py-6 md:py-8 md:pl-8 lg:pl-10">
+            <p className="home-eyebrow">
               Follow WXPE
             </p>
             <div className="mt-4 flex items-center gap-3">

@@ -6,9 +6,9 @@ export function HomePainPointsSection() {
     <section
       id="pain-points"
       aria-labelledby="pain-points-title"
-      className="scroll-mt-[72px] border-b border-border bg-[#f4f7f8] py-24 md:py-32"
+      className="scroll-mt-[72px] border-b border-border bg-[#f4f7f8] py-[84px] md:py-32"
     >
-      <div className="container grid items-start gap-14 lg:grid-cols-[minmax(300px,0.72fr)_minmax(0,1.28fr)] lg:gap-16 xl:gap-20">
+      <div className="container grid items-start gap-12 md:gap-14 lg:grid-cols-[minmax(300px,0.72fr)_minmax(0,1.28fr)] lg:gap-16 xl:gap-20">
         <Reveal className="xl:sticky xl:top-32 xl:self-start">
           <div className="relative max-w-lg pl-7 md:pl-9">
             <span
@@ -21,7 +21,7 @@ export function HomePainPointsSection() {
             >
               Customer Problems WXPE Helps Solve
             </h2>
-            <p className="mt-7 max-w-md text-base leading-8 text-muted-foreground md:text-[1.05rem]">
+            <p className="mt-6 max-w-md text-base leading-8 text-muted-foreground md:mt-7 md:text-[1.05rem]">
               A sharper starting point for C&amp;I energy strategy: cost,
               reliability and execution.
             </p>
@@ -38,7 +38,7 @@ export function HomePainPointsSection() {
                 className="group border-b border-[#c8d4dc]"
               >
                 <Reveal delay={index * 0.055}>
-                  <div className="grid grid-cols-[3.65rem_minmax(0,1fr)] gap-5 py-9 sm:grid-cols-[4.5rem_minmax(0,1fr)] sm:gap-7 md:py-10 lg:grid-cols-[5.5rem_minmax(0,1fr)] lg:gap-8">
+                  <div className="grid grid-cols-[3.65rem_minmax(0,1fr)] gap-5 py-8 sm:grid-cols-[4.5rem_minmax(0,1fr)] sm:gap-7 md:py-10 lg:grid-cols-[5.5rem_minmax(0,1fr)] lg:gap-8">
                     <span
                       aria-hidden="true"
                       className="text-[2.6rem] font-light leading-none tracking-[-0.05em] text-primary/45 transition-colors duration-300 group-hover:text-primary sm:text-5xl lg:text-[4.25rem]"
@@ -53,7 +53,7 @@ export function HomePainPointsSection() {
                       <p className="mt-3 text-[0.95rem] leading-7 text-muted-foreground md:text-base">
                         {item.description}
                       </p>
-                      <p className="mt-5 text-sm font-medium leading-6 text-primary">
+                      <p className="mt-[18px] text-sm font-medium leading-6 text-primary md:mt-5">
                         {item.response}
                       </p>
                     </div>

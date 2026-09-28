@@ -1,0 +1,38 @@
+.diagram { height: auto; }
+.coordination {
+  stroke: #64748b;
+  stroke-width: 1.8;
+  opacity: .5;
+  transition: stroke 180ms ease, stroke-width 180ms ease, opacity 180ms ease;
+}
+.coordination[data-active="true"] { stroke: var(--node-color); stroke-width: 2.4; opacity: 1; }
+.coordination[data-muted="true"] { opacity: .2; }
+.node { cursor: pointer; outline: none; }
+.nodeDot { transition: r 180ms ease; }
+.focusOutline { stroke: transparent; stroke-width: 2; }
+.node:focus-visible .focusOutline { stroke: #1e293b; }
+.energyFlow {
+  stroke: #475569;
+  stroke-width: 2;
+  stroke-opacity: 1;
+  opacity: 1;
+  stroke-dasharray: none;
+}
+.energyTrail, .energyPulse {
+  display: none;
+  pointer-events: none;
+  stroke: #1e293b;
+  stroke-linecap: round;
+  stroke-width: 2.5;
+}
+.energyTrail { stroke-dasharray: 20 80; stroke-opacity: .25; }
+.energyPulse { stroke-dasharray: 7 93; stroke-opacity: .85; }
+@media (min-width: 768px) and (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .energyTrail, .energyPulse { display: block; animation: energy-flow 3.6s linear infinite; }
+  .emsBorder { animation: ems-breathe 2.8s ease-in-out infinite; }
+}
+@keyframes energy-flow { to { stroke-dashoffset: -100; } }
+@keyframes ems-breathe { 0%, 100% { stroke-opacity: .6; } 50% { stroke-opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .coordination, .nodeDot { transition: none; }
+}
