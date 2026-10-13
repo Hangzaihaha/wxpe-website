@@ -540,7 +540,7 @@ export function SiteHeader({ compactMobile = false }: { compactMobile?: boolean 
               mobileMenuOpen && "pointer-events-none opacity-0"
             )}
           >
-            <WxpeLogo priority />
+            <WxpeLogo priority markOnly />
           </div>
 
           <nav

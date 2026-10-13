@@ -88,7 +88,7 @@ const organizationJsonLd = {
   "@type": "Organization",
   name: "WXPE",
   url: "https://www.wxpenergy.com.my",
-  logo: "https://www.wxpenergy.com.my/assets/brand/wxpe-mark.svg",
+  logo: "https://www.wxpenergy.com.my/assets/brand/wxp-electronics-logo-navy.svg",
   email: contactData.sales.email,
   telephone: contactData.sales.whatsappDisplay,
   contactPoint: [

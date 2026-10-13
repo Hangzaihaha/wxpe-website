@@ -30,9 +30,12 @@ export const metadata: Metadata = {
     canonical: "/"
   },
   icons: {
-    icon: "/assets/brand/wxpe-mark.svg",
-    shortcut: "/assets/brand/wxpe-mark.svg",
-    apple: "/assets/brand/wxpe-mark.svg"
+    icon: [
+      { url: "/assets/brand/wxp-electronics-emblem.svg", type: "image/svg+xml" },
+      { url: "/assets/brand/wxp-electronics-favicon-32.png", type: "image/png", sizes: "32x32" }
+    ],
+    shortcut: "/assets/brand/wxp-electronics-favicon-32.png",
+    apple: { url: "/assets/brand/wxp-electronics-apple-icon.png", sizes: "180x180", type: "image/png" }
   },
   openGraph: {
     title:
