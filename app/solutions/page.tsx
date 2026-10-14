@@ -11,7 +11,6 @@ import { EnergyArchitectureSection } from "@/components/sections/energy-architec
 import { Reveal } from "@/components/reveal";
 import { WxpeLogo } from "@/components/wxpe-logo";
 import { navItems } from "@/lib/site-data";
-import { contactData } from "@/lib/contact-data";
 
 export const metadata: Metadata = {
   title: "Energy Solutions | WXPE",
@@ -59,12 +58,6 @@ export default function SolutionsPage() {
             </p>
           </Reveal>
 
-          <nav aria-label="Solutions page sections" className="mt-6 flex flex-wrap gap-x-6 gap-y-1">
-            <a href="#solutions" className="text-link">Find a solution</a>
-            <a href="#energy-system" className="text-link">How systems work together</a>
-            <a href="#solutions-enquiry" className="text-link">Contact our team</a>
-          </nav>
-
           <Reveal delay={0.1} className="mt-10 md:mt-12">
             <div className="relative min-h-[320px] overflow-hidden rounded-lg border border-[#cfdae1] bg-[#e7edf1] shadow-[0_24px_64px_rgba(11,18,32,0.1)] md:aspect-[16/7] md:min-h-0">
               <Image
@@ -86,13 +79,6 @@ export default function SolutionsPage() {
       <MicrogridSection />
       <EnergyServiceSection />
       <PartnerDeliverySection />
-
-      <section id="solutions-enquiry" className="scroll-mt-24 border-t border-border bg-secondary py-12 md:py-16">
-        <div className="container flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-          <div className="max-w-2xl"><h2 className="text-2xl font-semibold leading-tight md:text-3xl">Find the right approach for your site</h2><p className="mt-4 text-base leading-7 text-muted-foreground">Tell us about your energy use, operating priorities and project requirements.</p></div>
-          <a href={`${contactData.sales.whatsappHref}?text=${encodeURIComponent("Hi, I would like to discuss energy solutions for my site.")}`} target="_blank" rel="noopener noreferrer" className="home-cta shrink-0">Enquire on WhatsApp</a>
-        </div>
-      </section>
 
       <footer className="bg-[#07111f] px-5 py-10 text-white md:py-12">
         <div className="container flex flex-col justify-between gap-8 md:flex-row md:items-start">

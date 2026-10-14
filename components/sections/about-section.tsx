@@ -26,14 +26,14 @@ export function AboutSection() {
             energy technology partnerships and localized deployment capability
             across{" "}
             <Link
-              href="/solutions/battery-storage"
+              href="/solutions#top"
               className="font-medium text-foreground underline decoration-primary/35 underline-offset-4 transition-colors hover:text-primary"
             >
               Battery Energy Storage Systems
             </Link>
             ,{" "}
             <Link
-              href="/solutions/solar-hybrid"
+              href="/solutions#top"
               className="font-medium text-foreground underline decoration-primary/35 underline-offset-4 transition-colors hover:text-primary"
             >
               Solar Hybrid Microgrids

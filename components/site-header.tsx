@@ -30,19 +30,19 @@ const megaMotion = {
 const solutionMenuItems = [
   {
     title: "Battery Energy Storage",
-    href: "/solutions/battery-storage"
+    href: "/solutions#top"
   },
   {
     title: "Solar Hybrid & Microgrid",
-    href: "/solutions/solar-hybrid"
+    href: "/solutions#top"
   },
   {
     title: "EMS & Energy Optimization",
-    href: "/solutions/digital-energy-management"
+    href: "/solutions#top"
   },
   {
     title: "Energy-as-a-Service",
-    href: "/solutions#energy-deployment"
+    href: "/solutions#top"
   },
   {
     title: "Mobility",
@@ -529,6 +529,12 @@ export function SiteHeader({ compactMobile = false }: { compactMobile?: boolean 
     }
   }
 
+  function scrollCurrentSolutionsToTop() {
+    if (pathname === "/solutions") {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    }
+  }
+
   return (
     <>
       <header
@@ -668,7 +674,7 @@ export function SiteHeader({ compactMobile = false }: { compactMobile?: boolean 
                                 </motion.li>
                                 {solutionMenuItems.map((solution) => (
                                   <motion.li
-                                    key={solution.href}
+                                    key={solution.title}
                                     variants={
                                       reduceMotion
                                         ? reducedDesktopItemVariants
@@ -679,6 +685,7 @@ export function SiteHeader({ compactMobile = false }: { compactMobile?: boolean 
                                       href={solution.href}
                                       scroll
                                       onClick={() => closeSolutionsMenu()}
+                                      onNavigate={solution.href.startsWith("/solutions") ? scrollCurrentSolutionsToTop : undefined}
                                       className="inline-flex py-0.5 text-2xl font-semibold leading-[1.25] tracking-[-0.02em] text-[#0b1220] opacity-[0.88] transition-opacity duration-[160ms] hover:opacity-100 focus-visible:rounded-sm focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 xl:text-[1.625rem]"
                                     >
                                       {solution.title}
@@ -900,12 +907,13 @@ export function SiteHeader({ compactMobile = false }: { compactMobile?: boolean 
                       }
                     >
                       <Link
-                        href={item.href}
+                        href={item.href === "/solutions" ? "/solutions#top" : item.href}
                         aria-current={active ? "page" : undefined}
                         onClick={() => closeMobileMenu(false)}
                         onNavigate={() => {
                           releaseMobileScrollRef.current?.(true);
                           closeMobileMenu(false);
+                          if (item.href === "/solutions") scrollCurrentSolutionsToTop();
                         }}
                         className={cn(
                           "inline-flex min-h-11 items-center text-[2rem] font-semibold leading-[1.12] tracking-[-0.025em] text-[#1d1d1f] transition-[color,opacity] duration-200 active:opacity-55 focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-[#f5f5f7] sm:text-[2.25rem]",
