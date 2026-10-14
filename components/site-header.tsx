@@ -30,19 +30,19 @@ const megaMotion = {
 const solutionMenuItems = [
   {
     title: "Battery Energy Storage",
-    href: "/solutions#top"
+    href: "/solutions"
   },
   {
     title: "Solar Hybrid & Microgrid",
-    href: "/solutions#top"
+    href: "/solutions"
   },
   {
     title: "EMS & Energy Optimization",
-    href: "/solutions#top"
+    href: "/solutions"
   },
   {
     title: "Energy-as-a-Service",
-    href: "/solutions#top"
+    href: "/solutions"
   },
   {
     title: "Mobility",
@@ -215,7 +215,13 @@ export function SiteHeader({ compactMobile = false }: { compactMobile?: boolean 
   );
 
   useEffect(() => {
-    const syncHash = () => setCurrentHash(window.location.hash);
+    const syncHash = () => {
+      if (window.location.pathname === "/solutions" && /^#top(?:#top)+$/.test(window.location.hash)) {
+        // Repair only malformed URL text, preserving history state and scroll.
+        window.history.replaceState(window.history.state, "", `${window.location.pathname}${window.location.search}#top`);
+      }
+      setCurrentHash(window.location.hash);
+    };
 
     syncHash();
     window.addEventListener("hashchange", syncHash);
@@ -907,7 +913,7 @@ export function SiteHeader({ compactMobile = false }: { compactMobile?: boolean 
                       }
                     >
                       <Link
-                        href={item.href === "/solutions" ? "/solutions#top" : item.href}
+                        href={item.href}
                         aria-current={active ? "page" : undefined}
                         onClick={() => closeMobileMenu(false)}
                         onNavigate={() => {

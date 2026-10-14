@@ -3,6 +3,7 @@ import Image from "next/image";
 import { solutions } from "@/lib/site-data";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
+import { EnergyTermInfo } from "@/components/solutions/energy-term-info";
 
 export function SolutionsSection() {
   return (
@@ -54,9 +55,10 @@ export function SolutionsSection() {
                       {item.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground"
+                          className="relative text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground"
                         >
                           {tag}
+                          <EnergyTermInfo term={tag} />
                         </span>
                       ))}
                     </div>

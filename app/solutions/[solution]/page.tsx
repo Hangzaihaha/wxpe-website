@@ -8,5 +8,6 @@ export default async function SolutionRedirect({
 }) {
   const { solution } = await params;
   if (!solutions.some((item) => item.id === solution)) notFound();
-  redirect("/solutions#top");
+  // Next.js preserves the incoming fragment; do not append a second one here.
+  redirect("/solutions");
 }
