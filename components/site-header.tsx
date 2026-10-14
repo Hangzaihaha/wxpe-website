@@ -30,15 +30,15 @@ const megaMotion = {
 const solutionMenuItems = [
   {
     title: "Battery Energy Storage",
-    href: "/solutions#battery-storage"
+    href: "/solutions/battery-storage"
   },
   {
     title: "Solar Hybrid & Microgrid",
-    href: "/solutions#solar-hybrid"
+    href: "/solutions/solar-hybrid"
   },
   {
     title: "EMS & Energy Optimization",
-    href: "/solutions#digital-energy-management"
+    href: "/solutions/digital-energy-management"
   },
   {
     title: "Energy-as-a-Service",
@@ -203,6 +203,7 @@ export function SiteHeader({ compactMobile = false }: { compactMobile?: boolean 
   );
   const mobileMenuButtonRef = useRef<HTMLButtonElement>(null);
   const mobileMenuNavRef = useRef<HTMLElement>(null);
+  const releaseMobileScrollRef = useRef<((restorePosition: boolean) => void) | null>(null);
   const solutionsButtonRef = useRef<HTMLButtonElement>(null);
   const solutionsPanelContentRef = useRef<HTMLDivElement>(null);
   const suppressNextSolutionsFocusRef = useRef(false);
@@ -317,6 +318,7 @@ export function SiteHeader({ compactMobile = false }: { compactMobile?: boolean 
     const body = document.body;
     const root = document.documentElement;
     const scrollY = window.scrollY;
+    const lockedHref = window.location.href;
     const scrollbarWidth = window.innerWidth - root.clientWidth;
     const previousScrollbarCompensation = root.style.getPropertyValue(
       "--mobile-scrollbar-compensation"
@@ -337,14 +339,36 @@ export function SiteHeader({ compactMobile = false }: { compactMobile?: boolean 
       `${scrollbarWidth}px`
     );
 
-    const closeMenu = () => setMobileMenuOpen(false);
+    let released = false;
+    const releaseScroll = (restorePosition: boolean) => {
+      if (released) return;
+      released = true;
+      body.style.overflow = previousBodyStyles.overflow;
+      body.style.position = previousBodyStyles.position;
+      body.style.top = previousBodyStyles.top;
+      body.style.width = previousBodyStyles.width;
+      if (previousScrollbarCompensation) {
+        root.style.setProperty("--mobile-scrollbar-compensation", previousScrollbarCompensation);
+      } else {
+        root.style.removeProperty("--mobile-scrollbar-compensation");
+      }
+      if (restorePosition && window.location.href === lockedHref) {
+        window.scrollTo({ top: scrollY, left: 0, behavior: "instant" });
+      }
+      releaseMobileScrollRef.current = null;
+    };
+    releaseMobileScrollRef.current = releaseScroll;
+    const closeForHistoryNavigation = () => {
+      releaseScroll(false);
+      setMobileMenuOpen(false);
+    };
     const handleResize = () => {
       if (window.innerWidth >= 1024) {
-        closeMenu();
+        setMobileMenuOpen(false);
       }
     };
 
-    window.addEventListener("popstate", closeMenu);
+    window.addEventListener("popstate", closeForHistoryNavigation);
     window.addEventListener("resize", handleResize);
 
     const focusFrame = window.requestAnimationFrame(() => {
@@ -353,21 +377,9 @@ export function SiteHeader({ compactMobile = false }: { compactMobile?: boolean 
 
     return () => {
       window.cancelAnimationFrame(focusFrame);
-      window.removeEventListener("popstate", closeMenu);
+      window.removeEventListener("popstate", closeForHistoryNavigation);
       window.removeEventListener("resize", handleResize);
-      body.style.overflow = previousBodyStyles.overflow;
-      body.style.position = previousBodyStyles.position;
-      body.style.top = previousBodyStyles.top;
-      body.style.width = previousBodyStyles.width;
-      if (previousScrollbarCompensation) {
-        root.style.setProperty(
-          "--mobile-scrollbar-compensation",
-          previousScrollbarCompensation
-        );
-      } else {
-        root.style.removeProperty("--mobile-scrollbar-compensation");
-      }
-      window.scrollTo({ top: scrollY, left: 0, behavior: "instant" });
+      releaseScroll(true);
     };
   }, [mobileMenuOpen]);
 
@@ -431,7 +443,7 @@ export function SiteHeader({ compactMobile = false }: { compactMobile?: boolean 
       return pathname === "/" && currentHash === href.slice(1);
     }
 
-    return pathname === href;
+    return pathname === href || pathname.startsWith(`${href}/`);
   }
 
   const navLinkClass = (active: boolean) =>
@@ -665,6 +677,7 @@ export function SiteHeader({ compactMobile = false }: { compactMobile?: boolean 
                                   >
                                     <Link
                                       href={solution.href}
+                                      scroll
                                       onClick={() => closeSolutionsMenu()}
                                       className="inline-flex py-0.5 text-2xl font-semibold leading-[1.25] tracking-[-0.02em] text-[#0b1220] opacity-[0.88] transition-opacity duration-[160ms] hover:opacity-100 focus-visible:rounded-sm focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 xl:text-[1.625rem]"
                                     >
@@ -890,6 +903,10 @@ export function SiteHeader({ compactMobile = false }: { compactMobile?: boolean 
                         href={item.href}
                         aria-current={active ? "page" : undefined}
                         onClick={() => closeMobileMenu(false)}
+                        onNavigate={() => {
+                          releaseMobileScrollRef.current?.(true);
+                          closeMobileMenu(false);
+                        }}
                         className={cn(
                           "inline-flex min-h-11 items-center text-[2rem] font-semibold leading-[1.12] tracking-[-0.025em] text-[#1d1d1f] transition-[color,opacity] duration-200 active:opacity-55 focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-[#f5f5f7] sm:text-[2.25rem]",
                           active && "text-primary"

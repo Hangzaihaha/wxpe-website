@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { energySolutions } from "@/lib/energy-solutions";
 
 const baseUrl = "https://www.wxpenergy.com.my";
 
@@ -29,6 +30,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.9
     },
+    ...energySolutions.map((solution) => ({
+      url: `${baseUrl}${solution.href}`,
+      changeFrequency: "monthly" as const,
+      priority: 0.8
+    })),
     {
       url: `${baseUrl}/contact`,
       changeFrequency: "yearly",

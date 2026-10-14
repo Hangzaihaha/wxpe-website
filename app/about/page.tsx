@@ -44,15 +44,15 @@ const transitionPillars = [
     areas: [
       {
         label: "Battery Energy Storage Systems",
-        href: "/solutions#battery-storage"
+        href: "/solutions/battery-storage"
       },
       {
         label: "Solar Hybrid Microgrids",
-        href: "/solutions#solar-hybrid"
+        href: "/solutions/solar-hybrid"
       },
       {
         label: "Digital Energy Solutions",
-        href: "/solutions#digital-energy-management"
+        href: "/solutions/digital-energy-management"
       },
       {
         label: "Flexible Energy Deployment",
@@ -103,14 +103,14 @@ export default function AboutPage() {
               energy technology partnerships and localized deployment capability
               across{" "}
               <Link
-                href="/solutions#battery-storage"
+                href="/solutions/battery-storage"
                 className="font-medium text-foreground underline decoration-primary/35 underline-offset-4 transition-colors hover:text-primary"
               >
                 Battery Energy Storage Systems
               </Link>
               ,{" "}
               <Link
-                href="/solutions#solar-hybrid"
+                href="/solutions/solar-hybrid"
                 className="font-medium text-foreground underline decoration-primary/35 underline-offset-4 transition-colors hover:text-primary"
               >
                 Solar Hybrid Microgrids

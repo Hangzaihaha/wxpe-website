@@ -1,12 +1,14 @@
 import Image from "next/image";
+import Link from "next/link";
 
-import { solutions } from "@/lib/site-data";
+import { energySolutions } from "@/lib/energy-solutions";
+import { TermExplanations } from "@/components/solutions/term-explanations";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 
 export function SolutionsSection() {
   return (
-    <section id="solutions" className="border-b border-border bg-background py-16 md:py-24">
+    <section id="solutions" className="scroll-mt-24 border-b border-border bg-background py-16 md:py-24">
       <div className="container flex flex-col gap-10">
         <Reveal>
           <SectionHeading
@@ -15,14 +17,14 @@ export function SolutionsSection() {
           />
         </Reveal>
         <div className="grid gap-5 md:grid-cols-2">
-          {solutions.map((item, index) => {
+          {energySolutions.map((item, index) => {
             const Icon = item.icon;
 
             return (
               <Reveal key={item.title} delay={index * 0.05}>
                 <article
                   id={item.id}
-                  className="surface-card group h-full scroll-mt-24 overflow-hidden transition-colors duration-200 hover:border-primary/35"
+                  className="surface-card group flex h-full scroll-mt-32 flex-col overflow-hidden transition-colors duration-200 hover:border-primary/35"
                 >
                   <div className="relative aspect-[16/9] overflow-hidden bg-[#eef3f6]">
                     {/*
@@ -31,7 +33,7 @@ export function SolutionsSection() {
                     */}
                     <Image
                       src={item.image}
-                      alt=""
+                      alt={item.imageAlt}
                       fill
                       sizes="(min-width: 768px) 50vw, 100vw"
                       className="object-cover"
@@ -41,25 +43,22 @@ export function SolutionsSection() {
                       <Icon className="size-5" aria-hidden="true" />
                     </div>
                   </div>
-                  <div className="flex min-h-[160px] flex-col justify-between gap-6 p-6">
+                  <div className="flex flex-1 flex-col gap-5 p-6">
                     <div className="flex flex-col gap-3">
                       <h3 className="text-xl font-semibold leading-tight tracking-normal text-foreground">
-                        {item.title}
+                        <Link href={item.href} scroll className="rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4">
+                          {item.title}
+                        </Link>
                       </h3>
                       <p className="max-w-md text-sm leading-6 text-muted-foreground">
-                        {item.description}
+                        {item.overview}
                       </p>
                     </div>
-                    <div className="flex flex-wrap gap-x-4 gap-y-2 border-t border-border pt-4">
-                      {item.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
+                    <dl className="grid gap-3 text-sm leading-6">
+                      <div><dt className="font-semibold text-foreground">Business challenge</dt><dd className="text-muted-foreground">{item.challenge}</dd></div>
+                      <div><dt className="font-semibold text-foreground">Potential benefit</dt><dd className="text-muted-foreground">{item.benefit}</dd></div>
+                    </dl>
+                    <TermExplanations terms={item.terms} />
                   </div>
                 </article>
               </Reveal>

@@ -2,6 +2,7 @@ import Image from "next/image";
 import { ArrowRight, BatteryCharging, Factory, Network, PlugZap, SunMedium, Zap } from "lucide-react";
 
 import { Reveal } from "@/components/reveal";
+import Link from "next/link";
 
 const architecture = [
   { label: "PV", icon: SunMedium },
@@ -19,7 +20,7 @@ export function MicrogridSection() {
   return (
     <section
       id="microgrid"
-      className="section-padding relative isolate border-b border-border bg-[linear-gradient(180deg,#ffffff,#eef3f6)]"
+      className="section-padding relative isolate scroll-mt-24 border-b border-border bg-[linear-gradient(180deg,#ffffff,#eef3f6)]"
     >
       <div className="absolute inset-0 -z-10 quiet-grid opacity-35" />
       <div className="container grid gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
@@ -31,7 +32,7 @@ export function MicrogridSection() {
             */}
             <Image
               src="/assets/energy/solar-rooftop-reference-01.jpg"
-              alt=""
+              alt="Rooftop solar installation reference"
               fill
               sizes="(min-width: 1024px) 46vw, 100vw"
               className="object-cover"
@@ -46,10 +47,10 @@ export function MicrogridSection() {
               Microgrid Architecture
             </p>
             <h2 className="mt-4 text-3xl font-semibold leading-tight text-foreground md:text-[2.5rem]">
-              PV, BESS, EMS and site loads coordinated through an integrated
-              control layer.
+              Coordinate solar, storage and site demand.
             </h2>
           </div>
+          <p className="text-base leading-8 text-muted-foreground">Solar generation, battery storage and energy management work together to balance available power with electricity use. Grid supply and backup generation can form part of the site design; independent operation requires suitable equipment, protection and controls.</p>
 
           <div className="rounded-lg border border-[#d2dee6] bg-white p-5 shadow-[0_22px_64px_rgba(11,18,32,0.075)] md:p-7">
             <div className="grid gap-4 lg:grid-cols-[1fr_auto_0.88fr] lg:items-center">
@@ -101,6 +102,7 @@ export function MicrogridSection() {
               </div>
             </div>
           </div>
+          <Link href="/solutions/solar-hybrid" scroll className="home-cta">Explore solar hybrid systems <ArrowRight className="size-4" aria-hidden="true" /></Link>
         </Reveal>
       </div>
     </section>

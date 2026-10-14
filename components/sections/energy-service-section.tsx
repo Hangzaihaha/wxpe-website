@@ -3,6 +3,7 @@ import { CheckCircle2 } from "lucide-react";
 
 import { commercialModels } from "@/lib/site-data";
 import { Reveal } from "@/components/reveal";
+import Link from "next/link";
 
 export function EnergyServiceSection() {
   return (
@@ -16,7 +17,7 @@ export function EnergyServiceSection() {
             */}
             <Image
               src="/assets/energy/bess-project-aerial-01.jpg"
-              alt=""
+              alt="Battery storage project reference"
               fill
               sizes="(min-width: 1024px) 52vw, 100vw"
               className="object-cover"
@@ -58,6 +59,8 @@ export function EnergyServiceSection() {
               </article>
             ))}
           </div>
+          <p className="text-sm leading-7 text-muted-foreground">The available commercial structure depends on project suitability and agreed terms. Discuss upfront investment, equipment responsibilities and operating requirements with our team.</p>
+          <Link href="/contact" scroll className="home-cta">Enquire about deployment options</Link>
         </Reveal>
       </div>
     </section>
