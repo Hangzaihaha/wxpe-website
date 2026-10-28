@@ -216,9 +216,9 @@ export function SiteHeader({ compactMobile = false }: { compactMobile?: boolean 
 
   useEffect(() => {
     const syncHash = () => {
-      if (window.location.pathname === "/solutions" && /^#top(?:#top)+$/.test(window.location.hash)) {
-        // Repair only malformed URL text, preserving history state and scroll.
-        window.history.replaceState(window.history.state, "", `${window.location.pathname}${window.location.search}#top`);
+      if (window.location.pathname === "/solutions" && /^#top(?:#top)*$/.test(window.location.hash)) {
+        // Remove legacy top fragments without changing history state or scroll.
+        window.history.replaceState(window.history.state, "", `${window.location.pathname}${window.location.search}`);
       }
       setCurrentHash(window.location.hash);
     };
@@ -669,6 +669,7 @@ export function SiteHeader({ compactMobile = false }: { compactMobile?: boolean 
                                   <Link
                                     href="/solutions"
                                     onClick={() => closeSolutionsMenu()}
+                                    onNavigate={scrollCurrentSolutionsToTop}
                                     className="inline-flex items-center gap-2 py-0.5 text-2xl font-semibold leading-[1.25] tracking-[-0.02em] text-[#0b1220] opacity-[0.88] transition-opacity duration-[160ms] hover:opacity-100 focus-visible:rounded-sm focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 xl:text-[1.625rem]"
                                   >
                                     View All Solutions

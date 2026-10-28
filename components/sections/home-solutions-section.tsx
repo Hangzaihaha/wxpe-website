@@ -11,7 +11,7 @@ const energyTransitionTiles = [
     mobileDescription: "Storage for cost control and resilient site operation.",
     image: "/assets/energy/bess-container-site-01.jpg",
     imageAlt: "Aerial view of a containerized battery energy storage facility",
-    href: "/solutions#top"
+    href: "/solutions"
   },
   {
     title: "Solar Hybrid Microgrids",
@@ -19,7 +19,7 @@ const energyTransitionTiles = [
     mobileDescription: "Solar, storage and controls for resilient sites.",
     image: "/assets/energy/solar-storage-reference-01.jpg",
     imageAlt: "Rooftop and carport solar arrays at an industrial complex",
-    href: "/solutions#top"
+    href: "/solutions"
   },
   {
     title: "Digital Energy Solutions",
@@ -28,7 +28,7 @@ const energyTransitionTiles = [
     mobileDescription: "EMS and optimization for coordinated site operation.",
     image: "/assets/energy/microgrid-reference-01.jpg",
     imageAlt: "Digital energy management for coordinated industrial site operation",
-    href: "/solutions#top"
+    href: "/solutions"
   }
 ] as const;
 
