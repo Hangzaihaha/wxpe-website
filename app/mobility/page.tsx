@@ -25,7 +25,7 @@ import {
   WhyEVMobiiSection
 } from "@/components/sections/mobility-strategy-sections";
 import { SiteHeader } from "@/components/site-header";
-import { Button } from "@/components/ui/button";
+import { DiscussionCta } from "@/components/sections/discussion-cta";
 import { WxpeLogo } from "@/components/wxpe-logo";
 import { navItems } from "@/lib/site-data";
 
@@ -317,45 +317,32 @@ export default function MobilityPage() {
         </div>
       </section>
 
-      <section className="bg-background py-24 md:py-32">
-        <div className="container">
-          <Reveal>
-            <div className="flex flex-col gap-8 border-t border-[#d2dee6] pt-12 md:flex-row md:items-center md:justify-between">
-              <h2 className="max-w-2xl text-3xl font-semibold leading-tight text-foreground md:text-[2.4rem]">
-                Interested in EVMobii mobility for your fleet or site?
-              </h2>
-              <Button asChild size="lg">
-                <Link href="/contact">
-                  Start a Mobility Discussion
-                  <ArrowRight data-icon="inline-end" aria-hidden="true" />
-                </Link>
-              </Button>
-            </div>
-          </Reveal>
-        </div>
+      <DiscussionCta
+        heading="Interested in EVMobii mobility for your fleet or site?"
+        linkLabel="Start a Mobility Discussion"
+      />
 
-        <footer className="relative left-1/2 mt-24 w-screen -translate-x-1/2 bg-[#07111f] px-5 py-10 text-white md:py-12">
-          <div className="container flex flex-col justify-between gap-8 md:flex-row md:items-start">
-            <div>
-              <WxpeLogo inverted />
-              <p className="mt-3 max-w-md text-sm leading-7 text-white/68">
-                Localized Energy Storage, Microgrid and Digital Energy Solutions.
-              </p>
-            </div>
-            <nav className="flex flex-wrap gap-x-6 gap-y-3" aria-label="Footer">
-              {navItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="text-sm text-white/68 transition-colors hover:text-white"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
+      <footer className="bg-[#07111f] px-5 py-10 text-white md:py-12">
+        <div className="container flex flex-col justify-between gap-8 md:flex-row md:items-start">
+          <div>
+            <WxpeLogo inverted />
+            <p className="mt-3 max-w-md text-sm leading-7 text-white/68">
+              Localized Energy Storage, Microgrid and Digital Energy Solutions.
+            </p>
           </div>
-        </footer>
-      </section>
+          <nav className="flex flex-wrap gap-x-6 gap-y-3" aria-label="Footer">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="text-sm text-white/68 transition-colors hover:text-white"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+      </footer>
     </main>
   );
 }

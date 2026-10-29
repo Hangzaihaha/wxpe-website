@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 
 import { CategoryNavigation } from "@/components/projects/category-navigation";
 import {
@@ -10,7 +9,7 @@ import {
 } from "@/components/projects/project-motion";
 import { Reveal } from "@/components/reveal";
 import { SiteHeader } from "@/components/site-header";
-import { Button } from "@/components/ui/button";
+import { DiscussionCta } from "@/components/sections/discussion-cta";
 import { WxpeLogo } from "@/components/wxpe-logo";
 import { navItems } from "@/lib/site-data";
 
@@ -267,28 +266,10 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      <section className="bg-[#071a2f] py-16 text-white md:py-20">
-        <div className="container flex flex-col justify-between gap-8 md:flex-row md:items-center">
-          <Reveal>
-            <h2 className="text-3xl font-semibold tracking-[-0.02em] md:text-[2.6rem]">
-              Discuss an energy application
-            </h2>
-          </Reveal>
-          <Reveal delay={0.06}>
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="border-white/55 bg-transparent text-white hover:bg-white hover:text-[#071a2f]"
-            >
-              <Link href="/contact">
-                Contact Us
-                <ArrowRight aria-hidden="true" />
-              </Link>
-            </Button>
-          </Reveal>
-        </div>
-      </section>
+      <DiscussionCta
+        heading="Discuss an energy application"
+        linkLabel="Contact Us"
+      />
 
       <footer className="bg-[#07111f] px-5 py-10 text-white md:py-12">
         <div className="container flex flex-col justify-between gap-8 md:flex-row md:items-start">
