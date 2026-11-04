@@ -7,8 +7,8 @@ import { Reveal } from "@/components/reveal";
 import { AboutManufacturingCapabilitySection } from "@/components/sections/about-manufacturing-capability-section";
 import { AboutManufacturingEvidenceSection } from "@/components/sections/about-manufacturing-evidence-section";
 import { SiteHeader } from "@/components/site-header";
-import { WxpeLogo } from "@/components/wxpe-logo";
-import { heritageTimeline, navItems } from "@/lib/site-data";
+import { SiteFooter } from "@/components/site-footer";
+import { heritageTimeline } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -163,7 +163,17 @@ export default function AboutPage() {
             </div>
             <p className="max-w-2xl text-sm leading-7 text-muted-foreground lg:justify-self-end md:text-base md:leading-8">
               This timeline reflects the wider WXP-WSA ecosystem that WXPE builds
-              on, from manufacturing origins to the digital-energy transition.
+              on, from manufacturing origins to the digital-energy transition.{" "}
+              Learn more about{" "}
+              <a
+                href="https://wxpgroup.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-foreground underline decoration-primary/35 underline-offset-4 transition-colors hover:text-primary focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+              >
+                WXP Group
+              </a>{" "}
+              and its industrial background.
             </p>
           </Reveal>
 
@@ -314,27 +324,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <footer className="bg-[#07111f] px-5 py-10 text-white md:py-12">
-        <div className="container flex flex-col justify-between gap-8 md:flex-row md:items-start">
-          <div>
-            <WxpeLogo inverted />
-            <p className="mt-3 max-w-md text-sm leading-7 text-white/68">
-              Localized Energy Storage, Microgrid and Digital Energy Solutions.
-            </p>
-          </div>
-          <nav className="flex flex-wrap gap-x-6 gap-y-3" aria-label="Footer">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-sm text-white/68 transition-colors hover:text-white"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-        </div>
-      </footer>
+      <SiteFooter />
     </main>
   );
 }

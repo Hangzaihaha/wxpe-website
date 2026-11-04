@@ -261,6 +261,26 @@ export default function ContactPage() {
                 </div>
               </div>
             </Reveal>
+            <div className="border-t border-[#b9c9d3] py-8 md:grid md:grid-cols-[180px_1fr] md:gap-8 md:py-9">
+              <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+                WXP Group
+              </h3>
+              <div className="mt-4 md:mt-0">
+                <p className="text-sm leading-7 text-muted-foreground md:text-base">
+                  WXPE is part of the wider WXP Group ecosystem, building on
+                  Malaysian manufacturing heritage, technology partnerships and
+                  industrial expertise.
+                </p>
+                <a
+                  href="https://wxpgroup.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${contactLinkClassName} mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary focus-visible:ring-offset-[#eef3f6]`}
+                >
+                  Explore WXP Group <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>

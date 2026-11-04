@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 
 import { CategoryNavigation } from "@/components/projects/category-navigation";
 import {
@@ -10,8 +9,7 @@ import {
 import { Reveal } from "@/components/reveal";
 import { SiteHeader } from "@/components/site-header";
 import { DiscussionCta } from "@/components/sections/discussion-cta";
-import { WxpeLogo } from "@/components/wxpe-logo";
-import { navItems } from "@/lib/site-data";
+import { SiteFooter } from "@/components/site-footer";
 
 export const metadata: Metadata = {
   title: "Proven Energy Applications | WXPE",
@@ -271,27 +269,7 @@ export default function ProjectsPage() {
         linkLabel="Contact Us"
       />
 
-      <footer className="bg-[#07111f] px-5 py-10 text-white md:py-12">
-        <div className="container flex flex-col justify-between gap-8 md:flex-row md:items-start">
-          <div>
-            <WxpeLogo inverted />
-            <p className="mt-3 max-w-md text-sm leading-7 text-white/68">
-              Localized Energy Storage, Microgrid and Digital Energy Solutions.
-            </p>
-          </div>
-          <nav className="flex flex-wrap gap-x-6 gap-y-3" aria-label="Footer">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-sm text-white/68 transition-colors hover:text-white"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-        </div>
-      </footer>
+      <SiteFooter />
     </main>
   );
 }
